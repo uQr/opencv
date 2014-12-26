@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="Windows-1252"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{3D9C16ED-B111-4F9A-A38D-C55DAF7F499B}</ProjectGUID>
+    <ApplicationType>Windows Phone</ApplicationType>
+    <ApplicationTypeRevision>8.1</ApplicationTypeRevision>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <AppContainerApplication>true</AppContainerApplication>    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>opencv_videostab</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120_wp81</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120_wp81</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+    <PropertyGroup>
+      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\projects\OpenCV\MSOpencv-module-imgcodecs\binWP8_1\bin\Debug\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">opencv_videostab.dir\Debug\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">opencv_videostab300d</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.dll</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\projects\OpenCV\MSOpencv-module-imgcodecs\binWP8_1\bin\Release\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">opencv_videostab.dir\Release\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">opencv_videostab300</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.dll</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions> /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>D:\projects\OpenCV\MSOpencv-module-imgcodecs\binWP8_1;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\videostab\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\videostab\src;D:\projects\OpenCV\MSOpencv-module-imgcodecs\binWP8_1\modules\videostab;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\core\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\flann\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\imgproc\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\ml\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\features2d\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\calib3d\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\photo\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\video\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4251</DisableSpecificWarnings>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <ForcedIncludeFiles>D:/projects/OpenCV/MSOpencv-module-imgcodecs/modules/videostab/src/precomp.hpp</ForcedIncludeFiles>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>D:/projects/OpenCV/MSOpencv-module-imgcodecs/modules/videostab/src/precomp.hpp</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;UNICODE;_UNICODE;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;_DEBUG;OPENCV_NOSTL;WINVER=_WIN32_WINNT_WIN8;NTDDI_VERSION=NTDDI_WIN8;_WIN32_WINNT=_WIN32_WINNT_WIN8;_VARIADIC_MAX=10;__OPENCV_BUILD=1;CMAKE_INTDIR="Debug";CVAPI_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;UNICODE;_UNICODE;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;_DEBUG;OPENCV_NOSTL;WINVER=_WIN32_WINNT_WIN8;NTDDI_VERSION=NTDDI_WIN8;_WIN32_WINNT=_WIN32_WINNT_WIN8;_VARIADIC_MAX=10;__OPENCV_BUILD=1;CMAKE_INTDIR=\"Debug\";CVAPI_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\projects\OpenCV\MSOpencv-module-imgcodecs\binWP8_1;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\videostab\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\videostab\src;D:\projects\OpenCV\MSOpencv-module-imgcodecs\binWP8_1\modules\videostab;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\core\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\flann\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\imgproc\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\ml\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\features2d\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\calib3d\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\photo\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\video\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\projects\OpenCV\MSOpencv-module-imgcodecs\binWP8_1;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\videostab\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\videostab\src;D:\projects\OpenCV\MSOpencv-module-imgcodecs\binWP8_1\modules\videostab;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\core\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\flann\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\imgproc\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\ml\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\features2d\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\calib3d\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\photo\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\video\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 /debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>WindowsPhoneCore.lib;RuntimeObject.lib;PhoneAppModelHost.lib;..\..\lib\Debug\opencv_core300d.lib;..\..\lib\Debug\opencv_flann300d.lib;..\..\lib\Debug\opencv_imgproc300d.lib;..\..\lib\Debug\opencv_ml300d.lib;..\..\lib\Debug\opencv_features2d300d.lib;..\..\lib\Debug\opencv_calib3d300d.lib;..\..\lib\Debug\opencv_photo300d.lib;..\..\lib\Debug\opencv_video300d.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <IgnoreSpecificDefaultLibraries>libc;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/projects/OpenCV/MSOpencv-module-imgcodecs/binWP8_1/lib/Debug/opencv_videostab300d.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/projects/OpenCV/MSOpencv-module-imgcodecs/binWP8_1/bin/Debug/opencv_videostab300d.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions> /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>D:\projects\OpenCV\MSOpencv-module-imgcodecs\binWP8_1;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\videostab\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\videostab\src;D:\projects\OpenCV\MSOpencv-module-imgcodecs\binWP8_1\modules\videostab;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\core\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\flann\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\imgproc\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\ml\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\features2d\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\calib3d\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\photo\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\video\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4251</DisableSpecificWarnings>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <ForcedIncludeFiles>D:/projects/OpenCV/MSOpencv-module-imgcodecs/modules/videostab/src/precomp.hpp</ForcedIncludeFiles>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>D:/projects/OpenCV/MSOpencv-module-imgcodecs/modules/videostab/src/precomp.hpp</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;UNICODE;_UNICODE;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;NDEBUG;OPENCV_NOSTL;WINVER=_WIN32_WINNT_WIN8;NTDDI_VERSION=NTDDI_WIN8;_WIN32_WINNT=_WIN32_WINNT_WIN8;_VARIADIC_MAX=10;__OPENCV_BUILD=1;CMAKE_INTDIR="Release";CVAPI_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;UNICODE;_UNICODE;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;NDEBUG;OPENCV_NOSTL;WINVER=_WIN32_WINNT_WIN8;NTDDI_VERSION=NTDDI_WIN8;_WIN32_WINNT=_WIN32_WINNT_WIN8;_VARIADIC_MAX=10;__OPENCV_BUILD=1;CMAKE_INTDIR=\"Release\";CVAPI_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\projects\OpenCV\MSOpencv-module-imgcodecs\binWP8_1;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\videostab\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\videostab\src;D:\projects\OpenCV\MSOpencv-module-imgcodecs\binWP8_1\modules\videostab;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\core\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\flann\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\imgproc\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\ml\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\features2d\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\calib3d\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\photo\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\video\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\projects\OpenCV\MSOpencv-module-imgcodecs\binWP8_1;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\videostab\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\videostab\src;D:\projects\OpenCV\MSOpencv-module-imgcodecs\binWP8_1\modules\videostab;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\core\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\flann\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\imgproc\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\ml\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\features2d\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\calib3d\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\photo\include;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\video\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>WindowsPhoneCore.lib;RuntimeObject.lib;PhoneAppModelHost.lib;..\..\lib\Release\opencv_core300.lib;..\..\lib\Release\opencv_flann300.lib;..\..\lib\Release\opencv_imgproc300.lib;..\..\lib\Release\opencv_ml300.lib;..\..\lib\Release\opencv_features2d300.lib;..\..\lib\Release\opencv_calib3d300.lib;..\..\lib\Release\opencv_photo300.lib;..\..\lib\Release\opencv_video300.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <IgnoreSpecificDefaultLibraries>libc;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/projects/OpenCV/MSOpencv-module-imgcodecs/binWP8_1/lib/Release/opencv_videostab300.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/projects/OpenCV/MSOpencv-module-imgcodecs/binWP8_1/bin/Release/opencv_videostab300.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\..\modules\videostab\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule D:/projects/OpenCV/MSOpencv-module-imgcodecs/modules/videostab/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+D:\dev\cmake-3.1.0\bin\cmake.exe -H../../.. -B../.. --check-stamp-file D:\projects\OpenCV\MSOpencv-module-imgcodecs\binWP8_1\modules\videostab\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:/projects/OpenCV/MSOpencv-module-imgcodecs/modules/videostab/CMakeLists.txt;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\videostab\CMakeLists.txt;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\videostab\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\projects\OpenCV\MSOpencv-module-imgcodecs\binWP8_1\modules\videostab\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule D:/projects/OpenCV/MSOpencv-module-imgcodecs/modules/videostab/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+D:\dev\cmake-3.1.0\bin\cmake.exe -H../../.. -B../.. --check-stamp-file D:\projects\OpenCV\MSOpencv-module-imgcodecs\binWP8_1\modules\videostab\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:/projects/OpenCV/MSOpencv-module-imgcodecs/modules/videostab/CMakeLists.txt;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\videostab\CMakeLists.txt;D:\projects\OpenCV\MSOpencv-module-imgcodecs\modules\videostab\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\projects\OpenCV\MSOpencv-module-imgcodecs\binWP8_1\modules\videostab\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\deblurring.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\fast_marching.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\fast_marching_inl.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\frame_source.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\global_motion.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\inpainting.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\log.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\motion_core.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\motion_stabilizing.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\optical_flow.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\outlier_rejection.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\ring_buffer.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\stabilizer.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\include\opencv2\videostab\wobble_suppression.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\src\clp.hpp" />
+    <ClInclude Include="..\..\..\modules\videostab\src\precomp.hpp" />
+    <ClInclude Include="..\..\cvconfig.h" />
+    <ClInclude Include="..\..\opencv2\opencv_modules.hpp" />
+    <ClCompile Include="..\..\..\modules\videostab\src\deblurring.cpp"  />
+    <ClCompile Include="..\..\..\modules\videostab\src\fast_marching.cpp"  />
+    <ClCompile Include="..\..\..\modules\videostab\src\frame_source.cpp"  />
+    <ClCompile Include="..\..\..\modules\videostab\src\global_motion.cpp"  />
+    <ClCompile Include="..\..\..\modules\videostab\src\inpainting.cpp"  />
+    <ClCompile Include="..\..\..\modules\videostab\src\log.cpp"  />
+    <ClCompile Include="..\..\..\modules\videostab\src\motion_stabilizing.cpp"  />
+    <ClCompile Include="..\..\..\modules\videostab\src\optical_flow.cpp"  />
+    <ClCompile Include="..\..\..\modules\videostab\src\outlier_rejection.cpp"  />
+    <ClCompile Include="..\..\..\modules\videostab\src\stabilizer.cpp"  />
+    <ClCompile Include="..\..\..\modules\videostab\src\wobble_suppression.cpp"  />
+    <ClCompile Include="opencv_videostab_pch.cpp" >
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:/projects/OpenCV/MSOpencv-module-imgcodecs/modules/videostab/src/precomp.hpp</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:/projects/OpenCV/MSOpencv-module-imgcodecs/modules/videostab/src/precomp.hpp</PrecompiledHeaderFile>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:/projects/OpenCV/MSOpencv-module-imgcodecs/binWP8_1/ZERO_CHECK.vcxproj">
+      <Project>95050A98-C4A0-49A7-B2BF-CC2FAFD62862</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/projects/OpenCV/MSOpencv-module-imgcodecs/binWP8_1/modules/calib3d/opencv_calib3d.vcxproj">
+      <Project>870344EB-C309-4E74-BDF2-F543B6B3DA3D</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/projects/OpenCV/MSOpencv-module-imgcodecs/binWP8_1/modules/core/opencv_core.vcxproj">
+      <Project>B6E001E9-7458-46C9-A0AA-0B44E0E65F36</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/projects/OpenCV/MSOpencv-module-imgcodecs/binWP8_1/modules/features2d/opencv_features2d.vcxproj">
+      <Project>3FB4BDCA-44BF-4ECC-B684-37A1CE9C6B3B</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/projects/OpenCV/MSOpencv-module-imgcodecs/binWP8_1/modules/flann/opencv_flann.vcxproj">
+      <Project>6773C553-DAC9-4BC6-9585-887446BD6753</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/projects/OpenCV/MSOpencv-module-imgcodecs/binWP8_1/modules/imgproc/opencv_imgproc.vcxproj">
+      <Project>4204B6BC-11DB-4679-A7F8-4CB04BE31157</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/projects/OpenCV/MSOpencv-module-imgcodecs/binWP8_1/modules/ml/opencv_ml.vcxproj">
+      <Project>FA1A882D-950F-49E5-A5F8-1A6FD0793737</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/projects/OpenCV/MSOpencv-module-imgcodecs/binWP8_1/modules/photo/opencv_photo.vcxproj">
+      <Project>C2F14A03-56CA-4A4D-B923-C6E94A4A3EB4</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/projects/OpenCV/MSOpencv-module-imgcodecs/binWP8_1/modules/video/opencv_video.vcxproj">
+      <Project>D20C1B66-3E61-45A1-92DD-A331F796848E</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
