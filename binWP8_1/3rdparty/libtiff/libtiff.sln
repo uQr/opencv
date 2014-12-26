@@ -1,0 +1,75 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ALL_BUILD", "ALL_BUILD.vcxproj", "{C77B0D7A-8C23-48E7-B5E1-4B3D4E671EBB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ACBD51D3-2769-4BA6-8AF2-4BE516888849} = {ACBD51D3-2769-4BA6-8AF2-4BE516888849}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "INSTALL", "INSTALL.vcxproj", "{E3E39A20-8760-4253-B126-649FCEFF4EB7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C77B0D7A-8C23-48E7-B5E1-4B3D4E671EBB} = {C77B0D7A-8C23-48E7-B5E1-4B3D4E671EBB}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PACKAGE", "PACKAGE.vcxproj", "{40A85048-C9A5-4355-A275-AF55EBB7A2E0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C77B0D7A-8C23-48E7-B5E1-4B3D4E671EBB} = {C77B0D7A-8C23-48E7-B5E1-4B3D4E671EBB}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZERO_CHECK", "..\..\ZERO_CHECK.vcxproj", "{95050A98-C4A0-49A7-B2BF-CC2FAFD62862}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libtiff", "libtiff.vcxproj", "{ACBD51D3-2769-4BA6-8AF2-4BE516888849}"
+	ProjectSection(ProjectDependencies) = postProject
+		{95050A98-C4A0-49A7-B2BF-CC2FAFD62862} = {95050A98-C4A0-49A7-B2BF-CC2FAFD62862}
+		{A9C29168-B8E7-453F-9F8E-B2A4E4F2CD6E} = {A9C29168-B8E7-453F-9F8E-B2A4E4F2CD6E}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlib", "..\zlib\zlib.vcxproj", "{A9C29168-B8E7-453F-9F8E-B2A4E4F2CD6E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{95050A98-C4A0-49A7-B2BF-CC2FAFD62862} = {95050A98-C4A0-49A7-B2BF-CC2FAFD62862}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3rdparty", "3rdparty", "{E7CB95FF-6E01-4613-962E-30DDC9894592}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CMakeTargets", "CMakeTargets", "{E60E3830-38D8-443D-9CF2-737799220C5E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C77B0D7A-8C23-48E7-B5E1-4B3D4E671EBB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C77B0D7A-8C23-48E7-B5E1-4B3D4E671EBB}.Debug|Win32.Build.0 = Debug|Win32
+		{C77B0D7A-8C23-48E7-B5E1-4B3D4E671EBB}.Release|Win32.ActiveCfg = Release|Win32
+		{C77B0D7A-8C23-48E7-B5E1-4B3D4E671EBB}.Release|Win32.Build.0 = Release|Win32
+		{E3E39A20-8760-4253-B126-649FCEFF4EB7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E3E39A20-8760-4253-B126-649FCEFF4EB7}.Release|Win32.ActiveCfg = Release|Win32
+		{40A85048-C9A5-4355-A275-AF55EBB7A2E0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{40A85048-C9A5-4355-A275-AF55EBB7A2E0}.Release|Win32.ActiveCfg = Release|Win32
+		{95050A98-C4A0-49A7-B2BF-CC2FAFD62862}.Debug|Win32.ActiveCfg = Debug|Win32
+		{95050A98-C4A0-49A7-B2BF-CC2FAFD62862}.Debug|Win32.Build.0 = Debug|Win32
+		{95050A98-C4A0-49A7-B2BF-CC2FAFD62862}.Release|Win32.ActiveCfg = Release|Win32
+		{95050A98-C4A0-49A7-B2BF-CC2FAFD62862}.Release|Win32.Build.0 = Release|Win32
+		{ACBD51D3-2769-4BA6-8AF2-4BE516888849}.Debug|Win32.ActiveCfg = Debug|Win32
+		{ACBD51D3-2769-4BA6-8AF2-4BE516888849}.Debug|Win32.Build.0 = Debug|Win32
+		{ACBD51D3-2769-4BA6-8AF2-4BE516888849}.Release|Win32.ActiveCfg = Release|Win32
+		{ACBD51D3-2769-4BA6-8AF2-4BE516888849}.Release|Win32.Build.0 = Release|Win32
+		{A9C29168-B8E7-453F-9F8E-B2A4E4F2CD6E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A9C29168-B8E7-453F-9F8E-B2A4E4F2CD6E}.Debug|Win32.Build.0 = Debug|Win32
+		{A9C29168-B8E7-453F-9F8E-B2A4E4F2CD6E}.Release|Win32.ActiveCfg = Release|Win32
+		{A9C29168-B8E7-453F-9F8E-B2A4E4F2CD6E}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{ACBD51D3-2769-4BA6-8AF2-4BE516888849} = {E7CB95FF-6E01-4613-962E-30DDC9894592}
+		{A9C29168-B8E7-453F-9F8E-B2A4E4F2CD6E} = {E7CB95FF-6E01-4613-962E-30DDC9894592}
+		{E3E39A20-8760-4253-B126-649FCEFF4EB7} = {E60E3830-38D8-443D-9CF2-737799220C5E}
+		{40A85048-C9A5-4355-A275-AF55EBB7A2E0} = {E60E3830-38D8-443D-9CF2-737799220C5E}
+		{95050A98-C4A0-49A7-B2BF-CC2FAFD62862} = {E60E3830-38D8-443D-9CF2-737799220C5E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
