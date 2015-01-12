@@ -2,6 +2,10 @@
 
 [![Gittip](http://img.shields.io/gittip/OpenCV.png)](https://www.gittip.com/OpenCV/)
 
+#### Build notes
+
+To build with MSVC you'll need to add ```$(WindowsSDK_LibraryPath_x86/x64/arm)``` to generated *videoio* module progect *Library Directories* field to link successfully (specifically to locate *wfv32.lib*).
+
 #### Resources
 
 * Homepage: <http://opencv.org>
