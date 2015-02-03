@@ -337,7 +337,11 @@ void CV_CameraCalibrationTest::run( int start_from )
     int progress = 0;
     int values_read = -1;
 
+#ifndef HAVE_WINRT
     filepath = cv::format("%scv/cameracalibration/", ts->get_data_path().c_str() );
+#else
+    filepath = cv::format("%s/", ts->get_data_path().c_str());
+#endif
     filename = cv::format("%sdatafiles.txt", filepath.c_str() );
     datafile = fopen( filename.c_str(), "r" );
     if( datafile == 0 )
@@ -1384,8 +1388,12 @@ void CV_StereoCalibrationTest::run( int )
     {
         cv::String filepath;
         char buf[1000];
+#ifndef HAVE_WINRT
         filepath = cv::format("%scv/stereo/case%d/stereo_calib.txt", ts->get_data_path().c_str(), testcase );
-        f = fopen(filepath.c_str(), "rt");
+#else
+        filepath = "/"; //cv::format("%s/stereo_calib.txt", ts->get_data_path().c_str(), testcase);
+#endif
+        f = fopen("stereo_calib.txt", "rt");
         Size patternSize;
         vector<string> imglist;
 

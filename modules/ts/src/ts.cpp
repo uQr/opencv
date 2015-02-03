@@ -450,7 +450,12 @@ static int tsErrorCallback( int status, const char* func_name, const char* err_m
 
 void TS::init( const string& modulename )
 {
+//TODO: replace temporary solution
+#ifndef HAVE_WINRT
     char* datapath_dir = getenv("OPENCV_TEST_DATA_PATH");
+#else
+    char* datapath_dir = NULL;
+#endif
 
     if( datapath_dir )
     {
@@ -684,7 +689,12 @@ void parseCustomOptions(int argc, char **argv)
 
     test_ipp_check = parser.get<bool>("test_ipp_check");
     if (!test_ipp_check)
+//TODO: replace temporary solution
+#ifndef HAVE_WINRT
         test_ipp_check = getenv("OPENCV_IPP_CHECK") != NULL;
+#else
+        test_ipp_check = NULL;
+#endif
 }
 
 /* End of file. */
