@@ -4054,7 +4054,7 @@ enum GTestColor {
   COLOR_YELLOW
 };
 
-#if GTEST_OS_WINDOWS && !GTEST_OS_WINDOWS_MOBILE
+#if GTEST_OS_WINDOWS && !GTEST_OS_WINDOWS_MOBILE && !defined HAVE_WINRT
 
 // Returns the character attribute for the given color.
 WORD GetColorAttribute(GTestColor color) {
@@ -4079,7 +4079,7 @@ static const char* GetAnsiColorCode(GTestColor color) {
   };
 }
 
-#endif  // GTEST_OS_WINDOWS && !GTEST_OS_WINDOWS_MOBILE
+#endif  // GTEST_OS_WINDOWS && !GTEST_OS_WINDOWS_MOBILE && !defined HAVE_WINRT
 
 // Returns true iff Google Test should use colors in the output.
 bool ShouldUseColor(bool stdout_is_tty) {
@@ -4137,7 +4137,7 @@ static void ColoredPrintf(GTestColor color, const char* fmt, ...) {
     return;
   }
 
-#if GTEST_OS_WINDOWS && !GTEST_OS_WINDOWS_MOBILE
+#if GTEST_OS_WINDOWS && !GTEST_OS_WINDOWS_MOBILE && !defined HAVE_WINRT
   const HANDLE stdout_handle = GetStdHandle(STD_OUTPUT_HANDLE);
 
   // Gets the current text color.
@@ -4157,10 +4157,12 @@ static void ColoredPrintf(GTestColor color, const char* fmt, ...) {
   // Restores the text color.
   SetConsoleTextAttribute(stdout_handle, old_color_attrs);
 #else
+  FILE* testFile = fopen("datafiles.txt", "r");
   printf("\033[0;3%sm", GetAnsiColorCode(color));
   vprintf(fmt, args);
+  //fprintf(testFile, args);
   printf("\033[m");  // Resets the terminal to default.
-#endif  // GTEST_OS_WINDOWS && !GTEST_OS_WINDOWS_MOBILE
+#endif  // GTEST_OS_WINDOWS && !GTEST_OS_WINDOWS_MOBILE && !defined HAVE_WINRT
   va_end(args);
 }
 
@@ -4215,6 +4217,13 @@ class PrettyUnitTestResultPrinter : public TestEventListener {
   static void PrintFailedTests(const UnitTest& unit_test);
 };
 
+wchar_t* ctow(const char* c, size_t max)
+{
+    wchar_t* w = new wchar_t[max];
+    mbstowcs(w, c, max);
+    return w;
+}
+
   // Fired before each iteration of tests starts.
 void PrettyUnitTestResultPrinter::OnTestIterationStart(
     const UnitTest& unit_test, int iteration) {
@@ -4256,6 +4265,11 @@ void PrettyUnitTestResultPrinter::OnTestIterationStart(
   printf("Running %s from %s.\n",
          FormatTestCount(unit_test.test_to_run_count()).c_str(),
          FormatTestCaseCount(unit_test.test_case_to_run_count()).c_str());
+  OutputDebugString(L"Running ");
+  OutputDebugString(ctow(FormatTestCount(unit_test.test_to_run_count()).c_str(), FormatTestCount(unit_test.test_to_run_count()).length() + 1));
+  OutputDebugString(L" from ");
+  OutputDebugString(ctow(FormatTestCaseCount(unit_test.test_case_to_run_count()).c_str(), FormatTestCaseCount(unit_test.test_case_to_run_count()).length() + 1));
+  OutputDebugString(L"\n");
   fflush(stdout);
 }
 
@@ -4263,6 +4277,8 @@ void PrettyUnitTestResultPrinter::OnEnvironmentsSetUpStart(
     const UnitTest& /*unit_test*/) {
   ColoredPrintf(COLOR_GREEN,  "[----------] ");
   printf("Global test environment set-up.\n");
+  OutputDebugString(L"[----------] ");
+  OutputDebugString(L"Global test environment set-up.\n");
   fflush(stdout);
 }
 
@@ -4270,18 +4286,35 @@ void PrettyUnitTestResultPrinter::OnTestCaseStart(const TestCase& test_case) {
   const std::string counts =
       FormatCountableNoun(test_case.test_to_run_count(), "test", "tests");
   ColoredPrintf(COLOR_GREEN, "[----------] ");
+  OutputDebugString(L"[----------] ");
   printf("%s from %s", counts.c_str(), test_case.name());
+  OutputDebugString(ctow(counts.c_str(), counts.length() + 1));
+  OutputDebugString(L" from ");
+  OutputDebugString(ctow(test_case.name(), test_case.sizet_length()));
   if (test_case.type_param() == NULL) {
     printf("\n");
+    OutputDebugString(L"\n");
   } else {
     printf(", where %s = %s\n", kTypeParamLabel, test_case.type_param());
+    OutputDebugString(L", where ");
+    // TODO: check and fix
+    OutputDebugString(ctow(kTypeParamLabel, 10));
+    OutputDebugString(L" = ");
+    // TODO: check and fix
+    //OutputDebugString(ctow(test_case.type_param, test_case.type_param_length()));
+    OutputDebugString(L"\n");
   }
   fflush(stdout);
 }
 
 void PrettyUnitTestResultPrinter::OnTestStart(const TestInfo& test_info) {
   ColoredPrintf(COLOR_GREEN,  "[ RUN      ] ");
+  OutputDebugString(L"[ RUN      ] ");
   PrintTestName(test_info.test_case_name(), test_info.name());
+  OutputDebugString(ctow(test_info.test_case_name(), test_info.test_case_name_length()));
+  OutputDebugString(L" ");
+  OutputDebugString(ctow(test_info.name(), test_info.test_info_length()));
+  OutputDebugString(L"\n");
   printf("\n");
   fflush(stdout);
 }
@@ -4301,10 +4334,16 @@ void PrettyUnitTestResultPrinter::OnTestPartResult(
 void PrettyUnitTestResultPrinter::OnTestEnd(const TestInfo& test_info) {
   if (test_info.result()->Passed()) {
     ColoredPrintf(COLOR_GREEN, "[       OK ] ");
+    OutputDebugString(L"[       OK ] ");
   } else {
     ColoredPrintf(COLOR_RED, "[  FAILED  ] ");
+    OutputDebugString(L"[  FAILED  ] ");
   }
   PrintTestName(test_info.test_case_name(), test_info.name());
+  OutputDebugString(ctow(test_info.test_case_name(), test_info.test_case_name_length()));
+  OutputDebugString(L" ");
+  OutputDebugString(ctow(test_info.name(), test_info.test_info_length()));
+  OutputDebugString(L"\n");
   if (test_info.result()->Failed())
     PrintFullTestCommentIfPresent(test_info);
 
@@ -4314,6 +4353,7 @@ void PrettyUnitTestResultPrinter::OnTestEnd(const TestInfo& test_info) {
   } else {
     printf("\n");
   }
+  OutputDebugString(L"\n");
   fflush(stdout);
 }
 
@@ -5320,7 +5360,7 @@ void UnitTest::AddTestPartResult(
     // with another testing framework) and specify the former on the
     // command line for debugging.
     if (GTEST_FLAG(break_on_failure)) {
-#if GTEST_OS_WINDOWS
+#if GTEST_OS_WINDOWS && !defined HAVE_WINRT
       // Using DebugBreak on Windows allows gtest to still break into a debugger
       // when a failure happens and both the --gtest_break_on_failure and
       // the --gtest_catch_exceptions flags are specified.
@@ -5398,7 +5438,7 @@ int UnitTest::Run() {
   // process. In either case the user does not want to see pop-up dialogs
   // about crashes - they are expected.
   if (impl()->catch_exceptions() || in_death_test_child_process) {
-# if !GTEST_OS_WINDOWS_MOBILE
+# if !GTEST_OS_WINDOWS_MOBILE && !defined HAVE_WINRT
     // SetErrorMode doesn't exist on CE.
     SetErrorMode(SEM_FAILCRITICALERRORS | SEM_NOALIGNMENTFAULTEXCEPT |
                  SEM_NOGPFAULTERRORBOX | SEM_NOOPENFILEERRORBOX);
@@ -7110,6 +7150,7 @@ bool DeathTestImpl::Passed(bool status_ok) {
 }
 
 # if GTEST_OS_WINDOWS
+#ifndef HAVE_WINRT
 // WindowsDeathTest implements death tests on Windows. Due to the
 // specifics of starting new processes on Windows, death tests there are
 // always threadsafe, and Google Test considers the
@@ -7301,6 +7342,7 @@ DeathTest::TestRole WindowsDeathTest::AssumeRole() {
   set_spawned(true);
   return OVERSEE_TEST;
 }
+#endif
 # else  // We are not on Windows.
 
 // ForkingDeathTest provides implementations for most of the abstract
@@ -7711,12 +7753,12 @@ bool DefaultDeathTestFactory::Create(const char* statement, const RE* regex,
   }
 
 # if GTEST_OS_WINDOWS
-
+#ifndef HAVE_WINRT
   if (GTEST_FLAG(death_test_style) == "threadsafe" ||
       GTEST_FLAG(death_test_style) == "fast") {
     *test = new WindowsDeathTest(statement, regex, file, line);
   }
-
+#endif
 # else
 
   if (GTEST_FLAG(death_test_style) == "threadsafe") {
@@ -7758,6 +7800,7 @@ static void SplitString(const ::std::string& str, char delimiter,
 }
 
 # if GTEST_OS_WINDOWS
+#ifndef HAVE_WINRT
 // Recreates the pipe and event handles from the provided parameters,
 // signals the event, and returns a file descriptor wrapped around the pipe
 // handle. This function is called in the child process only.
@@ -7823,6 +7866,7 @@ int GetStatusFileDescriptor(unsigned int parent_process_id,
 
   return write_fd;
 }
+#endif
 # endif  // GTEST_OS_WINDOWS
 
 // Returns a newly created InternalRunDeathTestFlag object with fields
@@ -7840,6 +7884,7 @@ InternalRunDeathTestFlag* ParseInternalRunDeathTestFlag() {
   int write_fd = -1;
 
 # if GTEST_OS_WINDOWS
+#ifndef HAVE_WINRT
 
   unsigned int parent_process_id = 0;
   size_t write_handle_as_size_t = 0;
@@ -7857,6 +7902,7 @@ InternalRunDeathTestFlag* ParseInternalRunDeathTestFlag() {
   write_fd = GetStatusFileDescriptor(parent_process_id,
                                      write_handle_as_size_t,
                                      event_handle_as_size_t);
+#endif
 # else
 
   if (fields.size() != 4
@@ -7979,8 +8025,13 @@ FilePath FilePath::GetCurrentDir() {
   // something reasonable.
   return FilePath(kCurrentDirectoryString);
 #elif GTEST_OS_WINDOWS
+#ifndef HAVE_WINRT
   char cwd[GTEST_PATH_MAX_ + 1] = { '\0' };
   return FilePath(_getcwd(cwd, sizeof(cwd)) == NULL ? "" : cwd);
+#else
+    //TODO: remove hack, most tests crash here
+    return FilePath(kCurrentDirectoryString);
+#endif
 #else
   char cwd[GTEST_PATH_MAX_ + 1] = { '\0' };
   return FilePath(getcwd(cwd, sizeof(cwd)) == NULL ? "" : cwd);
@@ -8765,6 +8816,7 @@ class CapturedStream {
  public:
   // The ctor redirects the stream to a temporary file.
   explicit CapturedStream(int fd) : fd_(fd), uncaptured_fd_(dup(fd)) {
+#ifndef HAVE_WINRT
 # if GTEST_OS_WINDOWS
     char temp_dir_path[MAX_PATH + 1] = { '\0' };  // NOLINT
     char temp_file_path[MAX_PATH + 1] = { '\0' };  // NOLINT
@@ -8810,6 +8862,7 @@ class CapturedStream {
     fflush(NULL);
     dup2(captured_fd, fd_);
     close(captured_fd);
+#endif
   }
 
   ~CapturedStream() {
