@@ -507,6 +507,8 @@ TEST_F(fisheyeTest, stereoCalibrate)
 
 }
 
+#endif
+
 TEST_F(fisheyeTest, stereoCalibrateFixIntrinsic)
 {
     const int n_images = 34;

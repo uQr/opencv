@@ -2924,7 +2924,7 @@ inline const char* StrNCpy(char* dest, const char* src, size_t n) {
 // StrError() aren't needed on Windows CE at this time and thus not
 // defined there.
 
-#if !GTEST_OS_WINDOWS_MOBILE
+#if !GTEST_OS_WINDOWS_MOBILE && !defined HAVE_WINRT
 inline int ChDir(const char* dir) { return chdir(dir); }
 #endif
 inline FILE* FOpen(const char* path, const char* mode) {
@@ -2948,6 +2948,7 @@ inline int Close(int fd) { return close(fd); }
 inline const char* StrError(int errnum) { return strerror(errnum); }
 #endif
 inline const char* GetEnv(const char* name) {
+#if !NO_GETENV
 #if GTEST_OS_WINDOWS_MOBILE
   // We are on Windows CE, which has no environment variables.
   return NULL;
@@ -2958,6 +2959,9 @@ inline const char* GetEnv(const char* name) {
   return (env != NULL && env[0] != '\0') ? env : NULL;
 #else
   return getenv(name);
+#endif
+#else
+    return NULL;
 #endif
 }
 
@@ -18103,9 +18107,11 @@ class GTEST_API_ TestInfo {
 
   // Returns the test case name.
   const char* test_case_name() const { return test_case_name_.c_str(); }
+  size_t test_case_name_length() const { return test_case_name_.length() + 1; }
 
   // Returns the test name.
   const char* name() const { return name_.c_str(); }
+  size_t test_info_length() const { return (name_.length() + 1); }
 
   // Returns the name of the parameter type, or NULL if this is not a typed
   // or a type-parameterized test.
@@ -18243,6 +18249,7 @@ class GTEST_API_ TestCase {
 
   // Gets the name of the TestCase.
   const char* name() const { return name_.c_str(); }
+  size_t sizet_length() const { return name_.length() + 1; }
 
   // Returns the name of the parameter type, or NULL if this is not a
   // type-parameterized test case.
@@ -18250,6 +18257,10 @@ class GTEST_API_ TestCase {
     if (type_param_.get() != NULL)
       return type_param_->c_str();
     return NULL;
+  }
+
+  int type_param_length() const {
+      return type_param_->length() + 1;
   }
 
   // Returns true if any test in this test case should run.
