@@ -4,7 +4,10 @@
 
 #### Build notes
 
-To build with MSVC you'll need to add ```$(WindowsSDK_LibraryPath_x86/x64/arm)``` to generated *videoio* module project *Library Directories* field to link successfully (specifically to locate *wfv32.lib*).
+1. Go to ```platforms/winrt``` and execute ```>> setup_winrt.bat "WS" "8.1" "x86"```. 
+This will generate all of the files needed to build open_cv projects for selected platform in ```opencv\bin\...```. Open the ```opencv\bin\WS\8.1\x86``` directory and open the ```OpenCV.sln```. Build all of the projects. They should build without errors and *resources.pri* files should be generated in the root directory of every project (```\CMake Build Path\modules\Module Name\```).
+2. In VS add ```resources.pri``` file to corresponding test project using "Add Existing Item" on the ```opencv_test_core``` project and change ```Content``` property to ```True```.
+3. To run the tests right-click on the ```opencv_test_core``` project and choose ```Debug -> Start New Instance```.
 
 #### Resources
 
