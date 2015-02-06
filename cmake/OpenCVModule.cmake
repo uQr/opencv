@@ -974,6 +974,8 @@ function(ocv_add_accuracy_tests)
         file(GLOB_RECURSE test_hdrs "${test_path}/*.hpp" "${test_path}/*.h")
         ocv_source_group("Src" DIRBASE "${test_path}" FILES ${test_srcs})
         ocv_source_group("Include" DIRBASE "${test_path}" FILES ${test_hdrs})
+        status(${CMAKE_SOURCE_DIR})
+        ocv_source_group("Resource Files" DIRBASE ${CMAKE_SOURCE_DIR} FILES "${CMAKE_SOURCE_DIR}/resources.pri")
         set(OPENCV_TEST_${the_module}_SOURCES ${test_srcs} ${test_hdrs})
       endif()
 
@@ -1000,6 +1002,17 @@ function(ocv_add_accuracy_tests)
       get_target_property(LOC ${the_target} LOCATION)
       add_test(${the_target} "${LOC}")
 
+      if(WINRT)
+        add_custom_command(TARGET "opencv_test_${name}"
+                           PRE_BUILD
+                           COMMAND if not exist res mkdir res
+                           COMMAND copy /y "opencv_test_${name}.dir\\*.png" res\\*.png
+                           COMMAND copy /y "opencv_test_${name}.dir\\*.appxManifest" res\\*.appxManifest
+                           COMMAND copy /y "opencv_test_${name}.dir\\*.pfx" res\\*.pfx
+                           COMMAND copy /y res\\* .
+                           COMMAND "C:\\Program Files (x86)\\Windows Kits\\8.1\\bin\\x86\\makepri.exe" createconfig /cf "opencv_${name}_test.vcxproj" /dq en-US /o
+                           COMMAND "C:\\Program Files (x86)\\Windows Kits\\8.1\\bin\\x86\\makepri.exe" new /pr .\\res\\ /cf "opencv_${name}_test.vcxproj.xml" /in "opencv_test_${name}/res" /o)
+      endif()
       if(NOT BUILD_opencv_world)
         _ocv_add_precompiled_headers(${the_target})
       endif()
