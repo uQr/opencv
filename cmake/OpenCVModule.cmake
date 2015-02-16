@@ -689,6 +689,13 @@ macro(ocv_create_module)
     add_custom_command(TARGET ${the_module}
                        POST_BUILD
                        COMMAND link.exe /edit /APPCONTAINER:NO $(TargetPath))
+    if("${the_module}" STREQUAL "opencv_ts")
+      add_custom_command(TARGET ${the_module}
+         POST_BUILD
+         COMMAND copy /y "\"$(VCInstallDir)redist\\$(PlatformTarget)\\Microsoft.VC$(PlatformToolsetVersion).CRT\\msvcp$(PlatformToolsetVersion).dll\"" "\"$(SolutionDir)bin\\$(Configuration)\\msvcp$(PlatformToolsetVersion)_app.dll\""
+         COMMAND copy /y "\"$(VCInstallDir)redist\\$(PlatformTarget)\\Microsoft.VC$(PlatformToolsetVersion).CRT\\msvcr$(PlatformToolsetVersion).dll\"" "\"$(SolutionDir)bin\\$(Configuration)\\msvcr$(PlatformToolsetVersion)_app.dll\""
+         COMMAND copy /y "\"$(VCInstallDir)redist\\$(PlatformTarget)\\Microsoft.VC$(PlatformToolsetVersion).CRT\\vccorlib$(PlatformToolsetVersion).dll\"" "\"$(SolutionDir)bin\\$(Configuration)\\vccorlib$(PlatformToolsetVersion)_app.dll\"")
+    endif()
   endif()
 endmacro()
 
