@@ -9,8 +9,7 @@
 3. Go to ```platforms/winrt``` and execute ```>> setup_winrt.bat "WS" "8.1" "x64"```. 
 This will generate all of the files needed to build open_cv projects for selected platform in ```opencv\bin\...```. Open the ```opencv\bin\WS\8.1\x64``` directory and open the ```OpenCV.sln```.
 4. Set OCV solution to Release mode and build all of the projects. They should build without errors and generate executables in “bin\WS\8.1\x64\bin\Release\”
-5.	Put ```msvcr120_app.dll, msvcp120_app.dll, vccorlib120_app.dll``` libraries in that folder (possible location of these dlls is "C:\Windows\vpnplugins\juniper").  It’s important you use libraries built for the same architecture you used in step (3). Otherwise you’ll get “The application was unable to start correctly (0xc000007b)” error
-6. Run opencv_test_{module}.exe via console or as usual by double clicking it. You should see output in the console window
+5. Run opencv_test_{module}.exe via console or as usual by double clicking it. You should see output in the console window
 
 #### Resources
 
