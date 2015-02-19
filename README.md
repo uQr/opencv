@@ -8,7 +8,7 @@
 2. Set ```OPENCV_TEST_DATA_PATH``` environment variable to location of ```opencv_extra/testdata``` to get tests work correctly
 3. Go to ```platforms/winrt``` and execute ```>> setup_winrt.bat "WS" "8.1" "x64"```. 
 This will generate all of the files needed to build open_cv projects for selected platform in ```opencv\bin\...```. Open the ```opencv\bin\WS\8.1\x64``` directory and open the ```OpenCV.sln```.
-4. Set OCV solution to Release mode and build all of the projects. They should build without errors and generate executables in “bin\WS\8.1\x64\bin\Release\”
+4. Set OCV solution to Release mode and build all of the projects. They should build without errors and generate executables in “bin\WS\8.1\x64\bin\Release\�?
 5. Run opencv_test_{module}.exe via console or as usual by double clicking it. You should see output in the console window
 
 #### Resources
