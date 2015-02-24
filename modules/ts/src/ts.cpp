@@ -450,7 +450,6 @@ static int tsErrorCallback( int status, const char* func_name, const char* err_m
 
 void TS::init( const string& modulename )
 {
-//TODO: replace temporary solution
 #ifndef WINRT
     char* datapath_dir = getenv("OPENCV_TEST_DATA_PATH");
 #else
