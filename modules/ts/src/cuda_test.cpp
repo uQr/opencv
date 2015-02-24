@@ -414,7 +414,7 @@ namespace cvtest
 
     void showDiff(InputArray gold_, InputArray actual_, double eps)
     {
-#ifndef HAVE_WINRT
+#ifndef WINRT
         Mat gold = getMat(gold_);
         Mat actual = getMat(actual_);
 
