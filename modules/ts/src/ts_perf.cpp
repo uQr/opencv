@@ -184,11 +184,11 @@ void Regression::init(const std::string& testSuitName, const std::string& ext)
         LOGE("Subsequent initialization of Regression utility is not allowed.");
         return;
     }
-//TODO: replace temporary solution
+
 #ifndef WINRT
     const char *data_path_dir = getenv("OPENCV_TEST_DATA_PATH");
 #else
-    const char *data_path_dir = "\\";
+    const char *data_path_dir = OPENCV_TEST_DATA_PATH;
 #endif
     const char *path_separator = "/";
 
@@ -1649,11 +1649,10 @@ std::string TestBase::getDataPath(const std::string& relativePath)
         throw PerfEarlyExitException();
     }
 
-//TODO: replace temporary solution
 #ifndef WINRT
     const char *data_path_dir = getenv("OPENCV_TEST_DATA_PATH");
 #else
-    const char *data_path_dir = NULL;
+    const char *data_path_dir = OPENCV_TEST_DATA_PATH;
 #endif
     const char *path_separator = "/";
 
