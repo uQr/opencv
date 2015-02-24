@@ -48,7 +48,7 @@
 
 #include "opencv2/imgcodecs.hpp"
 #include "opencv2/videoio.hpp"
-#if !defined HAVE_WINRT
+#if !defined WINRT
 #include "opencv2/highgui.hpp"
 #endif
 #include "opencv2/imgproc.hpp"

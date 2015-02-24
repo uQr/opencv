@@ -185,7 +185,7 @@ void Regression::init(const std::string& testSuitName, const std::string& ext)
         return;
     }
 //TODO: replace temporary solution
-#ifndef HAVE_WINRT
+#ifndef WINRT
     const char *data_path_dir = getenv("OPENCV_TEST_DATA_PATH");
 #else
     const char *data_path_dir = "\\";
@@ -819,7 +819,7 @@ void TestBase::Init(const std::vector<std::string> & availableImpls,
     param_write_sanity  = args.has("perf_write_sanity");
     param_verify_sanity = args.has("perf_verify_sanity");
 //TODO: replace temporary solution
-#ifndef HAVE_WINRT
+#ifndef WINRT
     test_ipp_check      = !args.has("perf_ipp_check") ? getenv("OPENCV_IPP_CHECK") != NULL : true;
 #else
     test_ipp_check = !args.has("perf_ipp_check") ? false : true;
@@ -891,7 +891,7 @@ void TestBase::Init(const std::vector<std::string> & availableImpls,
 
     {
 //TODO: replace temporary solution
-#ifndef HAVE_WINRT
+#ifndef WINRT
         const char* path = getenv("OPENCV_PERF_VALIDATION_DIR");
 #else
         const char* path = "/";
@@ -1650,7 +1650,7 @@ std::string TestBase::getDataPath(const std::string& relativePath)
     }
 
 //TODO: replace temporary solution
-#ifndef HAVE_WINRT
+#ifndef WINRT
     const char *data_path_dir = getenv("OPENCV_TEST_DATA_PATH");
 #else
     const char *data_path_dir = NULL;

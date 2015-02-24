@@ -385,7 +385,7 @@ TEST_F(fisheyeTest, EtimateUncertainties)
     CV_Assert(errors.alpha == 0);
 }
 
-#ifndef HAVE_WINRT
+#ifndef WINRT
 
 TEST_F(fisheyeTest, rectify)
 {

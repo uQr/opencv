@@ -40,7 +40,7 @@
 //M*/
 
 #include "test_precomp.hpp"
-#ifndef HAVE_WINRT
+#ifndef WINRT
 #include "opencv2/highgui.hpp"
 #endif
 #include "opencv2/core/core_c.h"

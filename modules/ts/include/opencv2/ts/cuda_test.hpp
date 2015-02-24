@@ -48,7 +48,7 @@
 #include "opencv2/core.hpp"
 #include "opencv2/core/cuda.hpp"
 #include "opencv2/imgcodecs.hpp"
-#ifndef HAVE_WINRT
+#ifndef WINRT
 #include "opencv2/highgui.hpp"
 #endif
 #include "opencv2/imgproc.hpp"
