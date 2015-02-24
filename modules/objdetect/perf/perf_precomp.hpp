@@ -11,7 +11,7 @@
 
 #include "opencv2/ts.hpp"
 #include "opencv2/objdetect.hpp"
-#ifndef HAVE_WINRT
+#ifndef WINRT
 #include "opencv2/highgui.hpp"
 #endif
 

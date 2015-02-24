@@ -4052,7 +4052,7 @@ static std::string PrintTestPartResultToString(
 static void PrintTestPartResult(const TestPartResult& test_part_result) {
   const std::string& result =
       PrintTestPartResultToString(test_part_result);
-#ifdef HAVE_WINRT
+#ifdef WINRT
   WinRTLog().Print() << result.c_str();
 #else
   printf("%s\n", result.c_str());
@@ -4080,7 +4080,7 @@ enum GTestColor {
   COLOR_YELLOW
 };
 
-#if GTEST_OS_WINDOWS && !GTEST_OS_WINDOWS_MOBILE && !defined HAVE_WINRT
+#if GTEST_OS_WINDOWS && !GTEST_OS_WINDOWS_MOBILE && !defined WINRT
 
 // Returns the character attribute for the given color.
 WORD GetColorAttribute(GTestColor color) {
@@ -4105,7 +4105,7 @@ static const char* GetAnsiColorCode(GTestColor color) {
   };
 }
 
-#endif  // GTEST_OS_WINDOWS && !GTEST_OS_WINDOWS_MOBILE && !defined HAVE_WINRT
+#endif  // GTEST_OS_WINDOWS && !GTEST_OS_WINDOWS_MOBILE && !defined WINRT
 
 // Returns true iff Google Test should use colors in the output.
 bool ShouldUseColor(bool stdout_is_tty) {
@@ -4163,7 +4163,7 @@ static void ColoredPrintf(GTestColor color, const char* fmt, ...) {
     return;
   }
 
-#if GTEST_OS_WINDOWS && !GTEST_OS_WINDOWS_MOBILE && !defined HAVE_WINRT
+#if GTEST_OS_WINDOWS && !GTEST_OS_WINDOWS_MOBILE && !defined WINRT
   const HANDLE stdout_handle = GetStdHandle(STD_OUTPUT_HANDLE);
 
   // Gets the current text color.
@@ -4186,7 +4186,7 @@ static void ColoredPrintf(GTestColor color, const char* fmt, ...) {
   printf("\033[0;3%sm", GetAnsiColorCode(color));
   vprintf(fmt, args);
   printf("\033[m");  // Resets the terminal to default.
-#endif  // GTEST_OS_WINDOWS && !GTEST_OS_WINDOWS_MOBILE && !defined HAVE_WINRT
+#endif  // GTEST_OS_WINDOWS && !GTEST_OS_WINDOWS_MOBILE && !defined WINRT
   va_end(args);
 }
 
@@ -4199,7 +4199,7 @@ static void PrintFullTestCommentIfPresent(const TestInfo& test_info) {
   const char* const type_param = test_info.type_param();
   const char* const value_param = test_info.value_param();
 
-#ifdef HAVE_WINRT
+#ifdef WINRT
   WinRTLog().Print() << ((type_param != NULL || value_param != NULL) ? "where " : "");
   if (type_param != NULL) {
       WinRTLog().Print() << kTypeParamLabel << " = " << type_param
@@ -4231,7 +4231,7 @@ class PrettyUnitTestResultPrinter : public TestEventListener {
  public:
   PrettyUnitTestResultPrinter() {}
   static void PrintTestName(const char * test_case, const char * test) {
-#ifdef HAVE_WINRT
+#ifdef WINRT
     WinRTLog().Print() << test_case << "." << test;
 #else
     printf("%s.%s", test_case, test);
@@ -4261,7 +4261,7 @@ class PrettyUnitTestResultPrinter : public TestEventListener {
 void PrettyUnitTestResultPrinter::OnTestIterationStart(
     const UnitTest& unit_test, int iteration) {
     if (GTEST_FLAG(repeat) != 1)
-#ifdef HAVE_WINRT
+#ifdef WINRT
         WinRTLog().Print() << "\nRepeating all tests (iteration "
         << (iteration + 1) << " . . .\n";
 #else
@@ -4272,7 +4272,7 @@ void PrettyUnitTestResultPrinter::OnTestIterationStart(
   // Prints the filter if it's not *.  This reminds the user that some
   // tests may be skipped.
   if (!String::CStringEquals(filter, kUniversalFilter)) {
-#ifdef HAVE_WINRT
+#ifdef WINRT
       WinRTLog().Print() << "Note: " << GTEST_NAME_ << " = " << filter;
 #else
     ColoredPrintf(COLOR_YELLOW,
@@ -4284,7 +4284,7 @@ void PrettyUnitTestResultPrinter::OnTestIterationStart(
 
   // Ditto.
   if (!String::CStringEquals(param_filter, kUniversalFilter)) {
-#ifdef HAVE_WINRT
+#ifdef WINRT
       WinRTLog().Print() << "Note: " << GTEST_NAME_ <<  "parameter filter = "
           << param_filter;
 #else
@@ -4295,7 +4295,7 @@ void PrettyUnitTestResultPrinter::OnTestIterationStart(
 
   if (internal::ShouldShard(kTestTotalShards, kTestShardIndex, false)) {
     const Int32 shard_index = Int32FromEnvOrDie(kTestShardIndex, -1);
-#ifdef HAVE_WINRT
+#ifdef WINRT
     WinRTLog().Print() << "Note: This is test shard "
         << static_cast<int>(shard_index) + 1 << " of "
         << internal::posix::GetEnv(kTestTotalShards);
@@ -4308,7 +4308,7 @@ void PrettyUnitTestResultPrinter::OnTestIterationStart(
   }
 
   if (GTEST_FLAG(shuffle)) {
-#ifdef HAVE_WINRT
+#ifdef WINRT
       WinRTLog().Print() << "Note: Randomizing tests' orders with a seed of "
           << unit_test.random_seed() << " .";
 #else
@@ -4318,7 +4318,7 @@ void PrettyUnitTestResultPrinter::OnTestIterationStart(
 #endif
   }
 
-#ifdef HAVE_WINRT
+#ifdef WINRT
   WinRTLog().Print() << "[==========] " << "Running " <<
       (FormatTestCount(unit_test.test_to_run_count()).c_str()) <<
       " from " << FormatTestCaseCount(unit_test.test_case_to_run_count()).c_str();
@@ -4333,7 +4333,7 @@ void PrettyUnitTestResultPrinter::OnTestIterationStart(
 
 void PrettyUnitTestResultPrinter::OnEnvironmentsSetUpStart(
     const UnitTest& /*unit_test*/) {
-#ifdef HAVE_WINRT
+#ifdef WINRT
     WinRTLog().Print() << "[----------] Global test environment set-up";
 #else
   ColoredPrintf(COLOR_GREEN, "[----------] ");
@@ -4345,30 +4345,30 @@ void PrettyUnitTestResultPrinter::OnEnvironmentsSetUpStart(
 void PrettyUnitTestResultPrinter::OnTestCaseStart(const TestCase& test_case) {
   const std::string counts =
       FormatCountableNoun(test_case.test_to_run_count(), "test", "tests");
-#ifdef HAVE_WINRT
+#ifdef WINRT
   WinRTLog().Print() << "[----------] " << counts.c_str() << " from " << test_case.name();
 #else
   ColoredPrintf(COLOR_GREEN, "[----------] ");
   printf("%s from %s", counts.c_str(), test_case.name());
 #endif
   if (test_case.type_param() == NULL) {
-#ifndef HAVE_WINRT
+#ifndef WINRT
     printf("\n");
 #endif
   } else {
-#ifdef HAVE_WINRT
+#ifdef WINRT
   WinRTLog().Print() << "where " << kTypeParamLabel << " = " << test_case.type_param() << "\n";
 #else
     printf(", where %s = %s\n", kTypeParamLabel, test_case.type_param());
 #endif
   }
-#ifndef HAVE_WINRT
+#ifndef WINRT
   fflush(stdout);
 #endif
 }
 
 void PrettyUnitTestResultPrinter::OnTestStart(const TestInfo& test_info) {
-#ifdef HAVE_WINRT
+#ifdef WINRT
   WinRTLog().Print() << "[ RUN      ] " << test_info.test_case_name() << "." << test_info.name();
 #else
   ColoredPrintf(COLOR_GREEN,  "[ RUN      ] ");
@@ -4391,7 +4391,7 @@ void PrettyUnitTestResultPrinter::OnTestPartResult(
 }
 
 void PrettyUnitTestResultPrinter::OnTestEnd(const TestInfo& test_info) {
-#ifdef HAVE_WINRT
+#ifdef WINRT
     WinRTLog().Print() << (test_info.result()->Passed() ? "[       OK ] " : "[  FAILED  ] ")
         << test_info.test_case_name() << "." << test_info.name() <<" ("
         << (GTEST_FLAG(print_time) ?
@@ -4424,7 +4424,7 @@ void PrettyUnitTestResultPrinter::OnTestCaseEnd(const TestCase& test_case) {
 
   const std::string counts =
       FormatCountableNoun(test_case.test_to_run_count(), "test", "tests");
-#ifdef HAVE_WINRT
+#ifdef WINRT
   WinRTLog().Print() << "[----------] " << counts.c_str() << " from " << test_case.name() << " (" <<
       internal::StreamableToString(test_case.elapsed_time()).c_str() << " ms total)";
 #else
@@ -4438,7 +4438,7 @@ void PrettyUnitTestResultPrinter::OnTestCaseEnd(const TestCase& test_case) {
 
 void PrettyUnitTestResultPrinter::OnEnvironmentsTearDownStart(
     const UnitTest& /*unit_test*/) {
-#ifdef HAVE_WINRT
+#ifdef WINRT
     WinRTLog().Print() << "[----------] Global test environment tear-down\n";
 #else
   ColoredPrintf(COLOR_GREEN,  "[----------] ");
@@ -4464,7 +4464,7 @@ void PrettyUnitTestResultPrinter::PrintFailedTests(const UnitTest& unit_test) {
       if (!test_info.should_run() || test_info.result()->Passed()) {
         continue;
       }
-#ifdef HAVE_WINRT
+#ifdef WINRT
       WinRTLog().Print() << "[  FAILED  ] " << test_case.name() << "." << test_info.name();
       PrintFullTestCommentIfPresent(test_info);
 #else
@@ -4479,7 +4479,7 @@ void PrettyUnitTestResultPrinter::PrintFailedTests(const UnitTest& unit_test) {
 
 void PrettyUnitTestResultPrinter::OnTestIterationEnd(const UnitTest& unit_test,
                                                      int /*iteration*/) {
-#ifdef HAVE_WINRT
+#ifdef WINRT
     WinRTLog().Print() << "[==========] " <<
         FormatTestCount(unit_test.test_to_run_count()).c_str()
         << " from " << FormatTestCaseCount(unit_test.test_case_to_run_count()).c_str() << " ran.";
@@ -4491,14 +4491,14 @@ void PrettyUnitTestResultPrinter::OnTestIterationEnd(const UnitTest& unit_test,
 #endif
 
   if (GTEST_FLAG(print_time)) {
-#ifdef HAVE_WINRT
+#ifdef WINRT
       WinRTLog().Print() << " (" << internal::StreamableToString(unit_test.elapsed_time()).c_str() << " ms total)";
 #else
     printf(" (%s ms total)",
            internal::StreamableToString(unit_test.elapsed_time()).c_str());
 #endif
   }
-#ifdef HAVE_WINRT
+#ifdef WINRT
   WinRTLog().Print() << "\n" << "[  PASSED  ] "
       << FormatTestCount(unit_test.successful_test_count()).c_str();
 #else
@@ -4509,7 +4509,7 @@ void PrettyUnitTestResultPrinter::OnTestIterationEnd(const UnitTest& unit_test,
   int num_failures = unit_test.failed_test_count();
   if (!unit_test.Passed()) {
     const int failed_test_count = unit_test.failed_test_count();
-#ifdef HAVE_WINRT
+#ifdef WINRT
     WinRTLog().Print() << "[  FAILED  ] listed below:\n" << FormatTestCount(failed_test_count).c_str();
     PrintFailedTests(unit_test);
 #else
@@ -4526,7 +4526,7 @@ void PrettyUnitTestResultPrinter::OnTestIterationEnd(const UnitTest& unit_test,
     if (!num_failures) {
       printf("\n");  // Add a spacer if no FAILURE banner is displayed.
     }
-#ifdef HAVE_WINRT
+#ifdef WINRT
     WinRTLog().Print() << "  YOU HAVE " << num_disabled << " DISABLED "
         << (num_disabled == 1 ? "TEST" : "TESTS");
 #else
@@ -5461,7 +5461,7 @@ void UnitTest::AddTestPartResult(
     // with another testing framework) and specify the former on the
     // command line for debugging.
     if (GTEST_FLAG(break_on_failure)) {
-#if GTEST_OS_WINDOWS && !defined HAVE_WINRT
+#if GTEST_OS_WINDOWS && !defined WINRT
       // Using DebugBreak on Windows allows gtest to still break into a debugger
       // when a failure happens and both the --gtest_break_on_failure and
       // the --gtest_catch_exceptions flags are specified.
@@ -5539,7 +5539,7 @@ int UnitTest::Run() {
   // process. In either case the user does not want to see pop-up dialogs
   // about crashes - they are expected.
   if (impl()->catch_exceptions() || in_death_test_child_process) {
-# if !GTEST_OS_WINDOWS_MOBILE && !defined HAVE_WINRT
+# if !GTEST_OS_WINDOWS_MOBILE && !defined WINRT
     // SetErrorMode doesn't exist on CE.
     SetErrorMode(SEM_FAILCRITICALERRORS | SEM_NOALIGNMENTFAULTEXCEPT |
                  SEM_NOGPFAULTERRORBOX | SEM_NOOPENFILEERRORBOX);
@@ -7251,7 +7251,7 @@ bool DeathTestImpl::Passed(bool status_ok) {
 }
 
 # if GTEST_OS_WINDOWS
-#ifndef HAVE_WINRT
+#ifndef WINRT
 // WindowsDeathTest implements death tests on Windows. Due to the
 // specifics of starting new processes on Windows, death tests there are
 // always threadsafe, and Google Test considers the
@@ -7854,7 +7854,7 @@ bool DefaultDeathTestFactory::Create(const char* statement, const RE* regex,
   }
 
 # if GTEST_OS_WINDOWS
-#ifndef HAVE_WINRT
+#ifndef WINRT
   if (GTEST_FLAG(death_test_style) == "threadsafe" ||
       GTEST_FLAG(death_test_style) == "fast") {
     *test = new WindowsDeathTest(statement, regex, file, line);
@@ -7901,7 +7901,7 @@ static void SplitString(const ::std::string& str, char delimiter,
 }
 
 # if GTEST_OS_WINDOWS
-#ifndef HAVE_WINRT
+#ifndef WINRT
 // Recreates the pipe and event handles from the provided parameters,
 // signals the event, and returns a file descriptor wrapped around the pipe
 // handle. This function is called in the child process only.
@@ -7985,7 +7985,7 @@ InternalRunDeathTestFlag* ParseInternalRunDeathTestFlag() {
   int write_fd = -1;
 
 # if GTEST_OS_WINDOWS
-#ifndef HAVE_WINRT
+#ifndef WINRT
 
   unsigned int parent_process_id = 0;
   size_t write_handle_as_size_t = 0;
@@ -8126,7 +8126,7 @@ FilePath FilePath::GetCurrentDir() {
   // something reasonable.
   return FilePath(kCurrentDirectoryString);
 #elif GTEST_OS_WINDOWS
-#ifndef HAVE_WINRT
+#ifndef WINRT
   char cwd[GTEST_PATH_MAX_ + 1] = { '\0' };
   return FilePath(_getcwd(cwd, sizeof(cwd)) == NULL ? "" : cwd);
 #else
@@ -8917,7 +8917,7 @@ class CapturedStream {
  public:
   // The ctor redirects the stream to a temporary file.
   explicit CapturedStream(int fd) : fd_(fd), uncaptured_fd_(dup(fd)) {
-#ifndef HAVE_WINRT
+#ifndef WINRT
 # if GTEST_OS_WINDOWS
     char temp_dir_path[MAX_PATH + 1] = { '\0' };  // NOLINT
     char temp_file_path[MAX_PATH + 1] = { '\0' };  // NOLINT
