@@ -552,6 +552,8 @@ inline int GetRandomSeedFromFlag(Int32 random_seed_flag) {
   return normalized_seed;
 }
 
+#ifdef WINRT
+
 wchar_t* ctow(const char* c, size_t max) {
     wchar_t* w = new wchar_t[max];
     mbstowcs(w, c, max);
@@ -573,6 +575,8 @@ public:
 private:
     std::stringstream s;
 };
+
+#endif
 
 // Returns the first valid random seed after 'seed'.  The behavior is
 // undefined if 'seed' is invalid.  The seed after kMaxRandomSeed is
