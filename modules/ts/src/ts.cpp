@@ -688,11 +688,11 @@ void parseCustomOptions(int argc, char **argv)
 
     test_ipp_check = parser.get<bool>("test_ipp_check");
     if (!test_ipp_check)
-//TODO: replace temporary solution
+
 #ifndef WINRT
         test_ipp_check = getenv("OPENCV_IPP_CHECK") != NULL;
 #else
-        test_ipp_check = NULL;
+        test_ipp_check = false;
 #endif
 }
 
