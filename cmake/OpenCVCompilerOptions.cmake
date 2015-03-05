@@ -47,6 +47,18 @@ macro(add_extra_compiler_option option)
   endif()
 endmacro()
 
+# Gets environment variable and puts its value to the corresponding preprocessor definition
+# Useful for WINRT that has no access to environment variables
+macro(add_env_definitions option)
+  set(value $ENV{${option}})
+  if("${value}" STREQUAL "")
+    message(WARNING "${option} environment variable is empty. Please set it to appropriate location to get correct results")
+  else()
+    string(REPLACE "\\" "\\\\" value ${value})
+  endif()
+  add_definitions("-D${option}=\"${value}\"")
+endmacro()
+
 # OpenCV fails some tests when 'char' is 'unsigned' by default
 add_extra_compiler_option(-fsigned-char)
 
