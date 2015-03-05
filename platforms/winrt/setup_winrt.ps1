@@ -369,7 +369,6 @@ Function ShowHelp() {
     Write-Host "                 Default: None. "
     Write-Host "                 Example: 'ALL' "
     Write-Host "                 Options: ACC, PERF, ALL. "
-    Write-Host "                 Note that you'll need to use quotes to specify more than one architecture. "
     Write-Host "     generator - Visual Studio instance used to generate the projects. "
     Write-Host "                 Default: Visual Studio 12 2013 "
     Write-Host "                 Example: 'Visual Studio 11 2012' "
