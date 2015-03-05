@@ -856,11 +856,11 @@ void TestBase::Init(const std::vector<std::string> & availableImpls,
     param_force_samples = args.get<unsigned int>("perf_force_samples");
     param_write_sanity  = args.has("perf_write_sanity");
     param_verify_sanity = args.has("perf_verify_sanity");
-//TODO: replace temporary solution
+
 #ifndef WINRT
     test_ipp_check      = !args.has("perf_ipp_check") ? getenv("OPENCV_IPP_CHECK") != NULL : true;
 #else
-    test_ipp_check = !args.has("perf_ipp_check") ? false : true;
+    test_ipp_check = false;
 #endif
     param_threads       = args.get<int>("perf_threads");
 #ifdef CV_COLLECT_IMPL_DATA
