@@ -104,6 +104,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IntDir>$(Configuration)\</IntDir>
     <LibraryPath>$(OPENCV_WINRT_INSTALL_DIR)WS\8.1\x86\x86\vc12\lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);</LibraryPath>
+    <LibraryPath>$(ProjectDir)..\..\..\..\..\bin\WS\8.1\x86\lib\Debug;$(ProjectDir)..\..\..\..\..\bin\WS\8.1\x86\3rdparty\lib\Debug;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IntDir>$(Configuration)\</IntDir>
@@ -145,6 +146,10 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>opencv_core300d.lib;opencv_imgproc300d.lib;opencv_videoio300d.lib;kernel32.lib;;mfplat.lib;mfuuid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\modules\core\include;$(ProjectDir)..\..\..\..\..\modules\imgproc\include;$(ProjectDir)..\..\..\..\..\modules\highgui\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>opencv_core300d.lib;opencv_imgproc300d.lib;zlibd.lib;kernel32.lib;mfplat.lib;mfuuid.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -194,6 +199,12 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <None Include="..\..\..\..\..\bin\WS\8.1\x86\bin\Debug\opencv_core300d.dll">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\..\..\bin\WS\8.1\x86\bin\Debug\opencv_imgproc300d.dll">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+    </None>
     <None Include="VideoCapture.Windows_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -216,6 +227,14 @@
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\..\bin\WS\8.1\x86\modules\videoio\opencv_videoio.vcxproj">
       <Project>{91464907-e522-47ae-ae6a-99552a769d37}</Project>
+    <ProjectReference Include="..\..\..\..\..\bin\WS\8.1\x86\3rdparty\zlib\zlib.vcxproj">
+      <Project>{beff99e0-89f7-47b5-b506-28894ce49947}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\bin\WS\8.1\x86\modules\core\opencv_core.vcxproj">
+      <Project>{f31ddb4f-8f8d-4d6c-b95c-4dea83e7f4b1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\bin\WS\8.1\x86\modules\imgproc\opencv_imgproc.vcxproj">
+      <Project>{352bb37d-e761-46db-a02c-4bd1c34186e6}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
