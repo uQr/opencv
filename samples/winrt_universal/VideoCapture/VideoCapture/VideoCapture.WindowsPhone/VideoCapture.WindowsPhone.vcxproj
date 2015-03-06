@@ -76,6 +76,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IntDir>$(Configuration)\</IntDir>
     <LibraryPath>$(OPENCV_WINRT_INSTALL_DIR)WP\8.1\x86\x86\vc12\lib;$(VC_LibraryPath_x86);$(WindowsPhoneSDK_LibraryPath_x86);</LibraryPath>
+    <LibraryPath>$(ProjectDir)..\..\..\..\..\bin\WP\8.1\x86\lib\Debug;$(ProjectDir)..\..\..\..\..\bin\WP\8.1\x86\3rdparty\lib\Debug;$(VC_LibraryPath_x86);$(WindowsPhoneSDK_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IntDir>$(Configuration)\</IntDir>
@@ -111,6 +112,10 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>opencv_core300d.lib;opencv_imgproc300d.lib;opencv_videoio300d.lib;WindowsPhoneCore.lib;RuntimeObject.lib;PhoneAppModelHost.lib;;mfplat.lib;mfuuid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\modules\core\include;$(ProjectDir)..\..\..\..\..\modules\imgproc\include;$(ProjectDir)..\..\..\..\..\modules\highgui\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>opencv_core300d.lib;opencv_imgproc300d.lib;zlibd.lib;WindowsPhoneCore.lib;RuntimeObject.lib;PhoneAppModelHost.lib;;mfplat.lib;mfuuid.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -162,6 +167,24 @@
     <ProjectReference Include="..\..\..\..\..\bin\WP\8.1\x86\modules\videoio\opencv_videoio.vcxproj">
       <Project>{505a3d1a-3e2b-4357-8e19-eed6bf56d204}</Project>
     </ProjectReference>
+  </ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\bin\WP\8.1\x86\3rdparty\zlib\zlib.vcxproj">
+      <Project>{86740376-e051-4f19-a5b3-09153eacd16a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\bin\WP\8.1\x86\modules\core\opencv_core.vcxproj">
+      <Project>{ba939ab7-9a93-4b18-b9da-242a91a7183c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\bin\WP\8.1\x86\modules\imgproc\opencv_imgproc.vcxproj">
+      <Project>{9f2063ba-7912-41be-9fbf-8429e6c7ccd0}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\bin\WP\8.1\x86\bin\Debug\opencv_core300d.dll">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\..\..\bin\WP\8.1\x86\bin\Debug\opencv_imgproc300d.dll">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+    </None>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
