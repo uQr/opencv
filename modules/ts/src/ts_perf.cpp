@@ -1236,7 +1236,11 @@ bool TestBase::next()
                         printf("Performance is unstable, it may be a result of overheat problems\n");
                         printf("Idle delay for %d ms... \n", perf_validation_idle_delay_ms);
 #if defined WIN32 || defined _WIN32 || defined WIN64 || defined _WIN64
+#ifndef WIN80
                         Sleep(perf_validation_idle_delay_ms);
+#else
+                        WaitForSingleObjectEx(GetCurrentThread(), perf_validation_idle_delay_ms, FALSE);
+#endif
 #else
                         usleep(perf_validation_idle_delay_ms * 1000);
 #endif
