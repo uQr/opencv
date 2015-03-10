@@ -70,9 +70,8 @@ void loadExposureSeq(String path, vector<Mat>& images, vector<float>& times = DE
     char name[80];
     FILE* list_file = fopen((path + "list.txt").c_str(), "r");
     ASSERT_TRUE(list_file);
-    while (!feof(list_file))
+    while (fscanf(list_file, "%s %f", name, &val) == 2)
     {
-        fscanf(list_file, "%s %f\n", name, &val);
 #endif
         Mat img = imread(path + name);
         ASSERT_FALSE(img.empty()) << "Could not load input image " << path + name;
@@ -101,9 +100,8 @@ void loadResponseCSV(String path, Mat& response)
 #else
     FILE* resp_file = fopen(path.c_str(), "r");
     int i = 0;
-    while (!feof(resp_file))
+    while (fscanf(resp_file, "%f%*s%f%*s%f%*[; ]", &response.at<Vec3f>(i)[0], &response.at<Vec3f>(i)[1], &response.at<Vec3f>(i)[2]) == 3)
     {
-        fscanf(resp_file, "%f%*s%f%*s%f%*s\n", &response.at<Vec3f>(i)[0], &response.at<Vec3f>(i)[1], &response.at<Vec3f>(i)[2]);
         i++;
     }
     fclose(resp_file);
