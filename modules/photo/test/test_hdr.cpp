@@ -67,7 +67,7 @@ void loadExposureSeq(String path, vector<Mat>& images, vector<float>& times = DE
     ASSERT_TRUE(list_file.is_open());
     while (list_file >> name >> val) {
 #else
-    char name[80];
+    char* name = (char *) malloc(_MAX_PATH - strlen(path.c_str()));
     FILE* list_file = fopen((path + "list.txt").c_str(), "r");
     ASSERT_TRUE(list_file);
     while (fscanf(list_file, "%s %f", name, &val) == 2)
@@ -81,6 +81,7 @@ void loadExposureSeq(String path, vector<Mat>& images, vector<float>& times = DE
 #ifndef WINRT
     list_file.close();
 #else
+    free(name);
     fclose(list_file);
 #endif
 }

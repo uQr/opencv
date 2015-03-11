@@ -692,7 +692,7 @@ static void loadPerfValidationResults(const std::string& fileName)
         if (!name.empty() && name[name.size() - 1] == '\r') // CRLF processing on Linux
             name.resize(name.size() - 1);
 #else
-    char name[256];
+    char name[_MAX_PATH];
     FILE* infile = fopen(fileName.c_str(), "r");
 
     if (!infile)
