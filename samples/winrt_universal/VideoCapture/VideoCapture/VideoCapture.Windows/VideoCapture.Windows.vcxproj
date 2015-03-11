@@ -213,17 +213,6 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\bin\WS\8.1\x86\3rdparty\zlib\zlib.vcxproj">
-      <Project>{beff99e0-89f7-47b5-b506-28894ce49947}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\bin\WS\8.1\x86\modules\core\opencv_core.vcxproj">
-      <Project>{f31ddb4f-8f8d-4d6c-b95c-4dea83e7f4b1}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\bin\WS\8.1\x86\modules\imgproc\opencv_imgproc.vcxproj">
-      <Project>{352bb37d-e761-46db-a02c-4bd1c34186e6}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

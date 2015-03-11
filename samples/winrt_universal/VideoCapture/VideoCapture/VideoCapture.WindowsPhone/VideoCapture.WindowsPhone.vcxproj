@@ -153,17 +153,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\bin\WP\8.1\x86\3rdparty\zlib\zlib.vcxproj">
-      <Project>{86740376-e051-4f19-a5b3-09153eacd16a}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\bin\WP\8.1\x86\modules\core\opencv_core.vcxproj">
-      <Project>{ba939ab7-9a93-4b18-b9da-242a91a7183c}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\bin\WP\8.1\x86\modules\imgproc\opencv_imgproc.vcxproj">
-      <Project>{9f2063ba-7912-41be-9fbf-8429e6c7ccd0}</Project>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="..\..\..\..\..\bin\WP\8.1\x86\bin\Debug\opencv_core300d.dll">
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
     </None>
