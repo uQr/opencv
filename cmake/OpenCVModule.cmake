@@ -945,10 +945,17 @@ function(ocv_add_perf_tests)
       add_dependencies(opencv_perf_tests ${the_target})
 
       # Additional target properties
-      set_target_properties(${the_target} PROPERTIES
-        DEBUG_POSTFIX "${OPENCV_DEBUG_POSTFIX}"
-        RUNTIME_OUTPUT_DIRECTORY "${EXECUTABLE_OUTPUT_PATH}"
-      )
+      if(NOT WINRT)
+        set_target_properties(${the_target} PROPERTIES
+          DEBUG_POSTFIX "${OPENCV_DEBUG_POSTFIX}"
+          RUNTIME_OUTPUT_DIRECTORY "${EXECUTABLE_OUTPUT_PATH}"
+        )
+      else()
+        set_target_properties(${the_target} PROPERTIES
+          DEBUG_POSTFIX ""
+          RUNTIME_OUTPUT_DIRECTORY "${EXECUTABLE_OUTPUT_PATH}"
+        )
+      endif()
 
       if(ENABLE_SOLUTION_FOLDERS)
         set_target_properties(${the_target} PROPERTIES FOLDER "tests performance")
@@ -1008,10 +1015,17 @@ function(ocv_add_accuracy_tests)
       add_dependencies(opencv_tests ${the_target})
 
       # Additional target properties
-      set_target_properties(${the_target} PROPERTIES
-        DEBUG_POSTFIX "${OPENCV_DEBUG_POSTFIX}"
-        RUNTIME_OUTPUT_DIRECTORY "${EXECUTABLE_OUTPUT_PATH}"
-      )
+      if(NOT WINRT)
+        set_target_properties(${the_target} PROPERTIES
+          DEBUG_POSTFIX "${OPENCV_DEBUG_POSTFIX}"
+          RUNTIME_OUTPUT_DIRECTORY "${EXECUTABLE_OUTPUT_PATH}"
+        )
+      else()
+        set_target_properties(${the_target} PROPERTIES
+          DEBUG_POSTFIX ""
+          RUNTIME_OUTPUT_DIRECTORY "${EXECUTABLE_OUTPUT_PATH}"
+        )
+      endif()
 
       if(ENABLE_SOLUTION_FOLDERS)
         set_target_properties(${the_target} PROPERTIES FOLDER "tests accuracy")
