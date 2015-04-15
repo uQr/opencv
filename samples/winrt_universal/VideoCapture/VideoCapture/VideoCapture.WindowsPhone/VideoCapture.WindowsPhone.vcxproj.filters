@@ -36,8 +36,4 @@
   <ItemGroup>
     <Page Include="MainPage.xaml" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\..\..\bin\WP\8.1\x86\bin\Debug\opencv_core300d.dll" />
-    <None Include="..\..\..\..\..\bin\WP\8.1\x86\bin\Debug\opencv_imgproc300d.dll" />
-  </ItemGroup>
 </Project>
