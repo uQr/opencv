@@ -6,9 +6,6 @@
     <CLCompile Include="$(MSBuildThisFileDirectory)pch.cpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)pch.h" />
     <ClCompile Include="$(MSBuildThisFileDirectory)AppMain.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\..\..\modules\videoio\src\cap_winrt\CaptureFrameGrabber.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\..\..\modules\videoio\src\cap_winrt\MediaStreamSink.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\..\..\modules\videoio\src\cap_winrt\WinRTVideoCapture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml" />

@@ -20,8 +20,15 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "opencv_core", "..\..\..\bin\WS\8.1\x86\modules\core\opencv_core.vcxproj", "{9A8B3E57-2264-4B89-8441-9ED1E151BD40}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "opencv_imgproc", "..\..\..\bin\WS\8.1\x86\modules\imgproc\opencv_imgproc.vcxproj", "{C6925B5A-229E-4B89-B1A7-EF88613C246C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9A8B3E57-2264-4B89-8441-9ED1E151BD40} = {9A8B3E57-2264-4B89-8441-9ED1E151BD40}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "opencv_videoio", "..\..\..\bin\WS\8.1\x86\modules\videoio\opencv_videoio.vcxproj", "{91464907-E522-47AE-AE6A-99552A769D37}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9A8B3E57-2264-4B89-8441-9ED1E151BD40} = {9A8B3E57-2264-4B89-8441-9ED1E151BD40}
+		{C6925B5A-229E-4B89-B1A7-EF88613C246C} = {C6925B5A-229E-4B89-B1A7-EF88613C246C}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "opencv_core", "..\..\..\bin\WP\8.1\x86\modules\core\opencv_core.vcxproj", "{3C21A4EC-3B76-4209-B523-88020A4CB198}"
 EndProject
