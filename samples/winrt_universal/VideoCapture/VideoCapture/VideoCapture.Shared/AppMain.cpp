@@ -18,10 +18,21 @@ using namespace Windows::Media::MediaProperties;
 using namespace Windows::UI::Xaml::Media::Imaging;
 using namespace Windows::Storage::Streams;
 
+using namespace Windows::UI::Xaml::Navigation;
+using namespace Windows::System;
+using namespace Windows::UI;
+using namespace Windows::UI::Core;
+using namespace Windows::Storage;
+using namespace Windows::Devices::Enumeration;
+using namespace concurrency;
+
+
 #include <opencv2\videoio\cap_winrt\WinRTVideoCapture.hpp>
 #include <opencv2\imgproc\types_c.h>
 #include <opencv2\core\core.hpp>
 #include <opencv2\imgproc\imgproc.hpp>
+#include <opencv2\videoio.hpp>
+#include <memory>
 
 static const int sWidth = 640;
 static const int sHeight = 360;
@@ -78,25 +89,57 @@ void AppMain::start()
     m_bitmap = ref new WriteableBitmap(m_width, m_height);
 
     // create the Video Capture device
-    m_capture = WinRTVideoCapture::create(m_width, m_height);
+    cv::VideoCapture cap(0); // open the default camera
+    auto hcap = std::make_shared<cv::VideoCapture>(cap);
 
-    // start capturing video. Callback will happen on the UI thread
-    m_capture->start([this](const cv::Mat& mat) {
-        // convert to grayscale
-        cv::Mat intermediateMat;
-        cv::cvtColor(mat, intermediateMat, CV_RGB2GRAY);
-
-        // convert to BGRA
-        cv::Mat output;
-        cv::cvtColor(intermediateMat, output, CV_GRAY2BGRA);
+    const std::function<void(const cv::Mat& mat)>& callback = [this](const cv::Mat& mat) 
+    {
+        if (mat.empty()) return;
 
         // copy processed image into the WriteableBitmap
-        memcpy(GetPointerToPixelData(m_bitmap->PixelBuffer), output.data, m_width * m_height * 4);
+        memcpy(GetPointerToPixelData(m_bitmap->PixelBuffer), mat.data, m_width * m_height * 4);
 
         // display the image
         m_image->Source = m_bitmap;
         m_bitmap->Invalidate();
+    };
+
+    auto workItem = ref new Windows::System::Threading::WorkItemHandler(
+        [this, hcap, callback](IAsyncAction^ workItem)
+    {
+        cv::Mat edges;
+        for (;;)
+        {
+            cv::Mat frame;
+            *hcap >> frame; // get a new frame from camera
+
+            if (frame.empty()) continue;
+
+            callback(frame);
+        }
     });
+
+    auto asyncAction = Windows::System::Threading::ThreadPool::RunAsync(workItem);
+
+    //m_capture = WinRTVideoCapture::create(m_width, m_height);
+
+    //// start capturing video. Callback will happen on the UI thread
+    //m_capture->start([this](const cv::Mat& mat) {
+    //    // convert to grayscale
+    //    cv::Mat intermediateMat;
+    //    cv::cvtColor(mat, intermediateMat, CV_RGB2GRAY);
+
+    //    // convert to BGRA
+    //    cv::Mat output;
+    //    cv::cvtColor(intermediateMat, output, CV_GRAY2BGRA);
+
+    //    // copy processed image into the WriteableBitmap
+    //    memcpy(GetPointerToPixelData(m_bitmap->PixelBuffer), output.data, m_width * m_height * 4);
+
+    //    // display the image
+    //    m_image->Source = m_bitmap;
+    //    m_bitmap->Invalidate();
+    //});
 }
 
 void AppMain::stop()

@@ -16,9 +16,6 @@
     <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\..\..\modules\videoio\src\cap_winrt\CaptureFrameGrabber.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\..\..\modules\videoio\src\cap_winrt\MediaStreamSink.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\..\..\modules\videoio\src\cap_winrt\WinRTVideoCapture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)App.xaml.cpp">
       <DependentUpon>$(MSBuildThisFileDirectory)App.xaml</DependentUpon>
     </ClCompile>
