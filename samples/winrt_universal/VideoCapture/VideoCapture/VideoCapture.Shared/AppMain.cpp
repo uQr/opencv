@@ -18,7 +18,7 @@ using namespace Windows::Media::MediaProperties;
 using namespace Windows::UI::Xaml::Media::Imaging;
 using namespace Windows::Storage::Streams;
 
-#include <opencv2\highgui\cap_winrt\WinRTVideoCapture.h>
+#include <opencv2\videoio\cap_winrt\WinRTVideoCapture.hpp>
 #include <opencv2\imgproc\types_c.h>
 #include <opencv2\core\core.hpp>
 #include <opencv2\imgproc\imgproc.hpp>
