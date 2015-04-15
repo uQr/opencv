@@ -121,6 +121,9 @@ CV_IMPL CvCapture * cvCreateCameraCapture (int index)
 {
     int  domains[] =
     {
+#ifdef WINRT
+        CV_CAP_WINRT,
+#endif
 #ifdef HAVE_MSMF
         CV_CAP_MSMF,
 #endif
@@ -181,7 +184,8 @@ CV_IMPL CvCapture * cvCreateCameraCapture (int index)
     // try every possibly installed camera API
     for (int i = 0; domains[i] >= 0; i++)
     {
-#if defined(HAVE_MSMF)         || \
+#if defined(WINRT)         || \
+    defined(HAVE_MSMF)         || \
     defined(HAVE_TYZX)         || \
     defined(HAVE_VFW)          || \
     defined(HAVE_LIBV4L)       || \
@@ -211,6 +215,13 @@ CV_IMPL CvCapture * cvCreateCameraCapture (int index)
 
         switch (domains[i])
         {
+#ifdef WINRT
+        case CV_CAP_WINRT:
+            capture = cvCreateCameraCapture_WinRT (index);
+            if (capture)
+                return capture;
+            break;
+#endif
 #ifdef HAVE_MSMF
         case CV_CAP_MSMF:
              capture = cvCreateCameraCapture_MSMF (index);
