@@ -74,7 +74,7 @@ void WinRTVideoCapture::GrabFrameAsync(::Media::CaptureFrameGrabber^ frameGrabbe
         }
 
         // create a matrix the size and type of the image
-        CHK(buffer->ContiguousCopyTo(m_mat.data, m_width * m_height * 4));
+        CHK(buffer->ContiguousCopyTo(m_mat.data, m_width * m_height * m_mat.step.buf[1]));
 
         // callback with the matrix containing the video frame
         m_callback(m_mat);
@@ -83,4 +83,3 @@ void WinRTVideoCapture::GrabFrameAsync(::Media::CaptureFrameGrabber^ frameGrabbe
         GrabFrameAsync(frameGrabber);
     }, task_continuation_context::use_current());
 }
-
