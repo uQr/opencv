@@ -7,7 +7,8 @@ ocv_add_module(videoio opencv_imgproc opencv_imgcodecs OPTIONAL opencv_androidca
 #   Jose Luis Blanco, 2008
 # ----------------------------------------------------------------------------
 
-if(HAVE_WINRT_CX AND NOT WINRT)
+#if(HAVE_WINRT_CX AND NOT WINRT)
+if(WINRT)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /ZW")
 endif()
 
@@ -31,6 +32,19 @@ file(GLOB videoio_ext_hdrs
     "${CMAKE_CURRENT_LIST_DIR}/include/opencv2/*.hpp"
     "${CMAKE_CURRENT_LIST_DIR}/include/opencv2/${name}/*.hpp"
     "${CMAKE_CURRENT_LIST_DIR}/include/opencv2/${name}/*.h")
+
+if(WINRT)
+  list(APPEND videoio_srcs
+       ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/CaptureFrameGrabber.cpp
+       ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/MediaStreamSink.cpp
+       ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/WinRTVideoCapture.cpp)
+  list(APPEND videoio_hdrs
+       ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/WinRTVideoCapture.hpp
+       ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/MFIncludes.hpp
+       ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/CaptureFrameGrabber.hpp
+       ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/MediaSink.hpp
+       ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/MediaStreamSink.hpp)
+endif()
 
 if(WIN32 AND NOT ARM)
   list(APPEND videoio_srcs ${CMAKE_CURRENT_LIST_DIR}/src/cap_cmu.cpp)
