@@ -115,7 +115,11 @@ CvVideoWriter* cvCreateVideoWriter_Win32( const char* filename, int fourcc,
 CvVideoWriter* cvCreateVideoWriter_VFW( const char* filename, int fourcc,
                                         double fps, CvSize frameSize, int is_color );
 CvCapture* cvCreateCameraCapture_DShow( int index );
+
+#ifdef WINRT_8_1
 CvCapture* cvCreateCameraCapture_WinRT(int index);
+#endif
+
 CvCapture* cvCreateCameraCapture_MSMF( int index );
 CvCapture* cvCreateFileCapture_MSMF (const char* filename);
 CvVideoWriter* cvCreateVideoWriter_MSMF( const char* filename, int fourcc,
