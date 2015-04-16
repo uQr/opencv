@@ -13,7 +13,11 @@
 #include <guiddef.h>
 #include <mfidl.h>
 #include <Mfapi.h>
-#include <mfplay.h>
+
+#ifdef WINRT_STORE // Available in Modern Desktop SDK only
+    #include <mfplay.h>
+#endif
+
 #include <mfobjects.h>
 #include <tchar.h>
 #include <strsafe.h>
@@ -31,12 +35,21 @@
 #pragma comment(lib, "mfplat")
 #pragma comment(lib, "mf")
 #pragma comment(lib, "mfuuid")
-#pragma comment(lib, "Strmiids")
+
+// TODO: not available on ARM (WS 8.1)
+//#ifdef WINRT_STORE // Available in Modern Desktop SDK only
+//    #pragma comment(lib, "Strmiids")
+//#endif
+
 #pragma comment(lib, "Mfreadwrite")
+
 #if (WINVER >= 0x0602) // Available since Win 8
-#pragma comment(lib, "MinCore_Downlevel")
-#endif
-#endif
+// TODO: not available on ARM (WS 8.1)
+//#ifdef WINRT_STORE // Available in Modern Desktop SDK only
+//#pragma comment(lib, "MinCore_Downlevel")
+//#endif
+#endif // WINVER >= 0x0602
+#endif // _MSC_VER
 
 #include <mferror.h>
 

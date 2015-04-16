@@ -8,7 +8,7 @@ ocv_add_module(videoio opencv_imgproc opencv_imgcodecs OPTIONAL opencv_androidca
 # ----------------------------------------------------------------------------
 
 #if(HAVE_WINRT_CX AND NOT WINRT)
-if(WINRT)
+if(WINRT_8_1)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /ZW")
 endif()
 
@@ -33,17 +33,20 @@ file(GLOB videoio_ext_hdrs
     "${CMAKE_CURRENT_LIST_DIR}/include/opencv2/${name}/*.hpp"
     "${CMAKE_CURRENT_LIST_DIR}/include/opencv2/${name}/*.h")
 
-if(WINRT)
-  list(APPEND videoio_srcs
-       ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/CaptureFrameGrabber.cpp
-       ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/MediaStreamSink.cpp
-       ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/WinRTVideoCapture.cpp)
-  list(APPEND videoio_hdrs
-       ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/WinRTVideoCapture.hpp
-       ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/MFIncludes.hpp
-       ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/CaptureFrameGrabber.hpp
-       ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/MediaSink.hpp
-       ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/MediaStreamSink.hpp)
+# Dependencies used by the implementation referenced
+# below are not available on Windows Phone 8.0.
+# Enabling it for Windows Phone 8.1 only.
+if(WINRT_8_1)
+    list(APPEND videoio_srcs
+        ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/CaptureFrameGrabber.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/MediaStreamSink.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/WinRTVideoCapture.cpp)
+    list(APPEND videoio_hdrs
+        ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/WinRTVideoCapture.hpp
+        ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/MFIncludes.hpp
+        ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/CaptureFrameGrabber.hpp
+        ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/MediaSink.hpp
+        ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/MediaStreamSink.hpp)
 endif()
 
 if(WIN32 AND NOT ARM)
