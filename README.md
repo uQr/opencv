@@ -1,7 +1,7 @@
 #####Changes in this branch:
 
-1. Updates UNIX binaries to use relative RPATH to libraries 
-2. Updates run.py to copy bin and lib folders to the same dir when performing --tests_move
+1. Update UNIX binaries to use relative RPATH to libraries 
+2. Update run.py to copy bin and lib folders to the same dir when performing --tests_move
 
 OSX support is not  implemented because of technical difficulties. It looks like the most common for OSX is post build updating of the absolute paths on binaries.
 
