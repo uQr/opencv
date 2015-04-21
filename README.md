@@ -1,3 +1,17 @@
+#####Changes in this branch:
+
+1. Updates UNIX binaries to use relative RPATH to libraries 
+2. Updates run.py to copy bin and lib folders to the same dir when performing --tests_move
+
+OSX support is not  implemented because of technical difficulties. It looks like the most common for OSX is post build updating of the absolute paths on binaries.
+
+Something like this should work (Checked manual way from [there](https://blogs.oracle.com/dipol/entry/dynamic_libraries_rpath_and_mac)):
+```
+otool -l binary | grep -oE "[^ ]libopencv[^ ]*" | xargs -I % install_name_tool -change % @loader_path/../lib/<substitution of library name>
+```
+
+However it is difficult to get and substitute **```<substitution of library name>```** part in this command using OSX terminal utilities.
+
 ### OpenCV: Open Source Computer Vision Library
 
 [![Gittip](http://img.shields.io/gittip/OpenCV.png)](https://www.gittip.com/OpenCV/)
