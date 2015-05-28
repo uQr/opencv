@@ -1,6 +1,9 @@
 ### OpenCV: Open Source Computer Vision Library
 
-[![Gittip](http://img.shields.io/gittip/OpenCV.png)](https://www.gittip.com/OpenCV/)
+Repo | Branch | Status
+--- | --- | ---
+ms-opencv | master | [![Build status](https://ci.appveyor.com/api/projects/status/dm8062img0852qpb?svg=true)](https://ci.appveyor.com/project/mkostin/opencv)
+itseez-opencv | master | [![Build status](https://ci.appveyor.com/api/projects/status/cethn650hy6u2whq?svg=true)](https://ci.appveyor.com/project/mkostin/opencv-o5l4j)
 
 #### Resources
 
