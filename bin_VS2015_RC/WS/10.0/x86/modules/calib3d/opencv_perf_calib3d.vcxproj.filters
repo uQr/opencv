@@ -26,40 +26,40 @@
     <CustomBuild Include="..\..\..\..\..\..\modules\calib3d\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Projects\opencv\bin\WS\10.0\x86\modules\calib3d\opencv_perf_calib3d.dir\Windows_TemporaryKey.pfx">
+    <None Include="C:\Users\evgen\Documents\TestVS2015\opencv\bin_VS2015_RC\WS\10.0\x86\modules\calib3d\opencv_perf_calib3d.dir\Windows_TemporaryKey.pfx">
       <Filter>Resource Files</Filter>
     </None>
     <AppxManifest Include="opencv_perf_calib3d.dir\package.appxManifest">
       <Filter>Resource Files</Filter>
     </AppxManifest>
-    <Image Include="C:\Projects\opencv\bin\WS\10.0\x86\modules\calib3d\opencv_perf_calib3d.dir\SmallLogo.png">
+    <Image Include="C:\Users\evgen\Documents\TestVS2015\opencv\bin_VS2015_RC\WS\10.0\x86\modules\calib3d\opencv_perf_calib3d.dir\SmallLogo.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="C:\Projects\opencv\bin\WS\10.0\x86\modules\calib3d\opencv_perf_calib3d.dir\Logo.png">
+    <Image Include="C:\Users\evgen\Documents\TestVS2015\opencv\bin_VS2015_RC\WS\10.0\x86\modules\calib3d\opencv_perf_calib3d.dir\Logo.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="C:\Projects\opencv\bin\WS\10.0\x86\modules\calib3d\opencv_perf_calib3d.dir\StoreLogo.png">
+    <Image Include="C:\Users\evgen\Documents\TestVS2015\opencv\bin_VS2015_RC\WS\10.0\x86\modules\calib3d\opencv_perf_calib3d.dir\StoreLogo.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="C:\Projects\opencv\bin\WS\10.0\x86\modules\calib3d\opencv_perf_calib3d.dir\SplashScreen.png">
+    <Image Include="C:\Users\evgen\Documents\TestVS2015\opencv\bin_VS2015_RC\WS\10.0\x86\modules\calib3d\opencv_perf_calib3d.dir\SplashScreen.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Src\opencl">
-      <UniqueIdentifier>{565AD5B7-3CC2-4886-AEDA-AA9CBFA83501}</UniqueIdentifier>
+      <UniqueIdentifier>{BF7F557F-1EA5-4915-B0D7-250A12F59C1A}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{EA129653-3C12-4D00-827F-1540D597E33A}</UniqueIdentifier>
+      <UniqueIdentifier>{62C36C1F-351D-4588-B58B-B336FE1F02EA}</UniqueIdentifier>
     </Filter>
     <Filter Include="Src">
-      <UniqueIdentifier>{639AD057-F757-4E80-81CB-01179A708D2A}</UniqueIdentifier>
+      <UniqueIdentifier>{9DD7BF81-356F-48B4-AF26-827430C25DF4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Include">
-      <UniqueIdentifier>{9B908160-63D6-48E2-96C0-9C83D40278CE}</UniqueIdentifier>
+      <UniqueIdentifier>{4FF3BB87-8DAC-4059-97C2-41B7EAF12D2E}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resource Files">
-      <UniqueIdentifier>{772394F1-5580-4316-95D9-ADAF73A88407}</UniqueIdentifier>
+      <UniqueIdentifier>{17688488-A04A-4571-8D16-C29D75E63E85}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>

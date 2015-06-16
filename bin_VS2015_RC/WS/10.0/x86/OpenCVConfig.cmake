@@ -34,7 +34,6 @@
 #      - OpenCV_LIB_COMPONENTS           : Present OpenCV modules list
 #      - OpenCV_USE_MANGLED_PATHS        : Mangled OpenCV path flag
 #      - OpenCV_MODULES_SUFFIX           : The suffix for OpenCVModules-XXX.cmake file
-#      - OpenCV_HAVE_ANDROID_CAMERA      : Presence of Android native camera wrappers
 #
 #    Deprecated variables:
 #      - OpenCV_VERSION_TWEAK            : Always "0"
@@ -77,6 +76,13 @@ if("FALSE" STREQUAL "TRUE") # value is defined by package builder (use STREQUAL 
 endif()
 
 if(NOT TARGET opencv_core)
+  # Extract directory name from full path of the file currently being processed.
+  # Note that CMake 2.8.3 introduced CMAKE_CURRENT_LIST_DIR. We reimplement it
+  # for older versions of CMake to support these as well.
+  if(CMAKE_VERSION VERSION_LESS "2.8.3")
+    get_filename_component(CMAKE_CURRENT_LIST_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+  endif()
+
   include(${CMAKE_CURRENT_LIST_DIR}/OpenCVModules${OpenCV_MODULES_SUFFIX}.cmake)
 endif()
 
@@ -120,15 +126,12 @@ if(NOT WIN32 OR ANDROID)
   endif()
 endif()
 
-# Presence of Android native camera wrappers
-set(OpenCV_HAVE_ANDROID_CAMERA OFF)
-
 # ======================================================
 # Include directories to add to the user project:
 # ======================================================
 
 # Provide the include directories to the caller
-set(OpenCV_INCLUDE_DIRS "C:/Projects/opencv/bin/WS/10.0/x86" "C:/Projects/opencv/include" "C:/Projects/opencv/include/opencv")
+set(OpenCV_INCLUDE_DIRS "C:/Users/evgen/Documents/TestVS2015/opencv/bin_VS2015_RC/WS/10.0/x86" "C:/Users/evgen/Documents/TestVS2015/opencv/include" "C:/Users/evgen/Documents/TestVS2015/opencv/include/opencv")
 
 # ======================================================
 # Link directories to add to the user project:
@@ -155,13 +158,13 @@ SET(OpenCV_VERSION_STATUS "-dev")
 # Link libraries: e.g. opencv_core;opencv_imgproc; etc...
 # ====================================================================
 
-SET(OpenCV_LIB_COMPONENTS opencv_videostab;opencv_videoio;opencv_video;opencv_ts;opencv_stitching;opencv_shape;opencv_photo;opencv_objdetect;opencv_ml;opencv_imgproc;opencv_imgcodecs;opencv_hal;opencv_flann;opencv_features2d;opencv_core;opencv_calib3d)
+SET(OpenCV_LIB_COMPONENTS opencv_videostab;opencv_videoio;opencv_video;opencv_stitching;opencv_shape;opencv_photo;opencv_objdetect;opencv_ml;opencv_imgproc;opencv_imgcodecs;opencv_hal;opencv_flann;opencv_features2d;opencv_core;opencv_calib3d)
 SET(OpenCV_WORLD_COMPONENTS )
 
 # ==============================================================
 #  Extra include directories, needed by OpenCV 2 new structure
 # ==============================================================
-SET(OpenCV2_INCLUDE_DIRS C:/Projects/opencv/modules/hal/include;C:/Projects/opencv/modules/core/include;C:/Projects/opencv/modules/flann/include;C:/Projects/opencv/modules/imgproc/include;C:/Projects/opencv/modules/ml/include;C:/Projects/opencv/modules/objdetect/include;C:/Projects/opencv/modules/photo/include;C:/Projects/opencv/modules/video/include;C:/Projects/opencv/modules/features2d/include;C:/Projects/opencv/modules/imgcodecs/include;C:/Projects/opencv/modules/shape/include;C:/Projects/opencv/modules/videoio/include;C:/Projects/opencv/modules/calib3d/include;C:/Projects/opencv/modules/stitching/include;C:/Projects/opencv/modules/ts/include;C:/Projects/opencv/modules/videostab/include)
+SET(OpenCV2_INCLUDE_DIRS C:/Users/evgen/Documents/TestVS2015/opencv/modules/hal/include;C:/Users/evgen/Documents/TestVS2015/opencv/modules/core/include;C:/Users/evgen/Documents/TestVS2015/opencv/modules/flann/include;C:/Users/evgen/Documents/TestVS2015/opencv/modules/imgproc/include;C:/Users/evgen/Documents/TestVS2015/opencv/modules/ml/include;C:/Users/evgen/Documents/TestVS2015/opencv/modules/objdetect/include;C:/Users/evgen/Documents/TestVS2015/opencv/modules/photo/include;C:/Users/evgen/Documents/TestVS2015/opencv/modules/video/include;C:/Users/evgen/Documents/TestVS2015/opencv/modules/features2d/include;C:/Users/evgen/Documents/TestVS2015/opencv/modules/imgcodecs/include;C:/Users/evgen/Documents/TestVS2015/opencv/modules/shape/include;C:/Users/evgen/Documents/TestVS2015/opencv/modules/videoio/include;C:/Users/evgen/Documents/TestVS2015/opencv/modules/calib3d/include;C:/Users/evgen/Documents/TestVS2015/opencv/modules/stitching/include;C:/Users/evgen/Documents/TestVS2015/opencv/modules/ts/include;C:/Users/evgen/Documents/TestVS2015/opencv/modules/videostab/include)
 if(OpenCV2_INCLUDE_DIRS)
   list(APPEND OpenCV_INCLUDE_DIRS ${OpenCV2_INCLUDE_DIRS})
 
@@ -316,24 +319,6 @@ foreach(__opttype OPT DBG)
     link_directories(${OpenCV_CUDA_LIBS_RELPATH})
   endif()
 endforeach()
-
-# ==============================================================
-#  Android camera helper macro
-# ==============================================================
-if(OpenCV_HAVE_ANDROID_CAMERA)
-  macro(COPY_NATIVE_CAMERA_LIBS target)
-    get_target_property(target_location ${target} LOCATION)
-    get_filename_component(target_location "${target_location}" PATH)
-    file(GLOB camera_wrappers "${OpenCV_LIB_DIR_OPT}/libnative_camera_r*.so")
-    foreach(wrapper ${camera_wrappers})
-      add_custom_command(
-        TARGET ${target}
-        POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy "${wrapper}" "${target_location}"
-      )
-    endforeach()
-  endmacro()
-endif()
 
 # ==============================================================
 # Compatibility stuff

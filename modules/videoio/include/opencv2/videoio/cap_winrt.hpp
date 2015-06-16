@@ -29,8 +29,6 @@
 #include <concrt.h>
 #include <agile.h>
 
-using namespace Windows::UI::Xaml::Controls;
-
 namespace cv
 {
 

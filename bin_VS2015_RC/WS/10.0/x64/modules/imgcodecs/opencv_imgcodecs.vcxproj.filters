@@ -129,19 +129,19 @@
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{A3D54263-A401-4A58-8766-0CA8180AEEF5}</UniqueIdentifier>
+      <UniqueIdentifier>{5E809FD4-5489-4D04-9447-2E9A06F29FEE}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{F40FB901-5BC5-4CEC-BF79-D0705AFA4BCF}</UniqueIdentifier>
+      <UniqueIdentifier>{2D5F5252-FF61-49C1-93EF-F5BD2137EBBA}</UniqueIdentifier>
     </Filter>
     <Filter Include="Src">
-      <UniqueIdentifier>{F536E990-F861-4B27-A9D3-53FAB7A9A3AF}</UniqueIdentifier>
+      <UniqueIdentifier>{AAB15EBC-D207-428E-B948-7B6D316BE322}</UniqueIdentifier>
     </Filter>
     <Filter Include="Include">
-      <UniqueIdentifier>{4D18A0F3-97E3-49EB-885C-F77940E31CC3}</UniqueIdentifier>
+      <UniqueIdentifier>{66801E9F-442C-4186-B8EB-E5A05EED4418}</UniqueIdentifier>
     </Filter>
     <Filter Include="Src\grfmts">
-      <UniqueIdentifier>{5F52CD0B-DD63-429A-AC81-09C95DFD0041}</UniqueIdentifier>
+      <UniqueIdentifier>{1E1879B8-3FB8-45C5-B0FC-8DC1877A030B}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

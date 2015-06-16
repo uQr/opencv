@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{BBAD109C-125C-41F8-B420-CD22A324A30A}</ProjectGUID>
+    <ProjectGUID>{E6549560-6589-4899-AB3C-E8EBA66CD065}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -80,13 +80,13 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/modules/photo/opencv_perf_photo.vcxproj">
-      <Project>5F1EE459-DC5D-4CBA-B4EF-CDCD1899B56B</Project>
+      <Project>C709D014-11F0-4932-951F-938843801148</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/modules/photo/opencv_photo.vcxproj">
-      <Project>AA0DBC58-C8A5-48AA-B7FC-C1D297CC0A40</Project>
+      <Project>11641C4F-92CE-434C-83B9-3FFC390CD515</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/modules/photo/opencv_test_photo.vcxproj">
-      <Project>EFD257E6-A8D4-46F1-89D4-5F6F4BF95B88</Project>
+      <Project>5A759A27-32A5-418D-9967-24713CBBDFBF</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

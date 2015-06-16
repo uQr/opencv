@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{CBC0E4EF-60DE-4E08-A4AB-3191C117ACFE}</ProjectGUID>
+    <ProjectGUID>{DD10BC36-6ECE-4AF1-9152-AF0118813FD3}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -80,13 +80,13 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/modules/stitching/opencv_perf_stitching.vcxproj">
-      <Project>97C7C448-77F7-449C-A3FF-86A9A37A7966</Project>
+      <Project>F3A30364-FC3B-498C-BE5F-175866427BF8</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/modules/stitching/opencv_stitching.vcxproj">
-      <Project>35F20107-62F9-49E4-BE36-303FE1405DF6</Project>
+      <Project>3630530F-C2F1-4F2D-B3BF-5A8EE8EAE5D8</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/modules/stitching/opencv_test_stitching.vcxproj">
-      <Project>FF6F6F02-267D-46BC-8EFB-FC686D7844E4</Project>
+      <Project>53C18153-BDF4-4089-B5F9-A57BE7533C71</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

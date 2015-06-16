@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{BBAD109C-125C-41F8-B420-CD22A324A30A}</ProjectGUID>
+    <ProjectGUID>{E6549560-6589-4899-AB3C-E8EBA66CD065}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -80,13 +80,13 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/modules/objdetect/opencv_objdetect.vcxproj">
-      <Project>A6FBD7AC-E453-4031-AA67-23573A71A0C6</Project>
+      <Project>CD0825CD-1DD6-4F1A-9B6C-37C00F0191F5</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/modules/objdetect/opencv_perf_objdetect.vcxproj">
-      <Project>4D0CA438-6C1B-4E70-8E83-7CFD5C8CF2DF</Project>
+      <Project>5F3E5E1F-C1A0-4DAA-91CF-CFEE06367FB7</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/modules/objdetect/opencv_test_objdetect.vcxproj">
-      <Project>D164D7C4-A2A0-4C6D-A6D2-EC351E905F07</Project>
+      <Project>9EBC9E33-8D2A-4894-8BC2-EC85739ABECE</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

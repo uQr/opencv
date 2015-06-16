@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{B2A3210F-700D-4DC7-AA39-BB8FE350D177}</ProjectGUID>
+    <ProjectGUID>{C318CDD0-E474-4BAC-A7A9-A75A2670C057}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -248,31 +248,31 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/ZERO_CHECK.vcxproj">
-      <Project>A2D8558F-F1C3-49C2-917C-C2A91FCDE0E7</Project>
+      <Project>EC0254CF-9800-46BD-A27C-FC26FE0668AF</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/3rdparty/libjasper/libjasper.vcxproj">
-      <Project>076586CA-4AC8-4AB0-8322-B3BF15053080</Project>
+      <Project>F86F6EF3-9788-46E0-A9A6-AE5D21DEB239</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/3rdparty/libjpeg/libjpeg.vcxproj">
-      <Project>97D44FF4-6AA1-458F-B9B2-F44F23BA089D</Project>
+      <Project>AD9CCEAA-847A-4AE6-A66D-A002EDEFED0D</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/3rdparty/libpng/libpng.vcxproj">
-      <Project>160A81BC-E63A-4D22-BAEE-08C20E7929AC</Project>
+      <Project>BD4D854B-37E5-4461-84A0-BE79FB6766C6</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/3rdparty/libtiff/libtiff.vcxproj">
-      <Project>B4ED8CDE-B068-4C44-9F2B-540AA98D0BBB</Project>
+      <Project>28D45F29-78F4-49D6-B5D5-1960378BDDE9</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/modules/core/opencv_core.vcxproj">
-      <Project>3A981105-210D-4525-8207-9388C5287E03</Project>
+      <Project>9B0A2ABC-5736-47B3-8F81-859A92B45A06</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/modules/hal/opencv_hal.vcxproj">
-      <Project>282787A0-CAB3-4D69-80C6-A5D5F3D585D7</Project>
+      <Project>4E4A61E1-711C-4AAB-8F8B-A87C4FEC46A1</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/modules/imgproc/opencv_imgproc.vcxproj">
-      <Project>E45EE2BE-C86E-43F8-A65E-5F2FA62F623D</Project>
+      <Project>5A692C0E-5638-45DA-B8F7-5C88CC165F78</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/3rdparty/zlib/zlib.vcxproj">
-      <Project>7998438F-6903-470B-A2EF-793CFBD6C112</Project>
+      <Project>F8BD0676-CB1B-43A9-8B67-92D02EF4FFBE</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

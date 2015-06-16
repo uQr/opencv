@@ -1210,12 +1210,19 @@ TEST(Core_Mat, copyNx1ToVector)
     ASSERT_PRED_FORMAT2(cvtest::MatComparator(0, 0), ref_dst16, cv::Mat_<ushort>(dst16));
 }
 
+/*
+Disabled in VS2015RC:
+Error C2672 'cv::Mat::operator cv::Matx<double,2,2>': no matching overloaded function found
+Error C3861 '.?AV?$Matx@N$01$01@cv@@': identifier not found
+*/
+#if _MSC_VER < 1900
 TEST(Core_Matx, fromMat_)
 {
     Mat_<double> a = (Mat_<double>(2,2) << 10, 11, 12, 13);
     Matx22d b(a);
     ASSERT_EQ( norm(a, b, NORM_INF), 0.);
 }
+#endif
 
 TEST(Core_InputArray, empty)
 {

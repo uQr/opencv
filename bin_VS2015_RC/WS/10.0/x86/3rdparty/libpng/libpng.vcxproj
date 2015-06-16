@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{106F1FD0-0524-48D3-BE82-AC9A6A5FDF37}</ProjectGUID>
+    <ProjectGUID>{44D62932-CEAB-4EBC-A707-AFAF6E1E258E}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -163,10 +163,10 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/ZERO_CHECK.vcxproj">
-      <Project>F634A3F9-2433-4648-B75C-FCB1B3A00E1B</Project>
+      <Project>F271AD6D-4539-4C7C-A353-CFD155E6B283</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/3rdparty/zlib/zlib.vcxproj">
-      <Project>FEC689BC-1763-429D-AC6F-1C9C5A91D17E</Project>
+      <Project>B4864AAB-EB8A-4ED4-B8DD-228702D86FA9</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

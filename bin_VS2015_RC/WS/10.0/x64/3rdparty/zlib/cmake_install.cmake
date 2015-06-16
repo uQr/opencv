@@ -1,4 +1,4 @@
-# Install script for directory: C:/Projects/opencv/3rdparty/zlib
+# Install script for directory: C:/Users/evgen/Documents/TestVS2015/opencv/3rdparty/zlib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

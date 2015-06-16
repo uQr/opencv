@@ -2,17 +2,17 @@
 # File that provides "make uninstall" target
 #  We use the file 'install_manifest.txt'
 # -----------------------------------------------
-IF(NOT EXISTS "C:/Projects/opencv/bin/WS/10.0/x64/install_manifest.txt")
-  MESSAGE(FATAL_ERROR "Cannot find install manifest: \"C:/Projects/opencv/bin/WS/10.0/x64/install_manifest.txt\"")
-ENDIF(NOT EXISTS "C:/Projects/opencv/bin/WS/10.0/x64/install_manifest.txt")
+IF(NOT EXISTS "C:/Users/evgen/Documents/TestVS2015/opencv/bin_VS2015_RC/WS/10.0/x64/install_manifest.txt")
+  MESSAGE(FATAL_ERROR "Cannot find install manifest: \"C:/Users/evgen/Documents/TestVS2015/opencv/bin_VS2015_RC/WS/10.0/x64/install_manifest.txt\"")
+ENDIF(NOT EXISTS "C:/Users/evgen/Documents/TestVS2015/opencv/bin_VS2015_RC/WS/10.0/x64/install_manifest.txt")
 
-FILE(READ "C:/Projects/opencv/bin/WS/10.0/x64/install_manifest.txt" files)
+FILE(READ "C:/Users/evgen/Documents/TestVS2015/opencv/bin_VS2015_RC/WS/10.0/x64/install_manifest.txt" files)
 STRING(REGEX REPLACE "\n" ";" files "${files}")
 FOREACH(file ${files})
   MESSAGE(STATUS "Uninstalling \"$ENV{DESTDIR}${file}\"")
   IF(EXISTS "$ENV{DESTDIR}${file}")
     EXEC_PROGRAM(
-      "C:/Projects/CMake/bin/bin/Release/cmake.exe" ARGS "-E remove \"$ENV{DESTDIR}${file}\""
+      "C:/Program Files (x86)/CMake/bin/cmake.exe" ARGS "-E remove \"$ENV{DESTDIR}${file}\""
       OUTPUT_VARIABLE rm_out
       RETURN_VALUE rm_retval
       )

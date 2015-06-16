@@ -1,4 +1,4 @@
-# Install script for directory: C:/Projects/opencv/modules/python
+# Install script for directory: C:/Users/evgen/Documents/TestVS2015/opencv/modules/python
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

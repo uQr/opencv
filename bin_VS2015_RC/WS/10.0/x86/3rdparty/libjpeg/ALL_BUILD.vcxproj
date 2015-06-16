@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{BBAD109C-125C-41F8-B420-CD22A324A30A}</ProjectGUID>
+    <ProjectGUID>{E6549560-6589-4899-AB3C-E8EBA66CD065}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -80,7 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/3rdparty/libjpeg/libjpeg.vcxproj">
-      <Project>B90948F7-8952-4883-8C74-03093916E20C</Project>
+      <Project>0BE1DBD9-06AC-4C19-93F3-6D5FD4953FBB</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

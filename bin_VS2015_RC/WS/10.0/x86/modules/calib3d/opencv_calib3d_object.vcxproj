@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{A64B37A5-2A61-4122-B716-641062099E24}</ProjectGUID>
+    <ProjectGUID>{6CBE1781-2D7E-456B-8070-8018174AFA47}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -140,13 +140,13 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\..\CMakeFiles\52e032baa53138927a9dea23b6315c49\opencl_kernels_calib3d.cpp.rule">
+    <CustomBuild Include="..\..\CMakeFiles\80b8d4008549ac201ac66e7afed221c9\opencl_kernels_calib3d.cpp.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating opencl_kernels_calib3d.cpp, opencl_kernels_calib3d.hpp</Message>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/CMakeFiles/52e032baa53138927a9dea23b6315c49/opencl_kernels_calib3d.cpp.rule;$(OCV2015_ROOT)\modules\calib3d\src\opencl\stereobm.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/CMakeFiles/80b8d4008549ac201ac66e7afed221c9/opencl_kernels_calib3d.cpp.rule;$(OCV2015_ROOT)\modules\calib3d\src\opencl\stereobm.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x86\modules\calib3d\opencl_kernels_calib3d.cpp;$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x86\modules\calib3d\opencl_kernels_calib3d.hpp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating opencl_kernels_calib3d.cpp, opencl_kernels_calib3d.hpp</Message>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/CMakeFiles/52e032baa53138927a9dea23b6315c49/opencl_kernels_calib3d.cpp.rule;$(OCV2015_ROOT)\modules\calib3d\src\opencl\stereobm.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/CMakeFiles/80b8d4008549ac201ac66e7afed221c9/opencl_kernels_calib3d.cpp.rule;$(OCV2015_ROOT)\modules\calib3d\src\opencl\stereobm.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x86\modules\calib3d\opencl_kernels_calib3d.cpp;$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x86\modules\calib3d\opencl_kernels_calib3d.hpp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
     </CustomBuild>
@@ -201,7 +201,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/ZERO_CHECK.vcxproj">
-      <Project>F634A3F9-2433-4648-B75C-FCB1B3A00E1B</Project>
+      <Project>F271AD6D-4539-4C7C-A353-CFD155E6B283</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

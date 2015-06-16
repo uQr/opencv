@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{5FAA1166-3169-4FC4-B5F0-4606D47010D2}</ProjectGUID>
+    <ProjectGUID>{C24FCDA4-450B-4BAE-BD53-89B5633C2906}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -143,11 +143,22 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\..\modules\hal\include\opencv2\hal.hpp" />
+    <ClInclude Include="..\..\..\..\..\..\modules\hal\include\opencv2\hal\intrin.hpp" />
+    <ClInclude Include="..\..\..\..\..\..\modules\hal\include\opencv2\hal\intrin_cpp.hpp" />
+    <ClInclude Include="..\..\..\..\..\..\modules\hal\include\opencv2\hal\intrin_neon.hpp" />
+    <ClInclude Include="..\..\..\..\..\..\modules\hal\include\opencv2\hal\intrin_sse.hpp" />
     <ClInclude Include="..\..\..\..\..\..\modules\hal\include\opencv2\hal\defs.h" />
     <ClInclude Include="..\..\..\..\..\..\modules\hal\src\precomp.hpp" />
     <ClInclude Include="..\..\cvconfig.h" />
     <ClInclude Include="..\..\opencv2\opencv_modules.hpp" />
-    <ClCompile Include="..\..\..\..\..\..\modules\hal\src\norm.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\modules\hal\src\arithm.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\modules\hal\src\color.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\modules\hal\src\filter.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\modules\hal\src\mathfuncs.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\modules\hal\src\matrix.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\modules\hal\src\resize.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\modules\hal\src\stat.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\modules\hal\src\warp.cpp" />
     <ClCompile Include="opencv_hal_pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OCV2015_ROOT)/modules/hal/src/precomp.hpp</PrecompiledHeaderFile>
@@ -157,7 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/ZERO_CHECK.vcxproj">
-      <Project>A2D8558F-F1C3-49C2-917C-C2A91FCDE0E7</Project>
+      <Project>EC0254CF-9800-46BD-A27C-FC26FE0668AF</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

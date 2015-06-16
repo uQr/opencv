@@ -4,8 +4,8 @@
 	xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
 	IgnorableNamespaces="uap mp">
 
-	<Identity Name="00BDCA99-C6CA-4BFA-8F67-099F3CB65802" Publisher="CN=CMake" Version="1.0.0.0" />
-	<mp:PhoneIdentity PhoneProductId="00BDCA99-C6CA-4BFA-8F67-099F3CB65802" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+	<Identity Name="49B12A69-29C6-4661-B4E9-778064ED6E52" Publisher="CN=CMake" Version="1.0.0.0" />
+	<mp:PhoneIdentity PhoneProductId="49B12A69-29C6-4661-B4E9-778064ED6E52" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 	<Properties>
 		<DisplayName>opencv_test_shape</DisplayName>
 		<PublisherDisplayName>CMake</PublisherDisplayName>

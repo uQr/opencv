@@ -1,4 +1,4 @@
-# Install script for directory: C:/Projects/opencv/modules/video
+# Install script for directory: C:/Users/evgen/Documents/TestVS2015/opencv/modules/video
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

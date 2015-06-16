@@ -1,4 +1,4 @@
-# Install script for directory: C:/Projects/opencv/modules/cudawarping
+# Install script for directory: C:/Users/evgen/Documents/TestVS2015/opencv/modules/cudawarping
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{405118DC-C8B9-4B0B-A179-7F0F47DDB7BF}</ProjectGUID>
+    <ProjectGUID>{E532AC84-F151-469B-9A17-2B1C5AB91D17}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -140,13 +140,13 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\..\CMakeFiles\1628f19b6c46e28c86e992ceeaaa423a\opencl_kernels_photo.cpp.rule">
+    <CustomBuild Include="..\..\CMakeFiles\429d01578a88723877831dbdda2328d5\opencl_kernels_photo.cpp.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating opencl_kernels_photo.cpp, opencl_kernels_photo.hpp</Message>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/CMakeFiles/1628f19b6c46e28c86e992ceeaaa423a/opencl_kernels_photo.cpp.rule;$(OCV2015_ROOT)\modules\photo\src\opencl\nlmeans.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/CMakeFiles/429d01578a88723877831dbdda2328d5/opencl_kernels_photo.cpp.rule;$(OCV2015_ROOT)\modules\photo\src\opencl\nlmeans.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x86\modules\photo\opencl_kernels_photo.cpp;$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x86\modules\photo\opencl_kernels_photo.hpp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating opencl_kernels_photo.cpp, opencl_kernels_photo.hpp</Message>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/CMakeFiles/1628f19b6c46e28c86e992ceeaaa423a/opencl_kernels_photo.cpp.rule;$(OCV2015_ROOT)\modules\photo\src\opencl\nlmeans.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/CMakeFiles/429d01578a88723877831dbdda2328d5/opencl_kernels_photo.cpp.rule;$(OCV2015_ROOT)\modules\photo\src\opencl\nlmeans.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x86\modules\photo\opencl_kernels_photo.cpp;$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x86\modules\photo\opencl_kernels_photo.hpp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
     </CustomBuild>
@@ -192,7 +192,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/ZERO_CHECK.vcxproj">
-      <Project>F634A3F9-2433-4648-B75C-FCB1B3A00E1B</Project>
+      <Project>F271AD6D-4539-4C7C-A353-CFD155E6B283</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

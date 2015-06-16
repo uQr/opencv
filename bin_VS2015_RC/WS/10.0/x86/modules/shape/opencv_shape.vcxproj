@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{559A3D70-B378-42C2-B2BA-D02E430EA1C7}</ProjectGUID>
+    <ProjectGUID>{53AA3515-5341-498F-92E5-0359FD195DBC}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -225,19 +225,19 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/ZERO_CHECK.vcxproj">
-      <Project>F634A3F9-2433-4648-B75C-FCB1B3A00E1B</Project>
+      <Project>F271AD6D-4539-4C7C-A353-CFD155E6B283</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/modules/core/opencv_core.vcxproj">
-      <Project>0E33B916-C796-43F7-A151-7144AD59CBEF</Project>
+      <Project>BB652B40-A832-4207-8B49-A3A7D309B90F</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/modules/hal/opencv_hal.vcxproj">
-      <Project>59E9DEEE-0461-49EA-AE5B-CEA8CD627C3C</Project>
+      <Project>631005BD-55CF-4649-B96A-C83E78C9B900</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/modules/imgproc/opencv_imgproc.vcxproj">
-      <Project>A10F0613-F9BA-4A65-8FF5-0EC044BEAE2D</Project>
+      <Project>F21F16E2-A361-429B-9775-97A9DDCB82B3</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/modules/video/opencv_video.vcxproj">
-      <Project>0486F3A2-C65E-4114-8C09-192C2E660684</Project>
+      <Project>FC46C7F4-1CA4-4C35-8CAF-19E8CD594E51</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,4 +1,4 @@
-# Install script for directory: C:/Projects/opencv/doc
+# Install script for directory: C:/Users/evgen/Documents/TestVS2015/opencv/doc
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -2,7 +2,7 @@
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <CustomBuild Include="..\..\..\..\CMakeLists.txt" />
-    <CustomBuild Include="CMakeFiles\efdf3ba64a04205fb498ef2f5d6f8f07\uninstall.rule">
+    <CustomBuild Include="CMakeFiles\8bf8ec252caa3f3c691d8c7a0b6bead8\uninstall.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
   </ItemGroup>
@@ -11,7 +11,7 @@
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{435B94FD-8E48-4C72-86B8-96560CD83AEA}</UniqueIdentifier>
+      <UniqueIdentifier>{E88F56C9-7BE0-4D82-A3E4-7EE26B54F3CE}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -40,7 +40,9 @@
 //M*/
 
 #include "test_precomp.hpp"
+#ifndef WINRT
 #include "opencv2/highgui.hpp"
+#endif
 
 using namespace cv;
 using namespace std;

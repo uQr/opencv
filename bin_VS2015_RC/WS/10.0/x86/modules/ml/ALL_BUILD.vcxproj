@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{BBAD109C-125C-41F8-B420-CD22A324A30A}</ProjectGUID>
+    <ProjectGUID>{E6549560-6589-4899-AB3C-E8EBA66CD065}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -80,10 +80,10 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/modules/ml/opencv_ml.vcxproj">
-      <Project>36F787EC-5B35-40D8-A1D6-08348C46F286</Project>
+      <Project>1DD63369-B1A7-4081-A3BC-830108C6D6B4</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/modules/ml/opencv_test_ml.vcxproj">
-      <Project>B77B668D-FF28-48D7-8511-BC1C9FB16DB7</Project>
+      <Project>C16F0538-4815-4290-AAF0-5190CF852EE6</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

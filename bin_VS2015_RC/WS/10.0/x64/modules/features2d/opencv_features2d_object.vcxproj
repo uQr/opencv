@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{BD4E4710-430E-4DAF-9103-5AFB8E7A54DF}</ProjectGUID>
+    <ProjectGUID>{12899AB6-4E14-4251-9B09-865C6005203B}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -142,13 +142,13 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\..\CMakeFiles\1bfbaf511229c5a621222d0293bb8701\opencl_kernels_features2d.cpp.rule">
+    <CustomBuild Include="..\..\CMakeFiles\a1f2d12db8316ffa428d77ae887da1b2\opencl_kernels_features2d.cpp.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating opencl_kernels_features2d.cpp, opencl_kernels_features2d.hpp</Message>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/CMakeFiles/1bfbaf511229c5a621222d0293bb8701/opencl_kernels_features2d.cpp.rule;$(OCV2015_ROOT)\modules\features2d\src\opencl\brute_force_match.cl;$(OCV2015_ROOT)\modules\features2d\src\opencl\fast.cl;$(OCV2015_ROOT)\modules\features2d\src\opencl\orb.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/CMakeFiles/a1f2d12db8316ffa428d77ae887da1b2/opencl_kernels_features2d.cpp.rule;$(OCV2015_ROOT)\modules\features2d\src\opencl\brute_force_match.cl;$(OCV2015_ROOT)\modules\features2d\src\opencl\fast.cl;$(OCV2015_ROOT)\modules\features2d\src\opencl\orb.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x64\modules\features2d\opencl_kernels_features2d.cpp;$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x64\modules\features2d\opencl_kernels_features2d.hpp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating opencl_kernels_features2d.cpp, opencl_kernels_features2d.hpp</Message>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/CMakeFiles/1bfbaf511229c5a621222d0293bb8701/opencl_kernels_features2d.cpp.rule;$(OCV2015_ROOT)\modules\features2d\src\opencl\brute_force_match.cl;$(OCV2015_ROOT)\modules\features2d\src\opencl\fast.cl;$(OCV2015_ROOT)\modules\features2d\src\opencl\orb.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/CMakeFiles/a1f2d12db8316ffa428d77ae887da1b2/opencl_kernels_features2d.cpp.rule;$(OCV2015_ROOT)\modules\features2d\src\opencl\brute_force_match.cl;$(OCV2015_ROOT)\modules\features2d\src\opencl\fast.cl;$(OCV2015_ROOT)\modules\features2d\src\opencl\orb.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x64\modules\features2d\opencl_kernels_features2d.cpp;$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x64\modules\features2d\opencl_kernels_features2d.hpp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
     </CustomBuild>
@@ -157,6 +157,7 @@
     <ClInclude Include="..\..\..\..\..\..\modules\features2d\include\opencv2\features2d.hpp" />
     <ClInclude Include="..\..\..\..\..\..\modules\features2d\include\opencv2\features2d\features2d.hpp" />
     <ClInclude Include="opencl_kernels_features2d.hpp" />
+    <ClInclude Include="..\..\..\..\..\..\modules\features2d\src\agast_score.hpp" />
     <ClInclude Include="..\..\..\..\..\..\modules\features2d\src\fast_score.hpp" />
     <ClInclude Include="..\..\..\..\..\..\modules\features2d\src\precomp.hpp" />
     <ClInclude Include="..\..\..\..\..\..\modules\features2d\src\kaze\AKAZEConfig.h" />
@@ -169,6 +170,8 @@
     <ClInclude Include="..\..\..\..\..\..\modules\features2d\src\kaze\utils.h" />
     <ClInclude Include="..\..\cvconfig.h" />
     <ClInclude Include="..\..\opencv2\opencv_modules.hpp" />
+    <ClCompile Include="..\..\..\..\..\..\modules\features2d\src\agast.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\modules\features2d\src\agast_score.cpp" />
     <ClCompile Include="..\..\..\..\..\..\modules\features2d\src\akaze.cpp" />
     <ClCompile Include="..\..\..\..\..\..\modules\features2d\src\bagofwords.cpp" />
     <ClCompile Include="..\..\..\..\..\..\modules\features2d\src\blobdetector.cpp" />
@@ -199,7 +202,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/ZERO_CHECK.vcxproj">
-      <Project>A2D8558F-F1C3-49C2-917C-C2A91FCDE0E7</Project>
+      <Project>EC0254CF-9800-46BD-A27C-FC26FE0668AF</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

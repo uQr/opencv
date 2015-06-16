@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{BBAD109C-125C-41F8-B420-CD22A324A30A}</ProjectGUID>
+    <ProjectGUID>{E6549560-6589-4899-AB3C-E8EBA66CD065}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -80,13 +80,13 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/modules/calib3d/opencv_calib3d.vcxproj">
-      <Project>A034A7FF-9CCC-458B-BE71-31705A2C2B90</Project>
+      <Project>3A97E7B4-DAC7-4E63-9875-B9D41D435D32</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/modules/calib3d/opencv_perf_calib3d.vcxproj">
-      <Project>B0C3BA5B-A926-4663-8805-C440E4AEC33D</Project>
+      <Project>8BA63ABE-EFDD-4E0D-8C6B-45140D7C0347</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/modules/calib3d/opencv_test_calib3d.vcxproj">
-      <Project>0522900E-6E9E-4AD9-90CC-0F34BA1D1732</Project>
+      <Project>E478B060-EE2A-4FA0-A7E7-C429218622A8</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

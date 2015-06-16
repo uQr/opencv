@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{A5E99E95-160B-45B6-8D6F-DF182D018190}</ProjectGUID>
+    <ProjectGUID>{671CF7E3-91C2-403C-8F26-796D5856727E}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -140,13 +140,13 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\..\CMakeFiles\6650446cccb8d514a7f814f4a4ed9610\opencl_kernels_objdetect.cpp.rule">
+    <CustomBuild Include="..\..\CMakeFiles\53487ea165a7db702dcecd815f66a989\opencl_kernels_objdetect.cpp.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating opencl_kernels_objdetect.cpp, opencl_kernels_objdetect.hpp</Message>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/CMakeFiles/6650446cccb8d514a7f814f4a4ed9610/opencl_kernels_objdetect.cpp.rule;$(OCV2015_ROOT)\modules\objdetect\src\opencl\cascadedetect.cl;$(OCV2015_ROOT)\modules\objdetect\src\opencl\objdetect_hog.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/CMakeFiles/53487ea165a7db702dcecd815f66a989/opencl_kernels_objdetect.cpp.rule;$(OCV2015_ROOT)\modules\objdetect\src\opencl\cascadedetect.cl;$(OCV2015_ROOT)\modules\objdetect\src\opencl\objdetect_hog.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x86\modules\objdetect\opencl_kernels_objdetect.cpp;$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x86\modules\objdetect\opencl_kernels_objdetect.hpp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating opencl_kernels_objdetect.cpp, opencl_kernels_objdetect.hpp</Message>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/CMakeFiles/6650446cccb8d514a7f814f4a4ed9610/opencl_kernels_objdetect.cpp.rule;$(OCV2015_ROOT)\modules\objdetect\src\opencl\cascadedetect.cl;$(OCV2015_ROOT)\modules\objdetect\src\opencl\objdetect_hog.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/CMakeFiles/53487ea165a7db702dcecd815f66a989/opencl_kernels_objdetect.cpp.rule;$(OCV2015_ROOT)\modules\objdetect\src\opencl\cascadedetect.cl;$(OCV2015_ROOT)\modules\objdetect\src\opencl\objdetect_hog.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x86\modules\objdetect\opencl_kernels_objdetect.cpp;$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x86\modules\objdetect\opencl_kernels_objdetect.hpp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
     </CustomBuild>
@@ -176,7 +176,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/ZERO_CHECK.vcxproj">
-      <Project>F634A3F9-2433-4648-B75C-FCB1B3A00E1B</Project>
+      <Project>F271AD6D-4539-4C7C-A353-CFD155E6B283</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

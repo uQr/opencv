@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{CBC0E4EF-60DE-4E08-A4AB-3191C117ACFE}</ProjectGUID>
+    <ProjectGUID>{DD10BC36-6ECE-4AF1-9152-AF0118813FD3}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -80,13 +80,13 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/modules/video/opencv_perf_video.vcxproj">
-      <Project>92D8A690-E08A-44E6-AC3B-E5CDE853F427</Project>
+      <Project>6BD8EA89-FD50-42BA-915B-C07836D6109B</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/modules/video/opencv_test_video.vcxproj">
-      <Project>B9880435-5924-4D4D-A122-4E547FD78089</Project>
+      <Project>A349A20F-A6E8-4B92-B044-B41AF118A67B</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/modules/video/opencv_video.vcxproj">
-      <Project>72F22806-3653-4894-A995-404592CC1307</Project>
+      <Project>1BD7215E-5FB2-4CEF-9773-AE8BE33AC4DA</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

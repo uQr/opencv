@@ -7,7 +7,7 @@ ocv_add_module(videoio opencv_imgproc opencv_imgcodecs WRAP java python)
 #   Jose Luis Blanco, 2008
 # ----------------------------------------------------------------------------
 
-if(WINRT_8_1)
+if(DEFINED WINRT AND NOT DEFINED WINRT_8_0)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /ZW")
 endif()
 

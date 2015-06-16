@@ -46,6 +46,9 @@
     <ClCompile Include="..\..\..\..\..\..\modules\core\test\test_eigen.cpp">
       <Filter>Src</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\modules\core\test\test_hal_core.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\..\modules\core\test\test_io.cpp">
       <Filter>Src</Filter>
     </ClCompile>
@@ -95,40 +98,40 @@
     <CustomBuild Include="..\..\..\..\..\..\modules\core\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Projects\opencv\bin\WS\10.0\x64\modules\core\opencv_test_core.dir\Windows_TemporaryKey.pfx">
+    <None Include="C:\Users\evgen\Documents\TestVS2015\opencv\bin_VS2015_RC\WS\10.0\x64\modules\core\opencv_test_core.dir\Windows_TemporaryKey.pfx">
       <Filter>Resource Files</Filter>
     </None>
     <AppxManifest Include="opencv_test_core.dir\package.appxManifest">
       <Filter>Resource Files</Filter>
     </AppxManifest>
-    <Image Include="C:\Projects\opencv\bin\WS\10.0\x64\modules\core\opencv_test_core.dir\SmallLogo.png">
+    <Image Include="C:\Users\evgen\Documents\TestVS2015\opencv\bin_VS2015_RC\WS\10.0\x64\modules\core\opencv_test_core.dir\SmallLogo.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="C:\Projects\opencv\bin\WS\10.0\x64\modules\core\opencv_test_core.dir\Logo.png">
+    <Image Include="C:\Users\evgen\Documents\TestVS2015\opencv\bin_VS2015_RC\WS\10.0\x64\modules\core\opencv_test_core.dir\Logo.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="C:\Projects\opencv\bin\WS\10.0\x64\modules\core\opencv_test_core.dir\StoreLogo.png">
+    <Image Include="C:\Users\evgen\Documents\TestVS2015\opencv\bin_VS2015_RC\WS\10.0\x64\modules\core\opencv_test_core.dir\StoreLogo.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="C:\Projects\opencv\bin\WS\10.0\x64\modules\core\opencv_test_core.dir\SplashScreen.png">
+    <Image Include="C:\Users\evgen\Documents\TestVS2015\opencv\bin_VS2015_RC\WS\10.0\x64\modules\core\opencv_test_core.dir\SplashScreen.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Src\ocl">
-      <UniqueIdentifier>{0AF08112-51CD-43D8-A66E-8B67854E157D}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{A3D54263-A401-4A58-8766-0CA8180AEEF5}</UniqueIdentifier>
+      <UniqueIdentifier>{5E809FD4-5489-4D04-9447-2E9A06F29FEE}</UniqueIdentifier>
     </Filter>
     <Filter Include="Src">
-      <UniqueIdentifier>{F536E990-F861-4B27-A9D3-53FAB7A9A3AF}</UniqueIdentifier>
+      <UniqueIdentifier>{AAB15EBC-D207-428E-B948-7B6D316BE322}</UniqueIdentifier>
     </Filter>
     <Filter Include="Include">
-      <UniqueIdentifier>{4D18A0F3-97E3-49EB-885C-F77940E31CC3}</UniqueIdentifier>
+      <UniqueIdentifier>{66801E9F-442C-4186-B8EB-E5A05EED4418}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\ocl">
+      <UniqueIdentifier>{57D32F5F-0FB7-4E85-A978-9B443F4CFBA6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resource Files">
-      <UniqueIdentifier>{5317C916-65BA-47FD-B0F4-F17ED3BF5F26}</UniqueIdentifier>
+      <UniqueIdentifier>{51369DBB-E3FE-4126-9A1C-2B2A764A49A5}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>

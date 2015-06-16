@@ -41,8 +41,9 @@
 //M*/
 
 #include "test_precomp.hpp"
+#ifndef WINRT
 #include "opencv2/highgui.hpp"
-
+#endif
 #include <vector>
 #include <string>
 using namespace std;

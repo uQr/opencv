@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{0486F3A2-C65E-4114-8C09-192C2E660684}</ProjectGUID>
+    <ProjectGUID>{FC46C7F4-1CA4-4C35-8CAF-19E8CD594E51}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -198,13 +198,13 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\..\CMakeFiles\09afeee4e3475007b7c6c67b12c9b2d9\opencl_kernels_video.cpp.rule">
+    <CustomBuild Include="..\..\CMakeFiles\dc4bb12ca00f9354bf92149bbbceeac3\opencl_kernels_video.cpp.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating opencl_kernels_video.cpp, opencl_kernels_video.hpp</Message>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/CMakeFiles/09afeee4e3475007b7c6c67b12c9b2d9/opencl_kernels_video.cpp.rule;$(OCV2015_ROOT)\modules\video\src\opencl\bgfg_mog2.cl;$(OCV2015_ROOT)\modules\video\src\opencl\optical_flow_farneback.cl;$(OCV2015_ROOT)\modules\video\src\opencl\optical_flow_tvl1.cl;$(OCV2015_ROOT)\modules\video\src\opencl\pyrlk.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/CMakeFiles/dc4bb12ca00f9354bf92149bbbceeac3/opencl_kernels_video.cpp.rule;$(OCV2015_ROOT)\modules\video\src\opencl\bgfg_mog2.cl;$(OCV2015_ROOT)\modules\video\src\opencl\optical_flow_farneback.cl;$(OCV2015_ROOT)\modules\video\src\opencl\optical_flow_tvl1.cl;$(OCV2015_ROOT)\modules\video\src\opencl\pyrlk.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x86\modules\video\opencl_kernels_video.cpp;$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x86\modules\video\opencl_kernels_video.hpp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating opencl_kernels_video.cpp, opencl_kernels_video.hpp</Message>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/CMakeFiles/09afeee4e3475007b7c6c67b12c9b2d9/opencl_kernels_video.cpp.rule;$(OCV2015_ROOT)\modules\video\src\opencl\bgfg_mog2.cl;$(OCV2015_ROOT)\modules\video\src\opencl\optical_flow_farneback.cl;$(OCV2015_ROOT)\modules\video\src\opencl\optical_flow_tvl1.cl;$(OCV2015_ROOT)\modules\video\src\opencl\pyrlk.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/CMakeFiles/dc4bb12ca00f9354bf92149bbbceeac3/opencl_kernels_video.cpp.rule;$(OCV2015_ROOT)\modules\video\src\opencl\bgfg_mog2.cl;$(OCV2015_ROOT)\modules\video\src\opencl\optical_flow_farneback.cl;$(OCV2015_ROOT)\modules\video\src\opencl\optical_flow_tvl1.cl;$(OCV2015_ROOT)\modules\video\src\opencl\pyrlk.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x86\modules\video\opencl_kernels_video.cpp;$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x86\modules\video\opencl_kernels_video.hpp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
     </CustomBuild>
@@ -243,16 +243,16 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/ZERO_CHECK.vcxproj">
-      <Project>F634A3F9-2433-4648-B75C-FCB1B3A00E1B</Project>
+      <Project>F271AD6D-4539-4C7C-A353-CFD155E6B283</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/modules/core/opencv_core.vcxproj">
-      <Project>0E33B916-C796-43F7-A151-7144AD59CBEF</Project>
+      <Project>BB652B40-A832-4207-8B49-A3A7D309B90F</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/modules/hal/opencv_hal.vcxproj">
-      <Project>59E9DEEE-0461-49EA-AE5B-CEA8CD627C3C</Project>
+      <Project>631005BD-55CF-4649-B96A-C83E78C9B900</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/modules/imgproc/opencv_imgproc.vcxproj">
-      <Project>A10F0613-F9BA-4A65-8FF5-0EC044BEAE2D</Project>
+      <Project>F21F16E2-A361-429B-9775-97A9DDCB82B3</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

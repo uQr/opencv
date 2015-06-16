@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{6A43D783-8DC0-4ED2-A9E9-7082B0A72C71}</ProjectGUID>
+    <ProjectGUID>{747A94A4-7D8D-46C2-A42B-87AED955B1BE}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -140,13 +140,13 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\..\CMakeFiles\09afeee4e3475007b7c6c67b12c9b2d9\opencl_kernels_video.cpp.rule">
+    <CustomBuild Include="..\..\CMakeFiles\dc4bb12ca00f9354bf92149bbbceeac3\opencl_kernels_video.cpp.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating opencl_kernels_video.cpp, opencl_kernels_video.hpp</Message>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/CMakeFiles/09afeee4e3475007b7c6c67b12c9b2d9/opencl_kernels_video.cpp.rule;$(OCV2015_ROOT)\modules\video\src\opencl\bgfg_mog2.cl;$(OCV2015_ROOT)\modules\video\src\opencl\optical_flow_farneback.cl;$(OCV2015_ROOT)\modules\video\src\opencl\optical_flow_tvl1.cl;$(OCV2015_ROOT)\modules\video\src\opencl\pyrlk.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/CMakeFiles/dc4bb12ca00f9354bf92149bbbceeac3/opencl_kernels_video.cpp.rule;$(OCV2015_ROOT)\modules\video\src\opencl\bgfg_mog2.cl;$(OCV2015_ROOT)\modules\video\src\opencl\optical_flow_farneback.cl;$(OCV2015_ROOT)\modules\video\src\opencl\optical_flow_tvl1.cl;$(OCV2015_ROOT)\modules\video\src\opencl\pyrlk.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x86\modules\video\opencl_kernels_video.cpp;$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x86\modules\video\opencl_kernels_video.hpp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating opencl_kernels_video.cpp, opencl_kernels_video.hpp</Message>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/CMakeFiles/09afeee4e3475007b7c6c67b12c9b2d9/opencl_kernels_video.cpp.rule;$(OCV2015_ROOT)\modules\video\src\opencl\bgfg_mog2.cl;$(OCV2015_ROOT)\modules\video\src\opencl\optical_flow_farneback.cl;$(OCV2015_ROOT)\modules\video\src\opencl\optical_flow_tvl1.cl;$(OCV2015_ROOT)\modules\video\src\opencl\pyrlk.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/CMakeFiles/dc4bb12ca00f9354bf92149bbbceeac3/opencl_kernels_video.cpp.rule;$(OCV2015_ROOT)\modules\video\src\opencl\bgfg_mog2.cl;$(OCV2015_ROOT)\modules\video\src\opencl\optical_flow_farneback.cl;$(OCV2015_ROOT)\modules\video\src\opencl\optical_flow_tvl1.cl;$(OCV2015_ROOT)\modules\video\src\opencl\pyrlk.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x86\modules\video\opencl_kernels_video.cpp;$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x86\modules\video\opencl_kernels_video.hpp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
     </CustomBuild>
@@ -181,7 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x86/ZERO_CHECK.vcxproj">
-      <Project>F634A3F9-2433-4648-B75C-FCB1B3A00E1B</Project>
+      <Project>F271AD6D-4539-4C7C-A353-CFD155E6B283</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

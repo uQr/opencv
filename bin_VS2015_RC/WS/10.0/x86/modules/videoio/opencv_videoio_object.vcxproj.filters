@@ -13,6 +13,21 @@
     <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap_mjpeg_decoder.cpp">
       <Filter>Src</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt_capture.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt_bridge.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt_video.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt\CaptureFrameGrabber.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt\MediaStreamSink.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap_cmu.cpp">
       <Filter>Src</Filter>
     </ClCompile>
@@ -33,7 +48,31 @@
     <ClInclude Include="..\..\..\..\..\..\modules\videoio\include\opencv2\videoio\videoio_c.h">
       <Filter>Include</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\modules\videoio\include\opencv2\videoio\cap_winrt.hpp">
+      <Filter>Include</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\..\..\modules\videoio\src\precomp.hpp">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt_capture.hpp">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt_bridge.hpp">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt_video.hpp">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt\MFIncludes.hpp">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt\CaptureFrameGrabber.hpp">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt\MediaSink.hpp">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt\MediaStreamSink.hpp">
       <Filter>Src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\cvconfig.h">
@@ -48,16 +87,16 @@
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{EA129653-3C12-4D00-827F-1540D597E33A}</UniqueIdentifier>
+      <UniqueIdentifier>{62C36C1F-351D-4588-B58B-B336FE1F02EA}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{F998C86C-B6A0-46D8-AF14-EC338AC98FA4}</UniqueIdentifier>
+      <UniqueIdentifier>{F329996F-B261-4FD4-843D-67B41F9BBB6C}</UniqueIdentifier>
     </Filter>
     <Filter Include="Src">
-      <UniqueIdentifier>{639AD057-F757-4E80-81CB-01179A708D2A}</UniqueIdentifier>
+      <UniqueIdentifier>{9DD7BF81-356F-48B4-AF26-827430C25DF4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Include">
-      <UniqueIdentifier>{9B908160-63D6-48E2-96C0-9C83D40278CE}</UniqueIdentifier>
+      <UniqueIdentifier>{4FF3BB87-8DAC-4059-97C2-41B7EAF12D2E}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

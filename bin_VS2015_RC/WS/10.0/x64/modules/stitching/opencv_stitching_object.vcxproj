@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{69BEFBE6-727E-4377-8599-7CF3214BB4AA}</ProjectGUID>
+    <ProjectGUID>{C8637CBE-3714-4BA0-98E2-491A7AE9F6AE}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -142,13 +142,13 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\..\CMakeFiles\e46a45c4511214996d46827ced3bdc29\opencl_kernels_stitching.cpp.rule">
+    <CustomBuild Include="..\..\CMakeFiles\458ad481fd7a38fe42ba59f01e5a68b8\opencl_kernels_stitching.cpp.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating opencl_kernels_stitching.cpp, opencl_kernels_stitching.hpp</Message>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/CMakeFiles/e46a45c4511214996d46827ced3bdc29/opencl_kernels_stitching.cpp.rule;$(OCV2015_ROOT)\modules\stitching\src\opencl\multibandblend.cl;$(OCV2015_ROOT)\modules\stitching\src\opencl\warpers.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/CMakeFiles/458ad481fd7a38fe42ba59f01e5a68b8/opencl_kernels_stitching.cpp.rule;$(OCV2015_ROOT)\modules\stitching\src\opencl\multibandblend.cl;$(OCV2015_ROOT)\modules\stitching\src\opencl\warpers.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x64\modules\stitching\opencl_kernels_stitching.cpp;$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x64\modules\stitching\opencl_kernels_stitching.hpp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating opencl_kernels_stitching.cpp, opencl_kernels_stitching.hpp</Message>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/CMakeFiles/e46a45c4511214996d46827ced3bdc29/opencl_kernels_stitching.cpp.rule;$(OCV2015_ROOT)\modules\stitching\src\opencl\multibandblend.cl;$(OCV2015_ROOT)\modules\stitching\src\opencl\warpers.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/CMakeFiles/458ad481fd7a38fe42ba59f01e5a68b8/opencl_kernels_stitching.cpp.rule;$(OCV2015_ROOT)\modules\stitching\src\opencl\multibandblend.cl;$(OCV2015_ROOT)\modules\stitching\src\opencl\warpers.cl;$(OCV2015_ROOT)\cmake\cl2cpp.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x64\modules\stitching\opencl_kernels_stitching.cpp;$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x64\modules\stitching\opencl_kernels_stitching.hpp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
     </CustomBuild>
@@ -194,7 +194,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/ZERO_CHECK.vcxproj">
-      <Project>A2D8558F-F1C3-49C2-917C-C2A91FCDE0E7</Project>
+      <Project>EC0254CF-9800-46BD-A27C-FC26FE0668AF</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

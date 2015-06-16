@@ -129,19 +129,19 @@
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Src\grfmts">
-      <UniqueIdentifier>{1929F50D-2359-4FE7-BB60-E318969D2EBE}</UniqueIdentifier>
+      <UniqueIdentifier>{5C505FC2-1A2F-4462-A484-92A14F0D0D4A}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{EA129653-3C12-4D00-827F-1540D597E33A}</UniqueIdentifier>
+      <UniqueIdentifier>{62C36C1F-351D-4588-B58B-B336FE1F02EA}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{F998C86C-B6A0-46D8-AF14-EC338AC98FA4}</UniqueIdentifier>
+      <UniqueIdentifier>{F329996F-B261-4FD4-843D-67B41F9BBB6C}</UniqueIdentifier>
     </Filter>
     <Filter Include="Src">
-      <UniqueIdentifier>{639AD057-F757-4E80-81CB-01179A708D2A}</UniqueIdentifier>
+      <UniqueIdentifier>{9DD7BF81-356F-48B4-AF26-827430C25DF4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Include">
-      <UniqueIdentifier>{9B908160-63D6-48E2-96C0-9C83D40278CE}</UniqueIdentifier>
+      <UniqueIdentifier>{4FF3BB87-8DAC-4059-97C2-41B7EAF12D2E}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

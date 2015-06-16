@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{6CB1D1C5-2630-48DD-992B-E8D5A92350E5}</ProjectGUID>
+    <ProjectGUID>{5055FB50-A323-4F5C-9722-0D0F48388656}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -57,7 +57,7 @@
       <AdditionalIncludeDirectories>$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x64;$(OCV2015_ROOT)\3rdparty\include;$(OCV2015_ROOT)\3rdparty\include\ffmpeg_;$(OCV2015_ROOT)\modules\videoio\include;$(OCV2015_ROOT)\modules\videoio\src;$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x64\modules\videoio;$(OCV2015_ROOT)\modules\hal\include;$(OCV2015_ROOT)\modules\core\include;$(OCV2015_ROOT)\modules\imgproc\include;$(OCV2015_ROOT)\modules\imgcodecs\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
-      <CompileAsWinRT>false</CompileAsWinRT>
+      <CompileAsWinRT>true</CompileAsWinRT>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>4251;4324</DisableSpecificWarnings>
       <ExceptionHandling>Async</ExceptionHandling>
@@ -96,7 +96,7 @@
       <AdditionalIncludeDirectories>$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x64;$(OCV2015_ROOT)\3rdparty\include;$(OCV2015_ROOT)\3rdparty\include\ffmpeg_;$(OCV2015_ROOT)\modules\videoio\include;$(OCV2015_ROOT)\modules\videoio\src;$(OCV2015_ROOT)\bin_VS2015_RC\WS\10.0\x64\modules\videoio;$(OCV2015_ROOT)\modules\hal\include;$(OCV2015_ROOT)\modules\core\include;$(OCV2015_ROOT)\modules\imgproc\include;$(OCV2015_ROOT)\modules\imgcodecs\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
-      <CompileAsWinRT>false</CompileAsWinRT>
+      <CompileAsWinRT>true</CompileAsWinRT>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>4251;4324</DisableSpecificWarnings>
       <ExceptionHandling>Async</ExceptionHandling>
@@ -146,13 +146,26 @@
     <ClInclude Include="..\..\..\..\..\..\modules\videoio\include\opencv2\videoio\videoio.hpp" />
     <ClInclude Include="..\..\..\..\..\..\modules\videoio\include\opencv2\videoio\cap_ios.h" />
     <ClInclude Include="..\..\..\..\..\..\modules\videoio\include\opencv2\videoio\videoio_c.h" />
+    <ClInclude Include="..\..\..\..\..\..\modules\videoio\include\opencv2\videoio\cap_winrt.hpp" />
     <ClInclude Include="..\..\..\..\..\..\modules\videoio\src\precomp.hpp" />
+    <ClInclude Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt_capture.hpp" />
+    <ClInclude Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt_bridge.hpp" />
+    <ClInclude Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt_video.hpp" />
+    <ClInclude Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt\MFIncludes.hpp" />
+    <ClInclude Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt\CaptureFrameGrabber.hpp" />
+    <ClInclude Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt\MediaSink.hpp" />
+    <ClInclude Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt\MediaStreamSink.hpp" />
     <ClInclude Include="..\..\cvconfig.h" />
     <ClInclude Include="..\..\opencv2\opencv_modules.hpp" />
     <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap.cpp" />
     <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap_images.cpp" />
     <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap_mjpeg_encoder.cpp" />
     <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap_mjpeg_decoder.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt_capture.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt_bridge.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt_video.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt\CaptureFrameGrabber.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap_winrt\MediaStreamSink.cpp" />
     <ClCompile Include="..\..\..\..\..\..\modules\videoio\src\cap_cmu.cpp" />
     <ClCompile Include="opencv_videoio_pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -163,7 +176,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/ZERO_CHECK.vcxproj">
-      <Project>A2D8558F-F1C3-49C2-917C-C2A91FCDE0E7</Project>
+      <Project>EC0254CF-9800-46BD-A27C-FC26FE0668AF</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

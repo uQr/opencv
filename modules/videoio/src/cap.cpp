@@ -128,9 +128,9 @@ CV_IMPL CvCapture * cvCreateCameraCapture (int index)
 {
     int  domains[] =
     {
-#ifdef WINRT_8_1
+#ifndef WINRT_8_0
         CV_CAP_WINRT,
-#elif  WINRT_8_0
+#else
         // not supported
 #endif
 #ifdef HAVE_MSMF

@@ -4,8 +4,8 @@
 	xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
 	IgnorableNamespaces="uap mp">
 
-	<Identity Name="97C7C448-77F7-449C-A3FF-86A9A37A7966" Publisher="CN=CMake" Version="1.0.0.0" />
-	<mp:PhoneIdentity PhoneProductId="97C7C448-77F7-449C-A3FF-86A9A37A7966" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+	<Identity Name="F3A30364-FC3B-498C-BE5F-175866427BF8" Publisher="CN=CMake" Version="1.0.0.0" />
+	<mp:PhoneIdentity PhoneProductId="F3A30364-FC3B-498C-BE5F-175866427BF8" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 	<Properties>
 		<DisplayName>opencv_perf_stitching</DisplayName>
 		<PublisherDisplayName>CMake</PublisherDisplayName>

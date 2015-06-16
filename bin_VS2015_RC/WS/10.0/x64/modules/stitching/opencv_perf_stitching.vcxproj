@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{97C7C448-77F7-449C-A3FF-86A9A37A7966}</ProjectGUID>
+    <ProjectGUID>{F3A30364-FC3B-498C-BE5F-175866427BF8}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -226,43 +226,43 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/ZERO_CHECK.vcxproj">
-      <Project>A2D8558F-F1C3-49C2-917C-C2A91FCDE0E7</Project>
+      <Project>EC0254CF-9800-46BD-A27C-FC26FE0668AF</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/modules/calib3d/opencv_calib3d.vcxproj">
-      <Project>076C5F83-80CA-4BAD-8B94-9C564463460B</Project>
+      <Project>AA4FC2C2-E28D-4939-9E5C-217AFCC937F7</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/modules/core/opencv_core.vcxproj">
-      <Project>3A981105-210D-4525-8207-9388C5287E03</Project>
+      <Project>9B0A2ABC-5736-47B3-8F81-859A92B45A06</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/modules/features2d/opencv_features2d.vcxproj">
-      <Project>914BF0FE-7A35-42FF-97A9-1CE83258123D</Project>
+      <Project>423059FE-A2E3-4BB8-92F1-072BFA235F4D</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/modules/flann/opencv_flann.vcxproj">
-      <Project>BE1E4506-FE30-40E7-9D13-D7115EE62FC4</Project>
+      <Project>A106254C-DD5F-4957-BA16-6E2D49BB4683</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/modules/hal/opencv_hal.vcxproj">
-      <Project>282787A0-CAB3-4D69-80C6-A5D5F3D585D7</Project>
+      <Project>4E4A61E1-711C-4AAB-8F8B-A87C4FEC46A1</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/modules/imgcodecs/opencv_imgcodecs.vcxproj">
-      <Project>B2A3210F-700D-4DC7-AA39-BB8FE350D177</Project>
+      <Project>C318CDD0-E474-4BAC-A7A9-A75A2670C057</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/modules/imgproc/opencv_imgproc.vcxproj">
-      <Project>E45EE2BE-C86E-43F8-A65E-5F2FA62F623D</Project>
+      <Project>5A692C0E-5638-45DA-B8F7-5C88CC165F78</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/modules/ml/opencv_ml.vcxproj">
-      <Project>EFC5D0AD-B5D4-4249-BC3B-052991E4A83C</Project>
+      <Project>09A13D87-118C-4351-9042-8AFC50D285EE</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/modules/objdetect/opencv_objdetect.vcxproj">
-      <Project>AFF93A85-AD00-4B43-BDD9-3BE1C7790E45</Project>
+      <Project>76FAF11F-25CE-49FB-B859-3A64184D1043</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/modules/stitching/opencv_stitching.vcxproj">
-      <Project>35F20107-62F9-49E4-BE36-303FE1405DF6</Project>
+      <Project>3630530F-C2F1-4F2D-B3BF-5A8EE8EAE5D8</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/modules/ts/opencv_ts.vcxproj">
-      <Project>C4F8CEF5-1BAA-4777-A156-12593CF7BEC3</Project>
+      <Project>B9B6D436-3625-4A9C-A530-48DB010085A1</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/modules/videoio/opencv_videoio.vcxproj">
-      <Project>E57D17E7-82C6-47D9-8E66-AFCF82DFECF9</Project>
+      <Project>BC109EE6-784E-44CA-B410-856D310D76F0</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

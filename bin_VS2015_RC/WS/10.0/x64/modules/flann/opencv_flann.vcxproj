@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{BE1E4506-FE30-40E7-9D13-D7115EE62FC4}</ProjectGUID>
+    <ProjectGUID>{A106254C-DD5F-4957-BA16-6E2D49BB4683}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -251,13 +251,13 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/ZERO_CHECK.vcxproj">
-      <Project>A2D8558F-F1C3-49C2-917C-C2A91FCDE0E7</Project>
+      <Project>EC0254CF-9800-46BD-A27C-FC26FE0668AF</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/modules/core/opencv_core.vcxproj">
-      <Project>3A981105-210D-4525-8207-9388C5287E03</Project>
+      <Project>9B0A2ABC-5736-47B3-8F81-859A92B45A06</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/modules/hal/opencv_hal.vcxproj">
-      <Project>282787A0-CAB3-4D69-80C6-A5D5F3D585D7</Project>
+      <Project>4E4A61E1-711C-4AAB-8F8B-A87C4FEC46A1</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

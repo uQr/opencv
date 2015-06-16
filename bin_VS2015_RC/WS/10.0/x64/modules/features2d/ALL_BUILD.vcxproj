@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{CBC0E4EF-60DE-4E08-A4AB-3191C117ACFE}</ProjectGUID>
+    <ProjectGUID>{DD10BC36-6ECE-4AF1-9152-AF0118813FD3}</ProjectGUID>
     <ApplicationType>Windows Store</ApplicationType>
     <DefaultLanguage>en-US</DefaultLanguage>
     <ApplicationTypeRevision>8.2</ApplicationTypeRevision>
@@ -80,13 +80,13 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/modules/features2d/opencv_features2d.vcxproj">
-      <Project>914BF0FE-7A35-42FF-97A9-1CE83258123D</Project>
+      <Project>423059FE-A2E3-4BB8-92F1-072BFA235F4D</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/modules/features2d/opencv_perf_features2d.vcxproj">
-      <Project>D62B9A06-CE92-4804-9514-14FA96386ECB</Project>
+      <Project>79CD3F3D-8FAA-44D6-8294-FE2B293BE66C</Project>
     </ProjectReference>
     <ProjectReference Include="$(OCV2015_ROOT)/bin_VS2015_RC/WS/10.0/x64/modules/features2d/opencv_test_features2d.vcxproj">
-      <Project>FDFD5A68-07AF-45BE-BB44-AF87EB7FD08B</Project>
+      <Project>2C9B4122-307B-4793-A604-CEA69E23B880</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

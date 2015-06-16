@@ -1,4 +1,4 @@
-# Install script for directory: C:/Projects/opencv/modules/cudaarithm
+# Install script for directory: C:/Users/evgen/Documents/TestVS2015/opencv/modules/cudaarithm
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
