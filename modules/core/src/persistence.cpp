@@ -2703,6 +2703,17 @@ cvOpenFileStorage( const char* filename, CvMemStorage* dststorage, int flags, co
 
         if( !isGZ )
         {
+#if WINRT
+            if (strstr(fs->filename, "\\") == NULL && strstr(fs->filename, "/") == NULL)
+            {
+                wchar_t* path = const_cast<wchar_t*>(Windows::Storage::ApplicationData::Current->LocalFolder->Path->Data());
+                char charPath[_MAX_PATH];
+                wcstombs(charPath, path, _MAX_PATH);
+                strcat(charPath, "\\");
+                strcat(charPath, fs->filename);
+                fs->filename = charPath;
+            }
+#endif
             fs->file = fopen(fs->filename, !fs->write_mode ? "rt" : !append ? "wt" : "a+t" );
             if( !fs->file )
                 goto _exit_;

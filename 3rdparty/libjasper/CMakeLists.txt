@@ -12,12 +12,22 @@ ocv_include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 file(GLOB lib_srcs *.c)
 file(GLOB lib_hdrs *.h)
 file(GLOB lib_ext_hdrs jasper/*.h)
+if(WINRT)
+  file(GLOB cpp_lib_srcs *.cpp)
+  set_source_files_properties(${cpp_lib_srcs} PROPERTIES COMPILE_FLAGS "/ZW /TP")
+endif()
 
 # ----------------------------------------------------------------------------------
 #         Define the library target:
 # ----------------------------------------------------------------------------------
 
-add_library(${JASPER_LIBRARY} STATIC ${lib_srcs} ${lib_hdrs} ${lib_ext_hdrs})
+if(NOT WINRT)
+  add_library(${JASPER_LIBRARY} STATIC ${lib_srcs} ${lib_hdrs} ${lib_ext_hdrs})
+else()
+  add_library(${JASPER_LIBRARY} STATIC ${lib_srcs} ${lib_hdrs} ${lib_ext_hdrs} ${cpp_lib_srcs})
+  add_definitions(/W3)
+  ocv_warnings_disable(CMAKE_CXX_FLAGS /wd4013 /wd4018 /wd4101 /wd4244 /wd4267 /wd4715)
+endif()
 
 if(WIN32 AND NOT MINGW)
   add_definitions(-DJAS_WIN_MSVC_BUILD)

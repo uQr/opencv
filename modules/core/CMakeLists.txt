@@ -7,8 +7,11 @@ ocv_add_module(core
 
 set(extra_libs "")
 
-if(WINRT AND CMAKE_SYSTEM_NAME MATCHES WindowsStore AND CMAKE_SYSTEM_VERSION MATCHES "8.0")
-  list(APPEND extra_libs ole32.lib)
+if(WINRT)
+  if(CMAKE_SYSTEM_NAME MATCHES WindowsStore AND CMAKE_SYSTEM_VERSION MATCHES "8.0")
+    list(APPEND extra_libs ole32.lib)
+  endif()
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /ZW")
 endif()
 
 if(HAVE_CUDA)

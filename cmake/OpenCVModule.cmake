@@ -684,28 +684,6 @@ macro(ocv_create_module)
     _ocv_create_module(${ARGN})
     set(the_module_target ${the_module})
   endif()
-
-  if(WINRT)
-    # removing APPCONTAINER from modules to run from console
-    # in case of usual starting of WinRT test apps output is missing
-    # so starting of console version w/o APPCONTAINER is required to get test results
-    # also this allows to use opencv_extra test data for these tests
-    if(NOT "${the_module}" STREQUAL "opencv_ts" AND NOT "${the_module}" STREQUAL "opencv_hal")
-      add_custom_command(TARGET ${the_module}
-                         POST_BUILD
-                         COMMAND link.exe /edit /APPCONTAINER:NO $(TargetPath))
-    endif()
-
-    if("${the_module}" STREQUAL "opencv_ts")
-      # copy required dll files; WinRT apps need these dlls that are usually substituted by Visual Studio
-      # however they are not on path and need to be placed with executables to run from console w/o APPCONTAINER
-      add_custom_command(TARGET ${the_module}
-        POST_BUILD
-        COMMAND copy /y "\"$(VCInstallDir)redist\\$(PlatformTarget)\\Microsoft.VC$(PlatformToolsetVersion).CRT\\msvcp$(PlatformToolsetVersion).dll\"" "\"${CMAKE_BINARY_DIR}\\bin\\$(Configuration)\\msvcp$(PlatformToolsetVersion)_app.dll\""
-        COMMAND copy /y "\"$(VCInstallDir)redist\\$(PlatformTarget)\\Microsoft.VC$(PlatformToolsetVersion).CRT\\msvcr$(PlatformToolsetVersion).dll\"" "\"${CMAKE_BINARY_DIR}\\bin\\$(Configuration)\\msvcr$(PlatformToolsetVersion)_app.dll\""
-        COMMAND copy /y "\"$(VCInstallDir)redist\\$(PlatformTarget)\\Microsoft.VC$(PlatformToolsetVersion).CRT\\vccorlib$(PlatformToolsetVersion).dll\"" "\"${CMAKE_BINARY_DIR}\\bin\\$(Configuration)\\vccorlib$(PlatformToolsetVersion)_app.dll\"")
-    endif()
-  endif()
 endmacro()
 
 macro(_ocv_create_module)
@@ -919,14 +897,144 @@ macro(__ocv_parse_test_sources tests_type)
   unset(__currentvar)
 endmacro()
 
+macro(add_manifest)
+  file(COPY "${CMAKE_SOURCE_DIR}/platforms/winrt/Assets/" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/${the_target}.dir/" FILES_MATCHING PATTERN "*.png")
+  file(GLOB test_assets "${CMAKE_CURRENT_BINARY_DIR}/${the_target}.dir/*.png")
+
+  string(REPLACE "_" "-" PACKAGE_GUID ${the_target})
+  set(PACKAGE_GUID "${PACKAGE_GUID}")
+  set(SHORT_NAME ${the_target})
+  if(MSVC_VERSION GREATER 1899)
+    set(COMPILER_VERSION "14")
+  elseif(MSVC_VERSION GREATER 1700)
+    set(COMPILER_VERSION "12")
+  elseif(MSVC_VERSION GREATER 1600)
+    set(COMPILER_VERSION "11")
+  endif()
+
+  if(WINRT_PHONE AND WINRT_8_0)
+    set(APP_MANIFEST_NAME WMAppManifest.xml)
+  else()
+    set(APP_MANIFEST_NAME package.appxmanifest)
+  endif()
+
+  configure_file(
+    "${CMAKE_SOURCE_DIR}/platforms/winrt/Package_vc${COMPILER_VERSION}.${CMAKE_SYSTEM_NAME}.appxmanifest.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/${the_target}.dir/${APP_MANIFEST_NAME}"
+    @ONLY)
+  if(WINRT_PHONE AND WINRT_8_0)
+    file(COPY "${CMAKE_CURRENT_BINARY_DIR}/${the_target}.dir/${APP_MANIFEST_NAME}" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
+    file(COPY "${CMAKE_SOURCE_DIR}/platforms/winrt/Assets/wp8/Tiles/" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/Assets/Tiles" FILES_MATCHING PATTERN "*.png")
+    file(COPY "${CMAKE_SOURCE_DIR}/platforms/winrt/Assets/wp8/ApplicationIcon.png" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/Assets/")
+    file(GLOB_RECURSE wp_assets "${CMAKE_CURRENT_BINARY_DIR}/Assets/*")
+    set_property(SOURCE ${wp_assets} PROPERTY VS_DEPLOYMENT_CONTENT 1)
+  endif()
+  file(GLOB test_manifest "${CMAKE_CURRENT_BINARY_DIR}/${the_target}.dir/${APP_MANIFEST_NAME}")
+  set_property(SOURCE ${test_manifest} PROPERTY VS_DEPLOYMENT_CONTENT 1)
+
+  ocv_source_group("Resource Files" DIRBASE "${CMAKE_CURRENT_BINARY_DIR}/${the_target}.dir/" FILES ${test_assets} ${test_manifest})
+endmacro()
+
+# Input list is expected in format "item1;item2;...;itemN"
+# items are folder paths relative to opencv_extra/testdata/
+# OPENCV_TEST_DATA_PATH environment var need to be set
+# to get correct results from this macro
+macro(copy_resources input_list)
+  set(value $ENV{OPENCV_TEST_DATA_PATH})
+  if("${value}" STREQUAL "")
+    message(WARNING "${option} environment variable is empty. Please set it to appropriate location to get correct results")
+  else()
+    string(REPLACE "\\" "/" value ${value})
+  endif()
+  set(dest "${CMAKE_CURRENT_BINARY_DIR}/opencv_extra/testdata")
+  foreach(item ${input_list})
+    file(COPY "${value}/${item}/" DESTINATION "${dest}/${item}" FILES_MATCHING PATTERN "*")
+  endforeach()
+  file(GLOB_RECURSE resource_files "${dest}/*.*")
+  set_property(SOURCE ${resource_files} PROPERTY VS_DEPLOYMENT_CONTENT 1)
+endmacro()
+
+macro(add_perf_resources)
+  if("${the_target}" STREQUAL "opencv_perf_calib3d")
+    copy_resources("cv/cameracalibration/asymmetric_circles")
+  endif()
+  if("${the_target}" STREQUAL "opencv_perf_features2d")
+    copy_resources("cv/detectors_descriptors_evaluation/images_datasets/leuven;stitching")
+  endif()
+  if("${the_target}" STREQUAL "opencv_perf_imgproc")
+    copy_resources("cv/detectors_descriptors_evaluation/images_datasets/leuven;cv/shared;cv/optflow;stitching")
+  endif()
+  if("${the_target}" STREQUAL "opencv_perf_photo")
+    copy_resources("gpu/hog")
+  endif()
+  if("${the_target}" STREQUAL "opencv_perf_stitching")
+    copy_resources("stitching")
+  endif()
+  if("${the_target}" STREQUAL "opencv_perf_video")
+    copy_resources("cv/shared;cv/optflow")
+  endif()
+  # Copy fake resources.pri to attach it to project
+  # Some tests do not need resources however we need
+  # to add fake 0-size file to avoid deployment errors
+  file(COPY "${CMAKE_SOURCE_DIR}/platforms/winrt/res_fake.txt" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/opencv_extra/testdata")
+  file(GLOB perf_fake "${CMAKE_CURRENT_BINARY_DIR}/opencv_extra/testdata/res_fake.txt")
+  set_property(SOURCE ${perf_fake} PROPERTY VS_DEPLOYMENT_CONTENT 1)
+  ocv_source_group("Resources" DIRBASE ${CMAKE_CURRENT_BINARY_DIR} FILES ${resource_files})
+
+  add_manifest()
+endmacro()
+
+macro(add_test_resources)
+  if("${the_target}" STREQUAL "opencv_test_calib3d")
+    copy_resources("cv/cameracalibration;cv/stereo;cv/stereomatching;cv/optflow")
+  endif()
+  if("${the_target}" STREQUAL "opencv_test_core")
+    copy_resources("cv/cvtcolor_strict;cv/denoising;cv/shared")
+  endif()
+  if("${the_target}" STREQUAL "opencv_test_features2d")
+    copy_resources("cv/agast;cv/cameracalibration;cv/detectors_descriptors_evaluation/images_datasets/bikes;cv/detectors_descriptors_evaluation/images_datasets/graf;cv/fast;cv/features2d;cv/inpaint;cv/mser;cv/shared")
+  endif()
+  if("${the_target}" STREQUAL "opencv_test_imgcodecs")
+    copy_resources("cv/shared;highgui/readwrite")
+  endif()
+  if("${the_target}" STREQUAL "opencv_test_imgproc")
+    copy_resources("cv/connectedcomponents;cv/cvtcolor;cv/cvtcolor_strict;cv/grabcut;cv/imgproc;cv/inpaint;cv/shared;cv/watershed;stitching")
+  endif()
+  if("${the_target}" STREQUAL "opencv_test_ml")
+    copy_resources("ml")
+  endif()
+  if("${the_target}" STREQUAL "opencv_test_objdetect")
+    copy_resources("cv/cascadeandhog")
+  endif()
+  if("${the_target}" STREQUAL "opencv_test_photo")
+    copy_resources("cv/cloning;cv/decolor;cv/denoising;cv/hdr;cv/inpaint;cv/npr;cv/shared")
+  endif()
+  if("${the_target}" STREQUAL "opencv_test_shape")
+    copy_resources("cv/shape")
+  endif()
+  if("${the_target}" STREQUAL "opencv_test_stitching")
+    copy_resources("cv/shared;stitching")
+  endif()
+  if("${the_target}" STREQUAL "opencv_test_video")
+    copy_resources("cv/shared;cv/optflow")
+  endif()
+  if("${the_target}" STREQUAL "opencv_test_videoio")
+    copy_resources("cv/shared;python/images")
+  endif()
+  # Some tests do not need resources however we need
+  # to add fake 0-size file to avoid deployment errors
+  file(COPY "${CMAKE_SOURCE_DIR}/platforms/winrt/res_fake.txt" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/opencv_extra/testdata")
+  file(GLOB test_fake "${CMAKE_CURRENT_BINARY_DIR}/opencv_extra/testdata/res_fake.txt")
+  set_property(SOURCE ${test_fake} PROPERTY VS_DEPLOYMENT_CONTENT 1)
+  ocv_source_group("Resources" DIRBASE ${CMAKE_CURRENT_BINARY_DIR} FILES ${resource_files})
+
+  add_manifest()
+endmacro()
+
 # this is a command for adding OpenCV performance tests to the module
 # ocv_add_perf_tests(<extra_dependencies>)
 function(ocv_add_perf_tests)
   ocv_debug_message("ocv_add_perf_tests(" ${ARGN} ")")
-
-  if(WINRT)
-    set(OPENCV_DEBUG_POSTFIX "")
-  endif()
 
   set(perf_path "${CMAKE_CURRENT_LIST_DIR}/perf")
   if(BUILD_PERF_TESTS AND EXISTS "${perf_path}")
@@ -940,12 +1048,33 @@ function(ocv_add_perf_tests)
       set(the_target "opencv_perf_${name}")
       # project(${the_target})
 
+      if(WINRT)
+        set(OPENCV_DEBUG_POSTFIX "")
+        set(OCV_RUNTIME_OUTPUT_DIR "${EXECUTABLE_OUTPUT_PATH}/${the_target}.dir")
+      else()
+        set(OCV_RUNTIME_OUTPUT_DIR "${EXECUTABLE_OUTPUT_PATH}")
+      endif()
+
       if(NOT OPENCV_PERF_${the_module}_SOURCES)
         file(GLOB_RECURSE perf_srcs "${perf_path}/*.cpp")
         file(GLOB_RECURSE perf_hdrs "${perf_path}/*.hpp" "${perf_path}/*.h")
+
+        if(WINRT)
+          add_perf_resources()
+        endif()
+
         ocv_source_group("Src" DIRBASE "${perf_path}" FILES ${perf_srcs})
         ocv_source_group("Include" DIRBASE "${perf_path}" FILES ${perf_hdrs})
         set(OPENCV_PERF_${the_module}_SOURCES ${perf_srcs} ${perf_hdrs})
+
+        if(WINRT)
+          set(OPENCV_PERF_${the_module}_SOURCES "${OPENCV_PERF_${the_module}_SOURCES};${resource_files};${perf_pri};${perf_fake};${test_manifest}")
+          if(WINRT_PHONE AND WINRT_8_0)
+            set(OPENCV_PERF_${the_module}_SOURCES "${OPENCV_PERF_${the_module}_SOURCES};${wp_assets}")
+          else()
+            set(OPENCV_PERF_${the_module}_SOURCES "${OPENCV_PERF_${the_module}_SOURCES};${test_assets}")
+          endif()
+        endif()
       endif()
 
       if(NOT BUILD_opencv_world)
@@ -960,18 +1089,14 @@ function(ocv_add_perf_tests)
       # Additional target properties
       set_target_properties(${the_target} PROPERTIES
         DEBUG_POSTFIX "${OPENCV_DEBUG_POSTFIX}"
-        RUNTIME_OUTPUT_DIRECTORY "${EXECUTABLE_OUTPUT_PATH}"
+        RUNTIME_OUTPUT_DIRECTORY "${OCV_RUNTIME_OUTPUT_DIR}"
       )
       if(ENABLE_SOLUTION_FOLDERS)
         set_target_properties(${the_target} PROPERTIES FOLDER "tests performance")
       endif()
 
       if(WINRT)
-        # removing APPCONTAINER from tests to run from console
-        # look for detailed description inside of ocv_create_module macro above
-        add_custom_command(TARGET "opencv_perf_${name}"
-                           POST_BUILD
-                           COMMAND link.exe /edit /APPCONTAINER:NO $(TargetPath))
+        target_compile_options("opencv_perf_${name}" PUBLIC "/ZW")
       endif()
 
       if(NOT BUILD_opencv_world)
@@ -991,10 +1116,6 @@ endfunction()
 function(ocv_add_accuracy_tests)
   ocv_debug_message("ocv_add_accuracy_tests(" ${ARGN} ")")
 
-  if(WINRT)
-    set(OPENCV_DEBUG_POSTFIX "")
-  endif()
-
   set(test_path "${CMAKE_CURRENT_LIST_DIR}/test")
   if(BUILD_TESTS AND EXISTS "${test_path}")
     __ocv_parse_test_sources(TEST ${ARGN})
@@ -1002,16 +1123,38 @@ function(ocv_add_accuracy_tests)
     # opencv_imgcodecs is required for imread/imwrite
     set(test_deps opencv_ts ${the_module} opencv_imgcodecs opencv_videoio ${OPENCV_MODULE_${the_module}_DEPS} ${OPENCV_MODULE_opencv_ts_DEPS})
     ocv_check_dependencies(${test_deps})
+
     if(OCV_DEPENDENCIES_FOUND)
       set(the_target "opencv_test_${name}")
       # project(${the_target})
 
+      if(WINRT)
+        set(OPENCV_DEBUG_POSTFIX "")
+        set(OCV_RUNTIME_OUTPUT_DIR "${EXECUTABLE_OUTPUT_PATH}/${the_target}.dir")
+      else()
+        set(OCV_RUNTIME_OUTPUT_DIR "${EXECUTABLE_OUTPUT_PATH}")
+      endif()
+
       if(NOT OPENCV_TEST_${the_module}_SOURCES)
         file(GLOB_RECURSE test_srcs "${test_path}/*.cpp")
         file(GLOB_RECURSE test_hdrs "${test_path}/*.hpp" "${test_path}/*.h")
+
+        if(WINRT)
+          add_test_resources()
+        endif()
+
         ocv_source_group("Src" DIRBASE "${test_path}" FILES ${test_srcs})
         ocv_source_group("Include" DIRBASE "${test_path}" FILES ${test_hdrs})
         set(OPENCV_TEST_${the_module}_SOURCES ${test_srcs} ${test_hdrs})
+
+        if(WINRT)
+          set(OPENCV_TEST_${the_module}_SOURCES "${OPENCV_TEST_${the_module}_SOURCES};${resource_files};${test_pri};${test_fake};${test_manifest}")
+          if(WINRT_PHONE AND WINRT_8_0)
+            set(OPENCV_TEST_${the_module}_SOURCES "${OPENCV_TEST_${the_module}_SOURCES};${wp_assets}")
+          else()
+            set(OPENCV_TEST_${the_module}_SOURCES "${OPENCV_TEST_${the_module}_SOURCES};${test_assets}")
+          endif()
+        endif()
       endif()
 
       if(NOT BUILD_opencv_world)
@@ -1026,7 +1169,7 @@ function(ocv_add_accuracy_tests)
       # Additional target properties
       set_target_properties(${the_target} PROPERTIES
         DEBUG_POSTFIX "${OPENCV_DEBUG_POSTFIX}"
-        RUNTIME_OUTPUT_DIRECTORY "${EXECUTABLE_OUTPUT_PATH}"
+        RUNTIME_OUTPUT_DIRECTORY "${OCV_RUNTIME_OUTPUT_DIR}"
       )
 
       if(ENABLE_SOLUTION_FOLDERS)
@@ -1038,11 +1181,7 @@ function(ocv_add_accuracy_tests)
       add_test(${the_target} "${LOC}")
 
       if(WINRT)
-        # removing APPCONTAINER from tests to run from console
-        # look for detailed description inside of ocv_create_module macro above
-        add_custom_command(TARGET "opencv_test_${name}"
-                           POST_BUILD
-                           COMMAND link.exe /edit /APPCONTAINER:NO $(TargetPath))
+        target_compile_options("opencv_test_${name}" PUBLIC "/ZW")
       endif()
 
       if(NOT BUILD_opencv_world)

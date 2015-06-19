@@ -188,7 +188,7 @@ void Regression::init(const std::string& testSuitName, const std::string& ext)
 #ifndef WINRT
     const char *data_path_dir = getenv("OPENCV_TEST_DATA_PATH");
 #else
-    const char *data_path_dir = OPENCV_TEST_DATA_PATH;
+    const char *data_path_dir = cvtest::getDataPath_WinRT();
 #endif
     const char *path_separator = "/";
 
@@ -671,7 +671,6 @@ static void loadPerfValidationResults(const std::string& fileName)
     perf_validation_results.clear();
 
     float value = 0;
-#ifndef WINRT
     std::ifstream infile(fileName.c_str());
     while (!infile.eof())
     {
@@ -691,29 +690,8 @@ static void loadPerfValidationResults(const std::string& fileName)
         }
         if (!name.empty() && name[name.size() - 1] == '\r') // CRLF processing on Linux
             name.resize(name.size() - 1);
-#else
-    char name[_MAX_PATH];
-    FILE* infile = fopen(fileName.c_str(), "r");
-
-    if (!infile)
-    {
-        std::cout << "ERROR: Can't load performance validation results from " << fileName << "!" << std::endl;
-        return;
-    }
-
-    while (!feof(infile))
-    {
-        if (!fscanf(infile, "%f;%s\n", &value, name))
-        {
-            std::cout << "ERROR: Can't load performance validation results from " << fileName << "!" << std::endl;
-            return;
-        }
-#endif
         perf_validation_results[name] = value;
     }
-#ifdef WINRT
-    fclose(infile);
-#endif
     std::cout << "Performance validation results loaded from " << fileName << " (" << perf_validation_results.size() << " entries)" << std::endl;
 }
 
@@ -727,28 +705,13 @@ static void savePerfValidationResults()
     if (!perf_validation_results_outfile.empty())
     {
         std::map<std::string, float>::const_iterator i;
-#ifndef WINRT
         std::ofstream outfile((perf_validation_results_directory + perf_validation_results_outfile).c_str());
-#else
-        FILE* outfile = fopen((perf_validation_results_directory + perf_validation_results_outfile).c_str(), "w+");
-        if (outfile)
-        {
-#endif
         for (i = perf_validation_results.begin(); i != perf_validation_results.end(); ++i)
         {
-#ifndef WINRT
             outfile << i->second << ';';
             outfile << i->first << std::endl;
-#else
-            fprintf(outfile, "%f;%s\n", i->second, (i->first).c_str());
-#endif
         }
-#ifndef WINRT
         outfile.close();
-#else
-        fclose(outfile);
-        }
-#endif
         std::cout << "Performance validation results saved (" << perf_validation_results.size() << " entries)" << std::endl;
     }
 }
@@ -931,20 +894,32 @@ void TestBase::Init(const std::vector<std::string> & availableImpls,
 #ifndef WINRT
         const char* path = getenv("OPENCV_PERF_VALIDATION_DIR");
 #else
-        const char* path = OPENCV_PERF_VALIDATION_DIR;
+        char tempPath [_MAX_PATH];
+        wchar_t* wPath = const_cast<wchar_t*>(Windows::Storage::ApplicationData::Current->LocalFolder->Path->Data());
+        wcstombs(tempPath, wPath, _MAX_PATH);
+        strcat(tempPath, "\\");
+        const char* path = tempPath;
 #endif
         if (path)
             perf_validation_results_directory = path;
     }
 
+#ifndef WINRT
     std::string fileName_perf_validation_results_src = args.get<std::string>("perf_read_validation_results");
+#else
+    std::string fileName_perf_validation_results_src = "perf_validation_results";
+#endif
     if (!fileName_perf_validation_results_src.empty())
     {
         perf_validation_enabled = true;
         loadPerfValidationResults(perf_validation_results_directory + fileName_perf_validation_results_src);
     }
 
+#ifndef WINRT
     perf_validation_results_outfile = args.get<std::string>("perf_write_validation_results");
+#else
+    perf_validation_results_outfile = "perf_validation_results";
+#endif
     if (!perf_validation_results_outfile.empty())
     {
         perf_validation_enabled = true;
@@ -1208,14 +1183,23 @@ bool TestBase::next()
                 {
                     if (perfValidationStage == 0)
                     {
+#ifndef WINRT
                         printf("Performance is changed (samples = %d, median):\n    %.2f ms (current)\n    %.2f ms (previous)\n", (int)times.size(), median_ms, prev_result);
+#else
+                        cvtest::WinRTLog().Print() << "Performance is changed (samples = " << (int) times.size() <<
+                            ", median):\n    " << median_ms << " ms (current)\n    " << prev_result << " ms (previous)\n";
+#endif
                     }
                 }
             }
             else
             {
                 if (perfValidationStage == 0)
+#ifndef WINRT
                     printf("New performance result is detected\n");
+#else
+                    cvtest::WinRTLog().Print() << "New performance result is detected\n";
+#endif
             }
             if (!isSame)
             {
@@ -1224,7 +1208,11 @@ bool TestBase::next()
                     if (perfValidationStage == 0 && currentIter <= minIters * 3 && currentIter < nIters)
                     {
                         unsigned int new_minIters = std::max(minIters * 5, currentIter * 3);
+#ifndef WINRT
                         printf("Increase minIters from %u to %u\n", minIters, new_minIters);
+#else
+                        cvtest::WinRTLog().Print() << "Increase minIters from " << minIters << " to " << new_minIters;
+#endif
                         minIters = new_minIters;
                         has_next = true;
                         perfValidationStage++;
@@ -1233,8 +1221,13 @@ bool TestBase::next()
                             median_ms > perf_validation_time_threshold_ms &&
                             (grow || metrics.stddev > perf_stability_criteria * fabs(metrics.mean)))
                     {
+#ifndef WINRT
                         printf("Performance is unstable, it may be a result of overheat problems\n");
                         printf("Idle delay for %d ms... \n", perf_validation_idle_delay_ms);
+#else
+                        cvtest::WinRTLog().Print() << "Performance is unstable, it may be a result of overheat problems\n";
+                        cvtest::WinRTLog().Print() << "Idle delay for " << perf_validation_idle_delay_ms << " ms... \n";
+#endif
 #if defined WIN32 || defined _WIN32 || defined WIN64 || defined _WIN64
 #ifndef WINRT_8_0
                         Sleep(perf_validation_idle_delay_ms);
@@ -1254,12 +1247,20 @@ bool TestBase::next()
                     }
                     if (!has_next)
                     {
+#ifndef WINRT
                         printf("Assume that current result is valid\n");
+#else
+                        cvtest::WinRTLog().Print() << "Assume that current result is valid\n";
+#endif
                     }
                 }
                 else
                 {
+#ifndef WINRT
                     printf("Re-measured performance result: %.2f ms\n", median_ms);
+#else
+                    cvtest::WinRTLog().Print() << "Re-measured performance result: " << median_ms << " ms\n";
+#endif
                 }
             }
         }
@@ -1476,7 +1477,12 @@ void TestBase::validateMetrics()
         double median = metrics.median * 1000.0f / metrics.frequency;
         double stddev = metrics.stddev * 1000.0f / metrics.frequency;
         double percents = stddev / mean * 100.f;
+#ifndef WINRT
         printf("[ PERFSTAT ]    (samples = %d, mean = %.2f, median = %.2f, stddev = %.2f (%.1f%%))\n", (int)metrics.samples, mean, median, stddev, percents);
+#else
+        cvtest::WinRTLog().Print() << "[ PERFSTAT ]    (samples = " << (int) metrics.samples << " mean = " << mean << " median = " << median <<
+            "stddev = " << stddev << " (" << percents << "%%)";
+#endif
     }
     else
     {
@@ -1653,8 +1659,18 @@ void TestBase::TearDown()
     const ::testing::TestInfo* const test_info = ::testing::UnitTest::GetInstance()->current_test_info();
     const char* type_param = test_info->type_param();
     const char* value_param = test_info->value_param();
-    if (value_param) printf("[ VALUE    ] \t%s\n", value_param), fflush(stdout);
-    if (type_param)  printf("[ TYPE     ] \t%s\n", type_param), fflush(stdout);
+    if (value_param)
+#ifndef WINRT
+        printf("[ VALUE    ] \t%s\n", value_param), fflush(stdout);
+#else
+        cvtest::WinRTLog().Print() << "[ VALUE    ] \t" << value_param << "\n";
+#endif
+    if (type_param)
+#ifndef WINRT
+        printf("[ TYPE     ] \t%s\n", type_param), fflush(stdout);
+#else
+        cvtest::WinRTLog().Print() << "[ TYPE     ] \t" << value_param << "\n";
+#endif
 
 #ifdef CV_COLLECT_IMPL_DATA
     if(param_collect_impl)
@@ -1693,7 +1709,7 @@ std::string TestBase::getDataPath(const std::string& relativePath)
 #ifndef WINRT
     const char *data_path_dir = getenv("OPENCV_TEST_DATA_PATH");
 #else
-    const char *data_path_dir = OPENCV_TEST_DATA_PATH;
+    const char *data_path_dir = cvtest::getDataPath_WinRT();
 #endif
     const char *path_separator = "/";
 

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
+  <Identity Name="@PACKAGE_GUID@" Publisher="CN=pname" Version="1.1.0.0" />
+  <mp:PhoneIdentity PhoneProductId="abcd1234-1234-abde-ab32-abcd1234bdca" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
+  <Properties>
+    <DisplayName>@SHORT_NAME@</DisplayName>
+    <PublisherDisplayName>pname</PublisherDisplayName>
+    <Logo>@SHORT_NAME@.dir\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.3.1</OSMinVersion>
+    <OSMaxVersionTested>6.3.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="@SHORT_NAME@.exe" EntryPoint="@SHORT_NAME@.App">
+      <m2:VisualElements
+        DisplayName="@SHORT_NAME@"
+        Description="@SHORT_NAME@"
+        BackgroundColor="#336699"
+        ForegroundText="light"
+        Square150x150Logo="@SHORT_NAME@.dir\Logo.png"
+        Square30x30Logo="@SHORT_NAME@.dir\SmallLogo.png">
+        <m2:DefaultTile ShortName="@SHORT_NAME@">
+          <m2:ShowNameOnTiles>
+            <m2:ShowOn Tile="square150x150Logo" />
+          </m2:ShowNameOnTiles>
+        </m2:DefaultTile>
+        <m2:SplashScreen Image="@SHORT_NAME@.dir\SplashScreen.png" />
+      </m2:VisualElements>
+      <Extensions>
+        <Extension Category="windows.fileTypeAssociation">
+          <FileTypeAssociation Name="config">
+            <SupportedFileTypes>
+              <FileType>.log</FileType>
+            </SupportedFileTypes>
+          </FileTypeAssociation>
+        </Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="documentsLibrary" />
+  </Capabilities>
+</Package>

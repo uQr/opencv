@@ -186,7 +186,25 @@ public:
     int context;
 };
 
+char* getDataPath_WinRT();
 
+#ifdef WINRT
+static Windows::Storage::StorageFile^ logFile;
+static Platform::String^ logFileName;
+
+class WinRTLog
+{
+public:
+    std::stringstream& Print()
+    {
+        return s;
+    }
+
+    ~WinRTLog();
+private:
+    std::stringstream s;
+};
+#endif
 
 class BaseTest;
 class TS;

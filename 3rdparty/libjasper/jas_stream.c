@@ -85,6 +85,9 @@
 #if defined(WIN32) || defined(HAVE_IO_H)
 #include <io.h>
 #endif
+#ifdef WINRT
+    char* getInstallPath();
+#endif
 
 #include "jasper/jas_types.h"
 #include "jasper/jas_stream.h"
@@ -366,7 +369,11 @@ jas_stream_t *jas_stream_tmpfile()
 
 #ifdef _WIN32
     /* Choose a file name. */
+#ifdef WINRT
+    tmpname = getInstallPath();
+#else
     tmpname = tempnam(NULL, NULL);
+#endif
     strcpy(obj->pathname, tmpname);
     free(tmpname);
 

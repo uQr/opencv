@@ -448,12 +448,28 @@ static int tsErrorCallback( int status, const char* func_name, const char* err_m
 
 /************************************** Running tests **********************************/
 
+char dir[_MAX_PATH];
+
+char* getDataPath_WinRT()
+{
+    CoInitializeEx(NULL, COINITBASE_MULTITHREADED);
+    Platform::String^ fullpathStr;
+    Windows::Storage::StorageFolder^ sf = Windows::ApplicationModel::Package::Current->InstalledLocation;
+    task<Windows::Storage::StorageFolder^> GetDataFolder(sf->GetFolderAsync("opencv_extra\\testdata"));
+
+    GetDataFolder.then([&](Windows::Storage::StorageFolder^ f) mutable {
+        fullpathStr = f->Path;
+    }).wait();
+    wcstombs(dir, fullpathStr->Data(), _MAX_PATH);
+    return dir;
+}
+
 void TS::init( const string& modulename )
 {
 #ifndef WINRT
     char* datapath_dir = getenv("OPENCV_TEST_DATA_PATH");
 #else
-    char* datapath_dir = OPENCV_TEST_DATA_PATH;
+    char* datapath_dir = getDataPath_WinRT();
 #endif
 
     if( datapath_dir )
