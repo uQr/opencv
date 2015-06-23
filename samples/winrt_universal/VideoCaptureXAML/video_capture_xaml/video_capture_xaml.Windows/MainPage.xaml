@@ -6,20 +6,40 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Margin="20,35,0,0"
-                   HorizontalAlignment="Left"
+    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Orientation="Vertical">
+        <TextBlock Margin="0,35,537,0"
+                   HorizontalAlignment="Right"
                    VerticalAlignment="Top"
                    FontSize="24"
                    TextWrapping="Wrap">
             <Run Text="OpenCV: videoio implementation using XAML and Universal App Framework" />
             <Run />
         </TextBlock>
+        <Grid Name="Grid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="660" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.Resources>
+                <Style TargetType="Rectangle">
+                    <Setter Property="Height" Value="100" />
+                    <Setter Property="Width" Value="100" />
+                    <Setter Property="Margin" Value="20" />
+                </Style>
+            </Grid.Resources>
         <Image Name="cvImage"
+                   Grid.Column="0"
                Width="640"
                Height="480"
-               Margin="20,100,0,0"
+                   Margin="10"
                HorizontalAlignment="Left"
                VerticalAlignment="Top" />
+            <StackPanel Name="cvContainer"
+                        Grid.Column="1"
+                        Margin="10"
+                        Orientation="Vertical">
+                <!--  Rectangle Fill="Green" /  -->
+            </StackPanel>
     </Grid>
+    </StackPanel>
 </Page>

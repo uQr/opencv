@@ -37,8 +37,8 @@
 // TODO: add UX controls to manipulate filters at runtime
 
 //#define COLOR
-#define CANNY
-//#define FACES
+//#define CANNY
+#define FACES
 
 using namespace cv;
 

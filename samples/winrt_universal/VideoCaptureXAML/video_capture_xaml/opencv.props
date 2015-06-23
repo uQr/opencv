@@ -44,6 +44,11 @@
     <None Include="$(OpenCV_Bin)opencv_ml300$(DebugSuffix).dll">
       <DeploymentContent>true</DeploymentContent>
     </None>
+
+    <!-- UX -->
+    <None Include="$(OpenCV_Bin)opencv_highgui300$(DebugSuffix).dll">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
   </ItemGroup>
   <ItemDefinitionGroup>
     <ClCompile>
@@ -51,7 +56,7 @@
     </ClCompile>
     <Link>
       <!--Add required OpenCV libs here-->
-      <AdditionalDependencies>opencv_core300$(DebugSuffix).lib;opencv_imgproc300$(DebugSuffix).lib;opencv_flann300$(DebugSuffix).lib;opencv_videoio300$(DebugSuffix).lib;opencv_features2d300$(DebugSuffix).lib;opencv_objdetect300$(DebugSuffix).lib;opencv_ml300$(DebugSuffix).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opencv_core300$(DebugSuffix).lib;opencv_imgproc300$(DebugSuffix).lib;opencv_imgcodecs300$(DebugSuffix).lib;opencv_flann300$(DebugSuffix).lib;opencv_videoio300$(DebugSuffix).lib;opencv_features2d300$(DebugSuffix).lib;opencv_objdetect300$(DebugSuffix).lib;opencv_ml300$(DebugSuffix).lib;opencv_highgui300$(DebugSuffix).lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OpenCV_Lib);%(AdditionalLibraryDirectories);</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>

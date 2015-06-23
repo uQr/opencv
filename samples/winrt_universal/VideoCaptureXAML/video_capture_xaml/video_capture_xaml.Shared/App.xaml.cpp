@@ -75,7 +75,6 @@ void App::OnLaunched(LaunchActivatedEventArgs^ e)
         DebugSettings->EnableFrameRateCounter = true;
     }
 #endif
-
     auto rootFrame = dynamic_cast<Frame^>(Window::Current->Content);
 
     // Do not repeat app initialization when the Window already has content,

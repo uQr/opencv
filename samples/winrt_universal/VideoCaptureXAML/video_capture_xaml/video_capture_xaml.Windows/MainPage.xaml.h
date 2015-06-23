@@ -19,6 +19,10 @@ namespace video_capture_xaml
 
     private:
         void OnVisibilityChanged(Platform::Object ^sender, Windows::UI::Core::VisibilityChangedEventArgs ^e);
+        void Button_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+
+        ::Windows::UI::Xaml::Controls::Image^ img;
+        Page^ page;
 
     };
 }

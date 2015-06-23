@@ -34,12 +34,21 @@
     <Image Include="Assets\SplashScreen.scale-100.png">
       <Filter>Assets</Filter>
     </Image>
+    <Image Include="Assets\sample.jpg">
+      <Filter>Assets</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Assets\haarcascade_frontalface_alt.xml">
+      <Filter>Assets</Filter>
+    </Xml>
+    <Xml Include="Assets\page.xml">
+      <Filter>Assets</Filter>
+    </Xml>
+    <Xml Include="Assets\window.xml">
       <Filter>Assets</Filter>
     </Xml>
   </ItemGroup>
