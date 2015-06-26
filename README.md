@@ -1,9 +1,12 @@
+### Overview
+Work to enable ```contrib``` module for WinRT. 
+See [Wiki for details](https://github.com/MSOpenTech/opencv/wiki/Branches).
+
 ### OpenCV: Open Source Computer Vision Library
 
-Repo | Branch | Status
---- | --- | ---
-ms-opencv | master | [![Build status](https://ci.appveyor.com/api/projects/status/dm8062img0852qpb?svg=true)](https://ci.appveyor.com/project/mkostin/opencv)
-itseez-opencv | master | [![Build status](https://ci.appveyor.com/api/projects/status/cethn650hy6u2whq?svg=true)](https://ci.appveyor.com/project/mkostin/opencv-o5l4j)
+Purpose of this branch is to enable contrib modules for WinRT
+
+[![Gittip](http://img.shields.io/gittip/OpenCV.png)](https://www.gittip.com/OpenCV/)
 
 #### Resources
 
