@@ -1,3 +1,7 @@
+### Overview
+Legacy code based on solutions pregenerated with [Powershell script](https://github.com/MSOpenTech/opencv/blob/winrt/binWinRT/convertprojects.ps1).
+See [Wiki for details](https://github.com/MSOpenTech/opencv/wiki/Branches).
+
 ### OpenCV: Open Source Computer Vision Library
 
 ####How to build OpenCV for WinRT
