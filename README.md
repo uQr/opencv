@@ -1,3 +1,7 @@
+### Overview
+Legacy version of Videoio sample.
+See [Wiki for details](https://github.com/MSOpenTech/opencv/wiki/Branches).
+
 ### OpenCV: Open Source Computer Vision Library
 
 [![Gittip](http://img.shields.io/gittip/OpenCV.png)](https://www.gittip.com/OpenCV/)
