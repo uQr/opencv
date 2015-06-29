@@ -1,3 +1,6 @@
+This branch contains OCV Google Test update.
+You can find newer [Itseez GTest update](https://github.com/Itseez/opencv/pull/4157) (not tested)
+
 ### OpenCV: Open Source Computer Vision Library
 
 [![Gittip](http://img.shields.io/gittip/OpenCV.png)](https://www.gittip.com/OpenCV/)
