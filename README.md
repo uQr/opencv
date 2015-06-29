@@ -1,3 +1,5 @@
+Purpose of the branch is to make pregenerated VS2015RC projects for libraries and tests available on Win10 + VS2015RC while there is no official support by CMake
+
 ### OpenCV: Open Source Computer Vision Library
 
 [![Gittip](http://img.shields.io/gittip/OpenCV.png)](https://www.gittip.com/OpenCV/)
