@@ -1,5 +1,9 @@
 ### OpenCV: Open Source Computer Vision Library
 
+### Overview
+Branch has ```highgui``` module applied to videoio UAP sample. The goal is to substitute ```videoio``` UX related API with ```highgui``` API.
+See [Wiki for details](https://github.com/MSOpenTech/opencv/wiki/Branches).
+
 [![Gittip](http://img.shields.io/gittip/OpenCV.png)](https://www.gittip.com/OpenCV/)
 
 #### Resources
