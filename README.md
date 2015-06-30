@@ -1,5 +1,5 @@
-This branch contains OCV Google Test update.
-You can find newer [Itseez GTest update](https://github.com/Itseez/opencv/pull/4157) (not tested)
+This branch contains OCV Google Test update. Rebased on GTest revision 708
+You can find newer (on 711 GTest revision) [Itseez GTest update](https://github.com/Itseez/opencv/pull/4157) (not tested)
 
 ### OpenCV: Open Source Computer Vision Library
 
