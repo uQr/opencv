@@ -43,6 +43,7 @@
 #include "test_precomp.hpp"
 #include <opencv2/ts/cuda_test.hpp>
 #include "../src/fisheye.hpp"
+#include "opencv2/videoio.hpp"
 
 class fisheyeTest : public ::testing::Test {
 
@@ -506,8 +507,6 @@ TEST_F(fisheyeTest, stereoCalibrate)
     EXPECT_MAT_NEAR(D2, D2_correct, 1e-10);
 
 }
-
-#endif
 
 TEST_F(fisheyeTest, stereoCalibrateFixIntrinsic)
 {

@@ -51,7 +51,8 @@ if(DEFINED WINRT AND NOT DEFINED WINRT_8_0)
         ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt_bridge.cpp
         ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt_video.cpp
         ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/CaptureFrameGrabber.cpp
-        ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/MediaStreamSink.cpp)
+        ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/MediaStreamSink.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt/WinRTVideoCapture.cpp)
     list(APPEND videoio_hdrs
         ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt_capture.hpp
         ${CMAKE_CURRENT_LIST_DIR}/src/cap_winrt_bridge.hpp
