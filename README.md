@@ -1,4 +1,8 @@
-Purpose of the branch is to make pregenerated VS2015RC projects for libraries and tests available on Win10 + VS2015RC while there is no official support by CMake
+Purpose of the branch is to make pregenerated VS2015RC projects for libraries and tests available on Win10 + VS2015RC while there is no official support by CMake.
+
+Need maintanence: rebasing on the latest [Itseez](https://github.com/Itseez/opencv) master; Regenerating of projects (Look for "Long way" in [README](https://github.com/MSOpenTech/opencv/tree/test-vs2015#how-to-build)); Checking builds/test runs. Adding of CI integration with AppVeyor or other similar tool can be used to reduce maintanence effort.
+
+Support of this branch can be dropped as "no more required" after CMake with VS2015 support released and related WinRT build script (platforms/winrt/setup_winrt.ps1) and code updates applied.
 
 ### OpenCV: Open Source Computer Vision Library
 
